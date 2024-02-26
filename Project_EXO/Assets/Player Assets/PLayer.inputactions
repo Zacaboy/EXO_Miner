@@ -1,0 +1,162 @@
+{
+    "name": "PLayer",
+    "maps": [
+        {
+            "name": "Controller",
+            "id": "e4cc0b43-e090-4461-97ff-02d0c3588484",
+            "actions": [
+                {
+                    "name": "Look",
+                    "type": "Value",
+                    "id": "740dd713-e817-4862-8e68-2ebb21930b56",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "Jump",
+                    "type": "Button",
+                    "id": "36633f88-502f-430d-a906-d2b180203b26",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Movement",
+                    "type": "Value",
+                    "id": "e346b73b-697d-424d-8656-56f9403f4e46",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "2D Vector",
+                    "id": "453154de-9fd4-4ef0-b140-08f90816b240",
+                    "path": "2DVector",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Look",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "up",
+                    "id": "86c0c896-d16f-4c8f-98ad-bbb11820e358",
+                    "path": "<HID::Logitech Logitech Extreme 3D>/stick/down",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Look",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "down",
+                    "id": "d53986e5-1ef2-4d8d-81ec-6bd9eff98692",
+                    "path": "<HID::Logitech Logitech Extreme 3D>/stick/up",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Look",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "left",
+                    "id": "a15cceed-a668-4a87-94b2-b652b5534ba4",
+                    "path": "<HID::Logitech Logitech Extreme 3D>/stick/left",
+                    "interactions": "",
+                    "processors": "AxisDeadzone",
+                    "groups": "",
+                    "action": "Look",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "9ba75f77-8b29-4fa7-bc66-d523d2b8a13c",
+                    "path": "<HID::Logitech Logitech Extreme 3D>/stick/right",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Look",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "c04a835d-785d-42a5-bd43-a788ee4b2331",
+                    "path": "<HID::Logitech Extreme 3D pro>/trigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "2D Vector",
+                    "id": "66af5f63-7b55-4994-b848-3c402d184a22",
+                    "path": "2DVector",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Movement",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "up",
+                    "id": "944df314-a7c4-405e-9961-474a5d628fc9",
+                    "path": "<HID::Logitech Extreme 3D pro>/stick/up",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Movement",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "down",
+                    "id": "7fb22747-c60c-473a-b45f-ac3f781ce130",
+                    "path": "<HID::Logitech Extreme 3D pro>/stick/down",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Movement",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "left",
+                    "id": "c0796035-d8dc-455d-9c82-80c01f7f91d6",
+                    "path": "<HID::Logitech Extreme 3D pro>/stick/left",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Movement",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "18e2e05e-7bf4-4ff0-bdd7-76c2587c2a92",
+                    "path": "<HID::Logitech Extreme 3D pro>/stick/right",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Movement",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
