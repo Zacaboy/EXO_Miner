@@ -12,7 +12,7 @@ public class PlayerControler : MonoBehaviour
     private Vector2 lookInput; // Input for looking
     int jumping;
     float airTime;
-    bool grounded;
+    public bool grounded;
     bool wasGrounded;
     float landedTime;
     public float height = 5;

@@ -64,13 +64,22 @@ public partial class @PLayer: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""WeaponSwitch"",
+                    ""name"": ""Weapon1"",
                     ""type"": ""Button"",
-                    ""id"": ""810dc6ee-d9b5-483f-a040-35dd0e90ab15"",
+                    ""id"": ""6af24dd3-e78e-4754-8814-4b499e6dac42"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Weapon2"",
+                    ""type"": ""Value"",
+                    ""id"": ""f70b1f94-c832-4507-b187-a3e65def488a"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -274,45 +283,23 @@ public partial class @PLayer: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""a7fcc742-c5c7-4b2c-99a0-dd9dfb9e749f"",
-                    ""path"": ""<HID::Logitech Logitech Extreme 3D>/button5"",
+                    ""id"": ""628a2f28-cad7-4f8b-bd99-e2c83b90598b"",
+                    ""path"": ""<HID::Logitech Logitech Extreme 3D>/trigger"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""WeaponSwitch"",
+                    ""action"": ""Weapon1"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
-                    ""id"": ""64983d80-c6f4-470d-a27d-f96b66fe35d6"",
-                    ""path"": ""<HID::Logitech Logitech Extreme 3D>/button3"",
-                    ""interactions"": """",
+                    ""id"": ""60333411-4ce1-4c6d-a8f4-dc8a6b22c468"",
+                    ""path"": ""<HID::Logitech Logitech Extreme 3D>/button2"",
+                    ""interactions"": ""Hold"",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""WeaponSwitch"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""886861ab-f9eb-4f09-ac0c-662b9b11a130"",
-                    ""path"": ""<HID::Logitech Logitech Extreme 3D>/button4"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""WeaponSwitch"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""fac3f449-c724-4022-9187-17f7331a8054"",
-                    ""path"": ""<HID::Logitech Logitech Extreme 3D>/button6"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""WeaponSwitch"",
+                    ""action"": ""Weapon2"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -356,15 +343,6 @@ public partial class @PLayer: IInputActionCollection2, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": ""Tap"",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""WeaponSwitch"",
-                    ""type"": ""Button"",
-                    ""id"": ""8a563654-2ad5-4698-9135-f68b7f2059a3"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
                     ""initialStateCheck"": false
                 }
             ],
@@ -456,50 +434,6 @@ public partial class @PLayer: IInputActionCollection2, IDisposable
                     ""action"": ""Flashlight"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""2de6658a-5a7d-4a70-80f2-1c7a2d1b454d"",
-                    ""path"": ""<HID::Logitech Logitech Extreme 3D>/button5"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""WeaponSwitch"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""a65d4828-1d08-4516-a39f-e572740747e6"",
-                    ""path"": ""<HID::Logitech Logitech Extreme 3D>/button3"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""WeaponSwitch"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""d44cdf04-e9dd-4a45-b339-1e4aece0c92d"",
-                    ""path"": ""<HID::Logitech Logitech Extreme 3D>/button4"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""WeaponSwitch"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""6f5fc81f-69c7-4a34-9cf5-749f4531f08b"",
-                    ""path"": ""<HID::Logitech Logitech Extreme 3D>/button6"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""WeaponSwitch"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -512,14 +446,14 @@ public partial class @PLayer: IInputActionCollection2, IDisposable
         m_JoystickController_Jump = m_JoystickController.FindAction("Jump", throwIfNotFound: true);
         m_JoystickController_Movement = m_JoystickController.FindAction("Movement", throwIfNotFound: true);
         m_JoystickController_Flashlight = m_JoystickController.FindAction("Flashlight", throwIfNotFound: true);
-        m_JoystickController_WeaponSwitch = m_JoystickController.FindAction("WeaponSwitch", throwIfNotFound: true);
+        m_JoystickController_Weapon1 = m_JoystickController.FindAction("Weapon1", throwIfNotFound: true);
+        m_JoystickController_Weapon2 = m_JoystickController.FindAction("Weapon2", throwIfNotFound: true);
         // Keyboard
         m_Keyboard = asset.FindActionMap("Keyboard", throwIfNotFound: true);
         m_Keyboard_Look = m_Keyboard.FindAction("Look", throwIfNotFound: true);
         m_Keyboard_Jump = m_Keyboard.FindAction("Jump", throwIfNotFound: true);
         m_Keyboard_Movement = m_Keyboard.FindAction("Movement", throwIfNotFound: true);
         m_Keyboard_Flashlight = m_Keyboard.FindAction("Flashlight", throwIfNotFound: true);
-        m_Keyboard_WeaponSwitch = m_Keyboard.FindAction("WeaponSwitch", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -585,7 +519,8 @@ public partial class @PLayer: IInputActionCollection2, IDisposable
     private readonly InputAction m_JoystickController_Jump;
     private readonly InputAction m_JoystickController_Movement;
     private readonly InputAction m_JoystickController_Flashlight;
-    private readonly InputAction m_JoystickController_WeaponSwitch;
+    private readonly InputAction m_JoystickController_Weapon1;
+    private readonly InputAction m_JoystickController_Weapon2;
     public struct JoystickControllerActions
     {
         private @PLayer m_Wrapper;
@@ -594,7 +529,8 @@ public partial class @PLayer: IInputActionCollection2, IDisposable
         public InputAction @Jump => m_Wrapper.m_JoystickController_Jump;
         public InputAction @Movement => m_Wrapper.m_JoystickController_Movement;
         public InputAction @Flashlight => m_Wrapper.m_JoystickController_Flashlight;
-        public InputAction @WeaponSwitch => m_Wrapper.m_JoystickController_WeaponSwitch;
+        public InputAction @Weapon1 => m_Wrapper.m_JoystickController_Weapon1;
+        public InputAction @Weapon2 => m_Wrapper.m_JoystickController_Weapon2;
         public InputActionMap Get() { return m_Wrapper.m_JoystickController; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -616,9 +552,12 @@ public partial class @PLayer: IInputActionCollection2, IDisposable
             @Flashlight.started += instance.OnFlashlight;
             @Flashlight.performed += instance.OnFlashlight;
             @Flashlight.canceled += instance.OnFlashlight;
-            @WeaponSwitch.started += instance.OnWeaponSwitch;
-            @WeaponSwitch.performed += instance.OnWeaponSwitch;
-            @WeaponSwitch.canceled += instance.OnWeaponSwitch;
+            @Weapon1.started += instance.OnWeapon1;
+            @Weapon1.performed += instance.OnWeapon1;
+            @Weapon1.canceled += instance.OnWeapon1;
+            @Weapon2.started += instance.OnWeapon2;
+            @Weapon2.performed += instance.OnWeapon2;
+            @Weapon2.canceled += instance.OnWeapon2;
         }
 
         private void UnregisterCallbacks(IJoystickControllerActions instance)
@@ -635,9 +574,12 @@ public partial class @PLayer: IInputActionCollection2, IDisposable
             @Flashlight.started -= instance.OnFlashlight;
             @Flashlight.performed -= instance.OnFlashlight;
             @Flashlight.canceled -= instance.OnFlashlight;
-            @WeaponSwitch.started -= instance.OnWeaponSwitch;
-            @WeaponSwitch.performed -= instance.OnWeaponSwitch;
-            @WeaponSwitch.canceled -= instance.OnWeaponSwitch;
+            @Weapon1.started -= instance.OnWeapon1;
+            @Weapon1.performed -= instance.OnWeapon1;
+            @Weapon1.canceled -= instance.OnWeapon1;
+            @Weapon2.started -= instance.OnWeapon2;
+            @Weapon2.performed -= instance.OnWeapon2;
+            @Weapon2.canceled -= instance.OnWeapon2;
         }
 
         public void RemoveCallbacks(IJoystickControllerActions instance)
@@ -663,7 +605,6 @@ public partial class @PLayer: IInputActionCollection2, IDisposable
     private readonly InputAction m_Keyboard_Jump;
     private readonly InputAction m_Keyboard_Movement;
     private readonly InputAction m_Keyboard_Flashlight;
-    private readonly InputAction m_Keyboard_WeaponSwitch;
     public struct KeyboardActions
     {
         private @PLayer m_Wrapper;
@@ -672,7 +613,6 @@ public partial class @PLayer: IInputActionCollection2, IDisposable
         public InputAction @Jump => m_Wrapper.m_Keyboard_Jump;
         public InputAction @Movement => m_Wrapper.m_Keyboard_Movement;
         public InputAction @Flashlight => m_Wrapper.m_Keyboard_Flashlight;
-        public InputAction @WeaponSwitch => m_Wrapper.m_Keyboard_WeaponSwitch;
         public InputActionMap Get() { return m_Wrapper.m_Keyboard; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -694,9 +634,6 @@ public partial class @PLayer: IInputActionCollection2, IDisposable
             @Flashlight.started += instance.OnFlashlight;
             @Flashlight.performed += instance.OnFlashlight;
             @Flashlight.canceled += instance.OnFlashlight;
-            @WeaponSwitch.started += instance.OnWeaponSwitch;
-            @WeaponSwitch.performed += instance.OnWeaponSwitch;
-            @WeaponSwitch.canceled += instance.OnWeaponSwitch;
         }
 
         private void UnregisterCallbacks(IKeyboardActions instance)
@@ -713,9 +650,6 @@ public partial class @PLayer: IInputActionCollection2, IDisposable
             @Flashlight.started -= instance.OnFlashlight;
             @Flashlight.performed -= instance.OnFlashlight;
             @Flashlight.canceled -= instance.OnFlashlight;
-            @WeaponSwitch.started -= instance.OnWeaponSwitch;
-            @WeaponSwitch.performed -= instance.OnWeaponSwitch;
-            @WeaponSwitch.canceled -= instance.OnWeaponSwitch;
         }
 
         public void RemoveCallbacks(IKeyboardActions instance)
@@ -739,7 +673,8 @@ public partial class @PLayer: IInputActionCollection2, IDisposable
         void OnJump(InputAction.CallbackContext context);
         void OnMovement(InputAction.CallbackContext context);
         void OnFlashlight(InputAction.CallbackContext context);
-        void OnWeaponSwitch(InputAction.CallbackContext context);
+        void OnWeapon1(InputAction.CallbackContext context);
+        void OnWeapon2(InputAction.CallbackContext context);
     }
     public interface IKeyboardActions
     {
@@ -747,6 +682,5 @@ public partial class @PLayer: IInputActionCollection2, IDisposable
         void OnJump(InputAction.CallbackContext context);
         void OnMovement(InputAction.CallbackContext context);
         void OnFlashlight(InputAction.CallbackContext context);
-        void OnWeaponSwitch(InputAction.CallbackContext context);
     }
 }

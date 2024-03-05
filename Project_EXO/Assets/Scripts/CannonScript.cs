@@ -1,16 +1,24 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class ProjectileShooter : MonoBehaviour
+public class CannonScript : MonoBehaviour
 {
     public GameObject projectilePrefab; // Prefab of the projectile to shoot
     public Transform firePoint; // Point from which the projectile will be fired
     public float shootForce = 10f; // Force at which the projectile is shot
     public float destroyDelay = 3f; // Time after which the projectile will be destroyed
+    public AudioClip shootSound; // Sound to play when shooting
+    public GameObject muzzleFlashPrefab; // Prefab of the muzzle flash effect
+
+    private AudioSource audioSource; // Reference to the AudioSource component
 
     private bool isShooting; // Flag to track if the player is shooting
+
+    void Start()
+    {
+        // Get the AudioSource component attached to this GameObject
+        audioSource = GetComponent<AudioSource>();
+    }
 
     void Update()
     {
@@ -18,6 +26,8 @@ public class ProjectileShooter : MonoBehaviour
         if (isShooting)
         {
             Shoot();
+            // Reset the flag to prevent continuous shooting
+            isShooting = false;
         }
     }
 
@@ -29,16 +39,22 @@ public class ProjectileShooter : MonoBehaviour
             // Set isShooting flag to true
             isShooting = true;
         }
-        // Check if the action is canceled (released)
-        else if (context.canceled)
-        {
-            // Set isShooting flag to false
-            isShooting = false;
-        }
     }
 
     void Shoot()
     {
+        // Play the shooting sound
+        if (audioSource != null && shootSound != null)
+        {
+            audioSource.PlayOneShot(shootSound);
+        }
+
+        // Instantiate muzzle flash effect at the fire point
+        if (muzzleFlashPrefab != null)
+        {
+            Instantiate(muzzleFlashPrefab, firePoint.position, firePoint.rotation);
+        }
+
         // Instantiate a new projectile at the fire point
         GameObject projectile = Instantiate(projectilePrefab, firePoint.position, firePoint.rotation);
         // Add force to the projectile
