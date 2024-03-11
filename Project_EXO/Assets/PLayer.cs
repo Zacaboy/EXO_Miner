@@ -161,17 +161,6 @@ public partial class @PLayer: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": """",
-                    ""id"": ""27087460-092f-4ce3-9948-20f9b8b994fb"",
-                    ""path"": ""<Keyboard>/space"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Jump"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
                     ""name"": ""2D Vector"",
                     ""id"": ""66af5f63-7b55-4994-b848-3c402d184a22"",
                     ""path"": ""2DVector"",
