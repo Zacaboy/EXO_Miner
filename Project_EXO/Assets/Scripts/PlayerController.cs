@@ -74,7 +74,6 @@ public class PlayerControler : MonoBehaviour
         {
             grounded = true;
             GetComponent<Rigidbody>().drag = drag;
-            Debug.Log(CheckGround.transform.name);
             if (!wasGrounded)
             {
                 if (CheckGround.transform.GetComponent<Bug>())
