@@ -5,6 +5,7 @@ using UnityEngine;
 public class Mining_Lazer : MonoBehaviour
 {
     public bool isFiring;
+    public bool shitFuck;
     
 
     // Start is called before the first frame update
