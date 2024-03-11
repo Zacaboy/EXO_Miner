@@ -3,13 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerControler : MonoBehaviour
+public class PlayerMechController : MonoBehaviour
 {
+    public static PlayerMechController me;
+
     public float moveSpeed = 5f; // Speed of movement
     public float lookSpeed = 2f; // Speed of looking
 
     private Vector2 movementInput; // Input for movement
     private Vector2 lookInput; // Input for looking
+    public float upLimit = 45;
+    public float downLimit = -45;
     int jumping;
     float airTime;
     public bool grounded;
@@ -17,15 +21,17 @@ public class PlayerControler : MonoBehaviour
     float landedTime;
     public float height = 5;
     public Collider legsCol;
+    public Vector3 centrePoint = new Vector3(45, 0, 0);
 
     [Header("Jump Stats")]
     public float jumpSpeed = 0.4f;
     public float jumpHeight = 6000;
     public float jumpForward = 6000;
+    public float fallSpeed = 0.2f;
     public float landingTime = 1.5f;
 
     [Header("Head Bob")]
-    [Range(0.001f, 0.01f)]
+    [Range(0.001f, 0.04f)]
     public float amount = 0.002f;
     [Range(1, 30)]
     public float frequency = 10;
@@ -38,9 +44,11 @@ public class PlayerControler : MonoBehaviour
     float rotX;
     float rotY;
     Vector3 startPos;
+    [HideInInspector] public Transform lookpos;
 
     void Start()
     {
+        me = this;
         drag = GetComponent<Rigidbody>().drag;
         legsCol.enabled = false;
         Cursor.lockState = CursorLockMode.Locked;
@@ -48,6 +56,12 @@ public class PlayerControler : MonoBehaviour
         rotX = transform.eulerAngles.y;
         rotY = Camera.main.transform.localEulerAngles.x;
         startPos = Camera.main.transform.localPosition;
+        lookpos = new GameObject().transform;
+        lookpos.transform.position = Camera.main.transform.position;
+        lookpos.transform.eulerAngles = Camera.main.transform.eulerAngles;
+        lookpos.transform.position += transform.forward * centrePoint.x;
+        lookpos.SetParent(Camera.main.transform);
+        lookpos.name = "Look Pos";
     }
 
     void FixedUpdate()
@@ -72,7 +86,7 @@ public class PlayerControler : MonoBehaviour
 
         // Mouse rotation
         rotY += lookVertical * -lookSpeed * Time.fixedDeltaTime / 2;
-        rotY = Mathf.Clamp(rotY, -41, 32);
+        rotY = Mathf.Clamp(rotY, downLimit, upLimit);
 
         // Camera rotation
         Camera.main.transform.localRotation = Quaternion.Slerp(Camera.main.transform.localRotation, Quaternion.Euler(rotY, 0f, 0f), 0.1f);
@@ -131,7 +145,7 @@ public class PlayerControler : MonoBehaviour
             // This determines how long you are in the air for for fall damage or a bigger landing effect
             grounded = false;
             airTime = Time.time;
-            GetComponent<Rigidbody>().drag = 0.3f;
+            GetComponent<Rigidbody>().drag = fallSpeed;
         }
 
         // This calls the landing sequence
@@ -140,7 +154,7 @@ public class PlayerControler : MonoBehaviour
             landedTime = Time.time;
             legsCol.enabled = true;
             // Checks how long you are in the air for
-            if (airTime > 0)
+            if (airTime > 0.8f)
                 GetComponentInChildren<Animator>().CrossFadeInFixedTime("Land", 0.1f);
         }
 
