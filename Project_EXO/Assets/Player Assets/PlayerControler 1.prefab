@@ -842,7 +842,7 @@ GameObject:
   - component: {fileID: 1651888930780382139}
   - component: {fileID: 117323784267898696}
   m_Layer: 0
-  m_Name: Spot Light
+  m_Name: Spot Light Front
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1476,7 +1476,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 498128474020651466}
+  - {fileID: 1545325790294015339}
   m_Father: {fileID: 4805463539106460487}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &3293127780858649457
@@ -2756,7 +2756,6 @@ GameObject:
   - component: {fileID: 1161306832626484643}
   - component: {fileID: 1112995623959171946}
   - component: {fileID: 8977450686970662777}
-  - component: {fileID: 5740264434264339274}
   - component: {fileID: 4000431618729685010}
   - component: {fileID: 3248530070650197544}
   m_Layer: 0
@@ -2832,27 +2831,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &5740264434264339274
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2240606143216768247}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &4000431618729685010
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2865,7 +2843,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4f118768f4a45b46a17a210ce1fba5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectilePrefab: {fileID: 0}
+  projectilePrefab: {fileID: 5132302341838990298, guid: 87753efa08f14454baa762d57bb4233a,
+    type: 3}
   firePoint: {fileID: 420634287895434467}
   shootForce: 125
   destroyDelay: 3
@@ -4185,6 +4164,7 @@ GameObject:
   - component: {fileID: 498128474020651466}
   - component: {fileID: 8127047343670946861}
   - component: {fileID: 4882658515508090319}
+  - component: {fileID: 5147883212038302654}
   m_Layer: 0
   m_Name: MainCamera
   m_TagString: MainCamera
@@ -4200,12 +4180,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3237188384610449452}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.03124321, y: -0, z: -0.000000002793967, w: 0.99951184}
+  m_LocalRotation: {x: 0.031243213, y: -0, z: -0.0000000027939675, w: 0.9995119}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 238333457505808112}
+  m_Father: {fileID: 1545325790294015339}
   m_LocalEulerAnglesHint: {x: 3.581, y: 0, z: 0}
 --- !u!20 &8127047343670946861
 Camera:
@@ -4266,6 +4246,50 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3237188384610449452}
   m_Enabled: 1
+--- !u!114 &5147883212038302654
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3237188384610449452}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RenderShadows: 1
+  m_RequiresDepthTextureOption: 2
+  m_RequiresOpaqueTextureOption: 2
+  m_CameraType: 0
+  m_Cameras: []
+  m_RendererIndex: -1
+  m_VolumeLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  m_VolumeTrigger: {fileID: 0}
+  m_VolumeFrameworkUpdateModeOption: 2
+  m_RenderPostProcessing: 0
+  m_Antialiasing: 0
+  m_AntialiasingQuality: 2
+  m_StopNaN: 0
+  m_Dithering: 0
+  m_ClearDepth: 1
+  m_AllowXRRendering: 1
+  m_AllowHDROutput: 1
+  m_UseScreenCoordOverride: 0
+  m_ScreenSizeOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_ScreenCoordScaleBias: {x: 0, y: 0, z: 0, w: 0}
+  m_RequiresDepthTexture: 0
+  m_RequiresColorTexture: 0
+  m_Version: 2
+  m_TaaSettings:
+    quality: 3
+    frameInfluence: 0.1
+    jitterScale: 1
+    mipBias: 0
+    varianceClampScale: 0.9
+    contrastAdaptiveSharpening: 0
 --- !u!1 &3237853667422219659
 GameObject:
   m_ObjectHideFlags: 0
@@ -6518,11 +6542,10 @@ GameObject:
   - component: {fileID: 8848006201151242548}
   - component: {fileID: 1460086294116537495}
   - component: {fileID: 1093885342076713308}
-  - component: {fileID: 5266374481297821993}
   - component: {fileID: 5671242054549449674}
   - component: {fileID: 433211999653688564}
   m_Layer: 0
-  m_Name: GatlingGun
+  m_Name: GatlingGun 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6594,27 +6617,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &5266374481297821993
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4733676063858612408}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &5671242054549449674
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6630,7 +6632,8 @@ MonoBehaviour:
   barrelTransforms:
   - {fileID: 5489950335008020760}
   - {fileID: 9180676459553849582}
-  projectilePrefab: {fileID: 0}
+  projectilePrefab: {fileID: 2827952918074395675, guid: 26443c18ac088d340b58212126ad860b,
+    type: 3}
   fireRate: 10
   shootForce: 94.4
   shootSound: {fileID: 8300000, guid: 61bb02fb9ea0d49428846aeda78245cc, type: 3}
@@ -6824,10 +6827,10 @@ GameObject:
   - component: {fileID: 3472601590981791736}
   - component: {fileID: 9075951587047497469}
   - component: {fileID: 8166824382354174108}
-  - component: {fileID: 5952795070349890315}
+  - component: {fileID: 4011549396218618570}
   - component: {fileID: 463565635509454588}
   m_Layer: 0
-  m_Name: GatlingGun (1)
+  m_Name: GatlingGun 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6899,27 +6902,26 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &5952795070349890315
-BoxCollider:
+--- !u!114 &4011549396218618570
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4761831651930610296}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80400a41c052cf44296982833688be60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  barrelTransforms:
+  - {fileID: 5489950335008020760}
+  - {fileID: 9180676459553849582}
+  projectilePrefab: {fileID: 2827952918074395675, guid: 26443c18ac088d340b58212126ad860b,
+    type: 3}
+  fireRate: 10
+  shootForce: 94.4
+  shootSound: {fileID: 8300000, guid: 61bb02fb9ea0d49428846aeda78245cc, type: 3}
 --- !u!82 &463565635509454588
 AudioSource:
   m_ObjectHideFlags: 0
@@ -7524,7 +7526,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4304269707675671070}
   m_Layer: 0
-  m_Name: Small_Grid_1711
+  m_Name: Cameras
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9558,6 +9560,38 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &6219970564329892311
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1545325790294015339}
+  m_Layer: 0
+  m_Name: Camera Pivot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1545325790294015339
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6219970564329892311}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 498128474020651466}
+  m_Father: {fileID: 238333457505808112}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6290589578420473137
 GameObject:
   m_ObjectHideFlags: 0
@@ -10595,7 +10629,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4651925744150099050}
   m_Layer: 0
-  m_Name: Small_Grid_826
+  m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12176,6 +12210,124 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &7604552458128261137
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8108453600721461405}
+  - component: {fileID: 5474971651945402195}
+  - component: {fileID: 9068334057375338345}
+  m_Layer: 0
+  m_Name: Spot Light Back
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8108453600721461405
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7604552458128261137}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.0075961486, y: -0.99240386, z: 0.0868242, w: 0.08682414}
+  m_LocalPosition: {x: 0.17212011, y: 1.3770946, z: -6.881898}
+  m_LocalScale: {x: 223.73387, y: 396.73212, z: 236.77722}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 4805463539106460487}
+  m_LocalEulerAnglesHint: {x: 10, y: 0, z: 0}
+--- !u!108 &5474971651945402195
+Light:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7604552458128261137}
+  m_Enabled: 1
+  serializedVersion: 10
+  m_Type: 0
+  m_Shape: 0
+  m_Color: {r: 1, g: 0.8655729, b: 0.6650944, a: 1}
+  m_Intensity: 3000
+  m_Range: 2682.9958
+  m_SpotAngle: 72.274704
+  m_InnerSpotAngle: 65.475365
+  m_CookieSize: 10
+  m_Shadows:
+    m_Type: 0
+    m_Resolution: -1
+    m_CustomResolution: -1
+    m_Strength: 1
+    m_Bias: 0.05
+    m_NormalBias: 0.4
+    m_NearPlane: 0.1
+    m_CullingMatrixOverride:
+      e00: 1
+      e01: 0
+      e02: 0
+      e03: 0
+      e10: 0
+      e11: 1
+      e12: 0
+      e13: 0
+      e20: 0
+      e21: 0
+      e22: 1
+      e23: 0
+      e30: 0
+      e31: 0
+      e32: 0
+      e33: 1
+    m_UseCullingMatrixOverride: 0
+  m_Cookie: {fileID: 0}
+  m_DrawHalo: 0
+  m_Flare: {fileID: 0}
+  m_RenderMode: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingLayerMask: 1
+  m_Lightmapping: 4
+  m_LightShadowCasterMode: 0
+  m_AreaSize: {x: 1, y: 1}
+  m_BounceIntensity: 1
+  m_ColorTemperature: 6570
+  m_UseColorTemperature: 0
+  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_UseBoundingSphereOverride: 0
+  m_UseViewFrustumForShadowCasterCull: 1
+  m_ShadowRadius: 0
+  m_ShadowAngle: 0
+--- !u!114 &9068334057375338345
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7604552458128261137}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Version: 3
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_RenderingLayers: 1
+  m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_ShadowRenderingLayers: 1
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
+  m_SoftShadowQuality: 0
 --- !u!1 &7615643712150487845
 GameObject:
   m_ObjectHideFlags: 0
@@ -13997,7 +14149,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8516170848169426389}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.000000029802322, y: 0.7071068, z: -0.000000029802322, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 489.9519, y: 21.19, z: 444.64212}
   m_LocalScale: {x: 1, y: 0.56641, z: 1}
   m_ConstrainProportionsScale: 0
@@ -14007,12 +14159,13 @@ Transform:
   - {fileID: 4718419774016769796}
   - {fileID: 2358086212109697970}
   - {fileID: 8021530605789875589}
+  - {fileID: 8108453600721461405}
   - {fileID: 4304269707675671070}
   - {fileID: 1161306832626484643}
   - {fileID: 8848006201151242548}
   - {fileID: 3472601590981791736}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 80, z: 90}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!33 &6273374738431712375
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -14276,9 +14429,53 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: f70b1f94-c832-4507-b187-a3e65def488a
     m_ActionName: JoystickController/Weapon2[/Logitech Logitech Extreme 3D/button2]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4000431618729685010}
+        m_TargetAssemblyTypeName: CannonScript, Assembly-CSharp
+        m_MethodName: OnShoot
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 46ad8662-2e80-4679-b88f-b8d597afe3bd
+    m_ActionName: Keyboard/Weapon1[/Mouse/leftButton]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5671242054549449674}
+        m_TargetAssemblyTypeName: GatlingMinigun, Assembly-CSharp
+        m_MethodName: OnShoot
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 4011549396218618570}
+        m_TargetAssemblyTypeName: GatlingMinigun, Assembly-CSharp
+        m_MethodName: OnShoot
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: eb1af4d7-53d4-4083-98ad-76d65c6bb1f9
+    m_ActionName: Keyboard/Weapon2[/Mouse/rightButton]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
-  m_DefaultActionMap: JoystickController
+  m_DefaultActionMap: Keyboard
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 8127047343670946861}
 --- !u!114 &2574662244411009874
@@ -14294,7 +14491,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 228.1
-  lookSpeed: 40
+  lookSpeed: 10
   grounded: 0
   height: 23
   legsCol: {fileID: 6023840153566638542}
@@ -14302,6 +14499,9 @@ MonoBehaviour:
   jumpHeight: 7000
   jumpForward: 6000
   landingTime: 2
+  amount: 0.01
+  frequency: 5.7
+  smooth: 15.5
 --- !u!54 &3852586645438742023
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -14311,7 +14511,7 @@ Rigidbody:
   m_GameObject: {fileID: 8516170848169426389}
   serializedVersion: 4
   m_Mass: 5
-  m_Drag: 1
+  m_Drag: 2
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
@@ -14341,7 +14541,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a9975b9d50ec4948b340b9f97f758a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flashlight: {fileID: 1651888930780382139}
+  flashlightFront: {fileID: 1651888930780382139}
+  flashlightBack: {fileID: 5474971651945402195}
   audioSource: {fileID: 6087782190730463353}
   toggleSound: {fileID: 8300000, guid: 5aa268df5a4b85a4a9eb81bb760f7c69, type: 3}
 --- !u!114 &5267215666868440479

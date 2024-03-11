@@ -24,16 +24,33 @@ public class PlayerControler : MonoBehaviour
     public float jumpForward = 6000;
     public float landingTime = 1.5f;
 
+    [Header("Head Bob")]
+    [Range(0.001f, 0.01f)]
+    public float amount = 0.002f;
+    [Range(1, 30)]
+    public float frequency = 10;
+
+    [Range(10, 100)]
+    public float smooth = 10;
+
     [Header("Ignore")]
     float drag;
+    float rotX;
+    float rotY;
+    Vector3 startPos;
 
-    private void Start()
+    void Start()
     {
         drag = GetComponent<Rigidbody>().drag;
         legsCol.enabled = false;
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+        rotX = transform.eulerAngles.y;
+        rotY = Camera.main.transform.localEulerAngles.x;
+        startPos = Camera.main.transform.localPosition;
     }
 
-    void Update()
+    void FixedUpdate()
     {
         // Get movement input
         Vector3 forward = Camera.main.transform.forward;
@@ -47,34 +64,62 @@ public class PlayerControler : MonoBehaviour
         // Get look input
         float lookHorizontal = lookInput.x;
         float lookVertical = lookInput.y;
+        if (Time.time < 1)
+        {
+            lookHorizontal = 0;
+            lookVertical = 0;
+        }
 
-        // Calculate rotation angles based on input
-        float yaw = lookHorizontal * lookSpeed * Time.deltaTime;
-        float pitch = -lookVertical * lookSpeed * Time.deltaTime; // Inverted for typical first-person controls
+        // Mouse rotation
+        rotY += lookVertical * -lookSpeed * Time.fixedDeltaTime / 2;
+        rotY = Mathf.Clamp(rotY, -41, 32);
+
+        // Camera rotation
+        Camera.main.transform.localRotation = Quaternion.Slerp(Camera.main.transform.localRotation, Quaternion.Euler(rotY, 0f, 0f), 0.1f);
 
         if (jumping == 0 & landedTime == 0 & grounded)
         {
-            // Rotate the GameObject
-            transform.Rotate(Vector3.up, yaw);
-
             // Move the GameObject
             GetComponent<Rigidbody>().AddForce(movement * moveSpeed);
-            // transform.Translate(movement * moveSpeed * Time.deltaTime, Space.World);
 
-            // Get the current camera rotation
-            Quaternion cameraRotation = Camera.main.transform.rotation;
+            // Checks if moving for the camera bob
+            if (movement.magnitude > 0)
+                StartHeadbob();
 
-            // Apply pitch rotation to the camera
-            Camera.main.transform.rotation = Quaternion.Slerp(Camera.main.transform.rotation, Quaternion.Euler(cameraRotation.eulerAngles.x + pitch, cameraRotation.eulerAngles.y, cameraRotation.eulerAngles.z), 0.8f);
+            // Mouse rotation
+            rotX += lookHorizontal * lookSpeed * Time.fixedDeltaTime;
+
+            // Camera rotation
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0f, rotX, 0f).normalized, 0.04f);
         }
+        StopHeadbob();
+    }
 
-        // THis checks if on the ground
+    // Starts the camera headbob
+    public Vector3 StartHeadbob()
+    {
+        Vector3 pos = Vector3.zero;
+        pos.y += Mathf.Lerp(pos.y, Mathf.Sin(Time.time * frequency) * amount * 1.4f, smooth * Time.deltaTime);
+        pos.x += Mathf.Lerp(pos.x, Mathf.Cos(Time.time * frequency / 2) * amount * 1.6f, smooth * Time.deltaTime);
+        Camera.main.transform.parent.localPosition += pos;
+        return pos;
+    }
+
+    // Stops the camera headbob
+    public void StopHeadbob()
+    {
+        if (Camera.main.transform.parent.localPosition == startPos) return;
+        Camera.main.transform.parent.localPosition = Vector3.Lerp(Camera.main.transform.parent.localPosition, startPos, 1 * 1 * Time.deltaTime);
+    }
+
+    void Update()
+    {
+        // This checks if on the ground Camera.main.transform.parent
         RaycastHit CheckGround = new RaycastHit();
         if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.down), out CheckGround, height))
         {
             grounded = true;
             GetComponent<Rigidbody>().drag = drag;
-            Debug.Log(CheckGround.transform.name);
             if (!wasGrounded)
             {
                 if (CheckGround.transform.GetComponent<Bug>())
@@ -108,13 +153,13 @@ public class PlayerControler : MonoBehaviour
 
         // This controls where the camera parent is and the camera shake
         if (jumping == 1)
-            Camera.main.transform.parent.localPosition = Vector3.Lerp(Camera.main.transform.parent.localPosition, new Vector3(0, -0.15f, 0), 0.01f);
+            Camera.main.transform.parent.parent.localPosition = Vector3.Lerp(Camera.main.transform.parent.parent.localPosition, new Vector3(0, -0.15f, 0), 0.01f);
         else
         {
             if (landedTime > 0 & Time.time > landedTime + 0.08f)
-                Camera.main.transform.parent.localPosition = Vector3.Lerp(Camera.main.transform.parent.localPosition, new Vector3(0, -0.15f, 0), 0.01f);
+                Camera.main.transform.parent.parent.localPosition = Vector3.Lerp(Camera.main.transform.parent.parent.localPosition, new Vector3(0, -0.15f, 0), 0.01f);
             else
-                Camera.main.transform.parent.localPosition = Vector3.Lerp(Camera.main.transform.parent.localPosition, new Vector3(0, 0, 0), 0.01f);
+                Camera.main.transform.parent.parent.localPosition = Vector3.Lerp(Camera.main.transform.parent.parent.localPosition, new Vector3(0, 0, 0), 0.01f);
         }
     }
 
