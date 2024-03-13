@@ -12,14 +12,13 @@ public class PlayerMechController : MonoBehaviour
 
     private Vector2 movementInput; // Input for movement
     private Vector2 lookInput; // Input for looking
-    public float upLimit = 45;
-    public float downLimit = -45;
+    public float lookUpLimit = 45;
+    public float lookDownLimit = -45;
     int jumping;
     float airTime;
     public bool grounded;
     bool wasGrounded;
     float landedTime;
-    public float height = 5;
     public Collider legsCol;
     public Vector3 centrePoint = new Vector3(45, 0, 0);
 
@@ -29,6 +28,7 @@ public class PlayerMechController : MonoBehaviour
     public float jumpForward = 6000;
     public float fallSpeed = 0.2f;
     public float landingTime = 1.5f;
+    public float[] landingForces;
 
     [Header("Head Bob")]
     [Range(0.001f, 0.04f)]
@@ -87,7 +87,7 @@ public class PlayerMechController : MonoBehaviour
 
         // Mouse rotation
         rotY += lookVertical * -lookSpeed * Time.fixedDeltaTime / 2;
-        rotY = Mathf.Clamp(rotY, downLimit, upLimit);
+        rotY = Mathf.Clamp(rotY, lookDownLimit, lookUpLimit);
 
         // Camera rotation
         Camera.main.transform.localRotation = Quaternion.Slerp(Camera.main.transform.localRotation, Quaternion.Euler(rotY, 0f, 0f), 0.1f);
@@ -108,23 +108,6 @@ public class PlayerMechController : MonoBehaviour
             transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0f, rotX, 0f).normalized, 0.04f);
         }
         StopHeadbob();
-    }
-
-    // Starts the camera headbob
-    public Vector3 StartHeadbob()
-    {
-        Vector3 pos = Vector3.zero;
-        pos.y += Mathf.Lerp(pos.y, Mathf.Sin(Time.time * frequency) * amount * 1.4f, smooth * Time.deltaTime);
-        pos.x += Mathf.Lerp(pos.x, Mathf.Cos(Time.time * frequency / 2) * amount * 1.6f, smooth * Time.deltaTime);
-        Camera.main.transform.parent.localPosition += pos;
-        return pos;
-    }
-
-    // Stops the camera headbob
-    public void StopHeadbob()
-    {
-        if (Camera.main.transform.parent.localPosition == startPos) return;
-        Camera.main.transform.parent.localPosition = Vector3.Lerp(Camera.main.transform.parent.localPosition, startPos, 1 * 1 * Time.deltaTime);
     }
 
     void Update()
@@ -152,10 +135,10 @@ public class PlayerMechController : MonoBehaviour
         // This calls the landing sequence
         if (Time.time > 0.5f & grounded & !wasGrounded)
         {
-            if (Time.time >= airTime + 0.8f)
+            if (Time.time >= airTime + landingForces[0])
             {
                 landedTime = Time.time;
-                if (Time.time >= airTime + 0.8f)
+                if (Time.time >= airTime + landingForces[0])
                     GetComponentInChildren<Animator>().CrossFadeInFixedTime("Land", 0.1f);
             }
             else
@@ -177,6 +160,23 @@ public class PlayerMechController : MonoBehaviour
             else
                 Camera.main.transform.parent.parent.localPosition = Vector3.Lerp(Camera.main.transform.parent.parent.localPosition, new Vector3(0, 0, 0), 0.01f);
         }
+    }
+
+    // Starts the camera headbob
+    public Vector3 StartHeadbob()
+    {
+        Vector3 pos = Vector3.zero;
+        pos.y += Mathf.Lerp(pos.y, Mathf.Sin(Time.time * frequency) * amount * 1.4f, smooth * Time.deltaTime);
+        pos.x += Mathf.Lerp(pos.x, Mathf.Cos(Time.time * frequency / 2) * amount * 1.6f, smooth * Time.deltaTime);
+        Camera.main.transform.parent.localPosition += pos;
+        return pos;
+    }
+
+    // Stops the camera headbob
+    public void StopHeadbob()
+    {
+        if (Camera.main.transform.parent.localPosition == startPos) return;
+        Camera.main.transform.parent.localPosition = Vector3.Lerp(Camera.main.transform.parent.localPosition, startPos, 1 * 1 * Time.deltaTime);
     }
 
     public void OnMove(InputAction.CallbackContext context)
