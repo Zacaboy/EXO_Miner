@@ -45,23 +45,28 @@ public class CannonScript : MonoBehaviour
     {
         // Play the shooting sound
         if (audioSource != null && shootSound != null)
-        {
             audioSource.PlayOneShot(shootSound);
-        }
 
         // Instantiate muzzle flash effect at the fire point
-        if (muzzleFlashPrefab != null)
+        if (muzzleFlashPrefab)
         {
-            Instantiate(muzzleFlashPrefab, firePoint.position, firePoint.rotation);
+            GameObject newMuzzle = Instantiate(muzzleFlashPrefab, firePoint.position, firePoint.rotation);
+            newMuzzle.transform.parent = transform;
         }
 
         // Instantiate a new projectile at the fire point
         GameObject projectile = Instantiate(projectilePrefab, firePoint.position, firePoint.rotation);
+        Transform look = new GameObject().transform;
+        look.position = projectile.transform.position;
+        look.LookAt(PlayerMechController.me.lookpos.position);
+        projectile.transform.eulerAngles = new Vector3(look.eulerAngles.x, projectile.transform.eulerAngles.y, projectile.transform.eulerAngles.z);
+        Destroy(look.gameObject);
+
         // Add force to the projectile
         Rigidbody rb = projectile.GetComponent<Rigidbody>();
         if (rb != null)
         {
-            rb.AddForce(firePoint.forward * shootForce, ForceMode.Impulse);
+            rb.AddForce(projectile.transform.forward * shootForce, ForceMode.Impulse);
         }
 
         // Destroy the projectile after a delay
