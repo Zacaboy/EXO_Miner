@@ -344,6 +344,15 @@ public partial class @PLayer: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": ""Tap"",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Weapon"",
+                    ""type"": ""Button"",
+                    ""id"": ""72a6d9ee-31f0-4294-9532-8f095d2a3b66"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -434,6 +443,17 @@ public partial class @PLayer: IInputActionCollection2, IDisposable
                     ""action"": ""Flashlight"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""774f377e-25b3-4787-ad75-bfe8dfeef071"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Weapon"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -454,6 +474,7 @@ public partial class @PLayer: IInputActionCollection2, IDisposable
         m_Keyboard_Jump = m_Keyboard.FindAction("Jump", throwIfNotFound: true);
         m_Keyboard_Movement = m_Keyboard.FindAction("Movement", throwIfNotFound: true);
         m_Keyboard_Flashlight = m_Keyboard.FindAction("Flashlight", throwIfNotFound: true);
+        m_Keyboard_Weapon = m_Keyboard.FindAction("Weapon", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -605,6 +626,7 @@ public partial class @PLayer: IInputActionCollection2, IDisposable
     private readonly InputAction m_Keyboard_Jump;
     private readonly InputAction m_Keyboard_Movement;
     private readonly InputAction m_Keyboard_Flashlight;
+    private readonly InputAction m_Keyboard_Weapon;
     public struct KeyboardActions
     {
         private @PLayer m_Wrapper;
@@ -613,6 +635,7 @@ public partial class @PLayer: IInputActionCollection2, IDisposable
         public InputAction @Jump => m_Wrapper.m_Keyboard_Jump;
         public InputAction @Movement => m_Wrapper.m_Keyboard_Movement;
         public InputAction @Flashlight => m_Wrapper.m_Keyboard_Flashlight;
+        public InputAction @Weapon => m_Wrapper.m_Keyboard_Weapon;
         public InputActionMap Get() { return m_Wrapper.m_Keyboard; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -634,6 +657,9 @@ public partial class @PLayer: IInputActionCollection2, IDisposable
             @Flashlight.started += instance.OnFlashlight;
             @Flashlight.performed += instance.OnFlashlight;
             @Flashlight.canceled += instance.OnFlashlight;
+            @Weapon.started += instance.OnWeapon;
+            @Weapon.performed += instance.OnWeapon;
+            @Weapon.canceled += instance.OnWeapon;
         }
 
         private void UnregisterCallbacks(IKeyboardActions instance)
@@ -650,6 +676,9 @@ public partial class @PLayer: IInputActionCollection2, IDisposable
             @Flashlight.started -= instance.OnFlashlight;
             @Flashlight.performed -= instance.OnFlashlight;
             @Flashlight.canceled -= instance.OnFlashlight;
+            @Weapon.started -= instance.OnWeapon;
+            @Weapon.performed -= instance.OnWeapon;
+            @Weapon.canceled -= instance.OnWeapon;
         }
 
         public void RemoveCallbacks(IKeyboardActions instance)
@@ -682,5 +711,6 @@ public partial class @PLayer: IInputActionCollection2, IDisposable
         void OnJump(InputAction.CallbackContext context);
         void OnMovement(InputAction.CallbackContext context);
         void OnFlashlight(InputAction.CallbackContext context);
+        void OnWeapon(InputAction.CallbackContext context);
     }
 }
