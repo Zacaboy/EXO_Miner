@@ -8622,6 +8622,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4718419774016769796}
   - component: {fileID: 6023840153566638542}
+  - component: {fileID: 7643953903593358866}
   m_Layer: 0
   m_Name: Landing Col
   m_TagString: Player Legs
@@ -8665,6 +8666,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 9.999998, y: 3.3010006, z: 9.999998}
   m_Center: {x: -2.2388212e-24, y: -0.004781336, z: 1.0809924e-17}
+--- !u!114 &7643953903593358866
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5800644364928524776}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b969a1006f406654ebc3a679d750996a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ground: {fileID: 0}
 --- !u!1 &5885312314034803120
 GameObject:
   m_ObjectHideFlags: 0
@@ -14316,7 +14330,7 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 5
+  m_Radius: 5.37
   m_Height: 46.459923
   m_Direction: 1
   m_Center: {x: -4.6836276e-15, y: -14.829953, z: -2.3900003}
@@ -14603,8 +14617,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7187076a32d11d4da940d3cb17f93a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 228.1
-  lookSpeed: 10
+  moveSpeed: 230
+  lookSpeed: 5
   upLimit: 45
   downLimit: -45
   grounded: 0
@@ -14614,7 +14628,7 @@ MonoBehaviour:
   jumpSpeed: 0.7
   jumpHeight: 7000
   jumpForward: 6000
-  fallSpeed: 0.2
+  fallSpeed: 0.05
   landingTime: 2
   amount: 0.0142
   frequency: 5.7
