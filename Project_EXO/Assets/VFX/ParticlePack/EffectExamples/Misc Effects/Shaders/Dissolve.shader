@@ -1,4 +1,4 @@
-﻿// Upgrade NOTE: upgraded instancing buffer 'Props' to new syntax.
+// Upgrade NOTE: upgraded instancing buffer 'Props' to new syntax.
 
 Shader "Custom/Dissolve" {
 	Properties {

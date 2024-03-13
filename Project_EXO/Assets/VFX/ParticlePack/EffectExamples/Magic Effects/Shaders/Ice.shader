@@ -1,4 +1,4 @@
-﻿Shader "Custom/Ice" {
+Shader "Custom/Ice" {
 	Properties {
 		_Color ("Color", Color) = (1,1,1,1)
 		_FresnelColor ("_FresnelColor", Color) = (1,1,1)
