@@ -315,7 +315,7 @@ public partial class @PLayer: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""c8ca355c-33a1-401e-939d-7a9dfb473dae"",
-                    ""path"": ""<HID>/{PrimaryTrigger}"",
+                    ""path"": ""<HID::Logitech Extreme 3D pro>/button2"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
