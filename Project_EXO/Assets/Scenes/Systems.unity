@@ -722,6 +722,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
       objectReference: {fileID: 0}
+    - target: {fileID: 7604995984630225021, guid: 450ebc53b817279458eabe32b3132225,
+        type: 3}
+      propertyPath: m_DefaultActionMap
+      value: JoystickController
+      objectReference: {fileID: 0}
     - target: {fileID: 8516170848169426389, guid: 450ebc53b817279458eabe32b3132225,
         type: 3}
       propertyPath: m_Name
