@@ -74,7 +74,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vfx: {fileID: 198917022394846920, guid: 54bf4638f88445f4b93d57b9a51cc871, type: 3}
-  sfx: {fileID: 8300000, guid: 61bb02fb9ea0d49428846aeda78245cc, type: 3}
+  sfx: {fileID: 8300000, guid: ef61038f2bb2da047b2b29b131ecc0e4, type: 3}
 --- !u!1 &8055986535750896137
 GameObject:
   m_ObjectHideFlags: 0
