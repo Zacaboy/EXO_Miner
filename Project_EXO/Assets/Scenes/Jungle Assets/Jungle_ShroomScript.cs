@@ -22,7 +22,7 @@ public class Jungle_ShroomScript : MonoBehaviour
         if(collision.gameObject.tag=="Player")
         {
             Debug.Log("Collision Player!");
-            collision.rigidbody.AddForce(transform.up*800f,ForceMode.Impulse);
+            collision.rigidbody.AddForce(transform.up*1800f,ForceMode.Impulse);
         }
 
     }
