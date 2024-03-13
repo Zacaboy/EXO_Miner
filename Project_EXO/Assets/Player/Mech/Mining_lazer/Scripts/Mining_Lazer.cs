@@ -53,7 +53,7 @@ public class Mining_Lazer : MonoBehaviour
             if (isFiring)
                 m_Lights[i].intensity = Mathf.Lerp(m_Lights[i].intensity, 100, 0.01f);
             else
-                m_Lights[i].intensity = Mathf.Lerp(m_Lights[i].intensity, 0, 0.05f);
+                m_Lights[i].intensity = Mathf.Lerp(m_Lights[i].intensity, 0, 0.08f);
         }
         if (Time.fixedTime >= lastHeatChange + heatChangeRate)
         {
