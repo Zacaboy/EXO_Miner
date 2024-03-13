@@ -4,7 +4,15 @@
     "com.unity.ide.rider": "3.0.27",
     "com.unity.ide.visualstudio": "2.0.22",
     "com.unity.ide.vscode": "1.2.5",
+<<<<<<< Updated upstream
     "com.unity.probuilder": "5.2.2",
+=======
+<<<<<<< HEAD
+=======
+    "com.unity.inputsystem": "1.7.0",
+    "com.unity.probuilder": "5.2.2",
+>>>>>>> aa93e8fab44b6b54ae87322b343b83995c65ba95
+>>>>>>> Stashed changes
     "com.unity.render-pipelines.high-definition": "14.0.9",
     "com.unity.render-pipelines.universal": "14.0.9",
     "com.unity.shadergraph": "14.0.9",
