@@ -14570,9 +14570,25 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 9eb52212-4bd9-4ce5-a9d0-a18d56d2b3a3
     m_ActionName: Keyboard/Mine[/Mouse/leftButton]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4000431618729685010}
+        m_TargetAssemblyTypeName: CannonScript, Assembly-CSharp
+        m_MethodName: OnShoot
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 6af24dd3-e78e-4754-8814-4b499e6dac42
+    m_ActionName: JoystickController/Weapon1[/Logitech Logitech Extreme 3D/trigger]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
-  m_DefaultActionMap: Keyboard
+  m_DefaultActionMap: JoystickController
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 8127047343670946861}
 --- !u!114 &2574662244411009874
