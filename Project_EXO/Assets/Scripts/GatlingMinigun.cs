@@ -65,6 +65,7 @@ public class GatlingMinigun : MonoBehaviour
         // Play the shooting sound
         if (audioSource != null && shootSound != null)
             audioSource.PlayOneShot(shootSound);
+        GetComponentInParent<PlayerMechController>().FireWeapon();
 
         // Instantiate a new projectile for each barrel
         foreach (Transform barrelTransform in barrelTransforms)
