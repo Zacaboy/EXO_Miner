@@ -122,8 +122,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   mineVFX: {fileID: 1419990315164436307, guid: 36164469864dba64580148557e0c0c80, type: 3}
-  mineSFX: {fileID: 8300000, guid: 61bb02fb9ea0d49428846aeda78245cc, type: 3}
+  mineSFX: {fileID: 8300000, guid: 48a17a459a0fff441aea4f001becfe0a, type: 3}
   destroyVFX: {fileID: 1419990315164436307, guid: 740220e2c5728d44f8b755ca15e4ccc4,
     type: 3}
-  destroySFX: {fileID: 8300000, guid: fc1322bc49c788c4298cb1daa7c8a2b2, type: 3}
+  destroySFX: {fileID: 8300000, guid: 5cc2f76f984eae9409b914e6585a74b1, type: 3}
   health: 0

@@ -46,6 +46,7 @@ public class CannonScript : MonoBehaviour
         // Play the shooting sound
         if (audioSource != null && shootSound != null)
             audioSource.PlayOneShot(shootSound);
+        GetComponentInParent<PlayerMechController>().FireWeapon();
 
         // Instantiate muzzle flash effect at the fire point
         if (muzzleFlashPrefab)
