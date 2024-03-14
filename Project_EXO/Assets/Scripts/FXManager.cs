@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FXManager : MonoBehaviour
 {
-    public static void SpawnSFX(AudioClip sfx, Vector3 pos, float distance, float lifeTime)
+    public static void SpawnSFX(AudioClip sfx, Vector3 pos, float distance, float lifeTime, float volume = 1)
     {
         AudioSource newSFX = new GameObject().AddComponent<AudioSource>();
         newSFX.clip = sfx;
@@ -13,6 +13,7 @@ public class FXManager : MonoBehaviour
         newSFX.maxDistance = distance;
         newSFX.transform.position = pos;
         newSFX.name = sfx.name + " SFX";
+        newSFX.volume = volume;
         newSFX.Play();
         Destroy(newSFX.gameObject, lifeTime);
     }

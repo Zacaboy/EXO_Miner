@@ -5,8 +5,10 @@
 // Source code may NOT be redistributed or sold.
 // 
 
-using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine;
+using static UnityEditor.PlayerSettings;
+using static UnityEngine.Rendering.HighDefinition.ProbeSettings;
 
 namespace DigitalRuby.LightningBolt
 {
@@ -58,6 +60,9 @@ namespace DigitalRuby.LightningBolt
         [Tooltip("How manu generations? Higher numbers create more line segments.")]
         public int Generations = 6;
 
+        public AudioClip thunderSFX;
+        public float lifeTime = 2;
+
         [Range(0.01f, 1.0f)]
         [Tooltip("How long each bolt should last before creating a new bolt. In ManualMode, the bolt will simply disappear after this amount of seconds.")]
         public float Duration = 0.05f;
@@ -96,6 +101,9 @@ namespace DigitalRuby.LightningBolt
         private int animationOffsetIndex;
         private int animationPingPongDirection = 1;
         private bool orthographic;
+        Light lightEffect;
+        float startLight;
+        float timeSinceSpawned;
 
         private void GetPerpendicularVector(ref Vector3 directionNormalized, out Vector3 side)
         {
@@ -286,9 +294,19 @@ namespace DigitalRuby.LightningBolt
 
         private void Start()
         {
-            orthographic = (Camera.main != null && Camera.main.orthographic);
+            orthographic = Camera.main != null && Camera.main.orthographic;
             lineRenderer = GetComponent<LineRenderer>();
             lineRenderer.positionCount = 0;
+            lightEffect = GetComponentInChildren<Light>();
+            startLight = lightEffect.intensity;
+            timeSinceSpawned = Time.time;
+            FXManager.SpawnSFX(thunderSFX, transform.position, 500, 10);
+            if (lifeTime > 0)
+                Destroy(gameObject, lifeTime);
+            if (Vector3.Distance(transform.position, Camera.main.transform.position) <= 50)
+                lightEffect.intensity = 2;
+            else
+                lightEffect.intensity = startLight;
             UpdateFromMaterialChange();
         }
 
@@ -307,6 +325,8 @@ namespace DigitalRuby.LightningBolt
                     Trigger();
                 }
             }
+            if (Time.time >= timeSinceSpawned + 1)
+                lightEffect.intensity = Mathf.Lerp(lightEffect.intensity, 0, 0.05f);
             timer -= Time.deltaTime;
         }
 
@@ -336,6 +356,10 @@ namespace DigitalRuby.LightningBolt
             startIndex = 0;
             GenerateLightningBolt(start, end, Generations, Generations, 0.0f);
             UpdateLineRenderer();
+            RaycastHit hit;
+            if (Physics.Raycast(StartObject.transform.position, StartObject.transform.TransformDirection(Vector3.down), out hit, Vector3.Distance(StartObject.transform.position, EndObject.transform.position)))
+                if (hit.transform.GetComponent<PlayerMechController>())
+                    hit.transform.GetComponent<PlayerMechController>().Stun(true);
         }
 
         /// <summary>
