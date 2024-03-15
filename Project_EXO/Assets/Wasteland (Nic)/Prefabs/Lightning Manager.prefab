@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1138434936096891981}
   - component: {fileID: 5698826089534749912}
   m_Layer: 0
-  m_Name: LightningManager
+  m_Name: Lightning Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -46,7 +46,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lightningPref: {fileID: 11427938, guid: a9892f6a83fd8d4468ce0c8a3d09d3cd, type: 3}
-  thunderSFX: {fileID: 8300000, guid: ed11245e896595e4585fee91893348f8, type: 3}
   charges: 0000000004000000
   chargeRate: 0.5
   attractionSpeed: 9
