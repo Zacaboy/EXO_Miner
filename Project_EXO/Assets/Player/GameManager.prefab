@@ -1,0 +1,98 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2929300211640277958
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8513255714557474720}
+  - component: {fileID: 1120787528876586266}
+  - component: {fileID: 3358589700547764375}
+  - component: {fileID: 1148768226705499671}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8513255714557474720
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2929300211640277958}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 197.6197, y: 24.042492, z: 152.96306}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1120787528876586266
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2929300211640277958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 090d67d38ae31604b8e65a2badd3c95f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startEffect: {fileID: 7695198194177534841, guid: 59f61764e1766f646b22125ad83af640,
+    type: 3}
+  endEffect: {fileID: 7695198194177534841, guid: 43810be12918191418465d713d1ae8df,
+    type: 3}
+  completeEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  failEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  over: 0
+--- !u!114 &3358589700547764375
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2929300211640277958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52404c0c771d793449d8dd359708824d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  oreTypes:
+  - name: Iron
+    amountRequired: 5
+    essential: 1
+    currentAmount: 0
+  - name: Fibre
+    amountRequired: 10
+    essential: 0
+    currentAmount: 0
+  neededOres: []
+  extraOres: []
+--- !u!114 &1148768226705499671
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2929300211640277958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d7102ca9df47ae4ea1aa991a46fd193, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxTime: 15
+  bonusTime: 10
+  noLimit: 0
+  time: 0

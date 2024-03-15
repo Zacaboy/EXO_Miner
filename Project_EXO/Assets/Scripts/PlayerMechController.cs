@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Resources;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -43,6 +44,7 @@ public class PlayerMechController : MonoBehaviour
     public float playerFallSpeed = 0.05f;
     public float landingTime = 1.5f;
     public float[] landingForces;
+    public float killHeight = -200;
 
     [Header("Jump Stats")]
     public Animator cameraAni;
@@ -80,6 +82,7 @@ public class PlayerMechController : MonoBehaviour
     int jumping;
     float airTime;
     bool wasGrounded;
+    [HideInInspector] public bool lightningStruckFall;
     float landedTime;
     float lastWalkTime;
     float lastLookTime;
@@ -189,6 +192,7 @@ public class PlayerMechController : MonoBehaviour
         {
             grounded = true;
             rigi.drag = drag;
+            lightningStruckFall = false;
             if (wasGrounded)
                 airTime = Time.time;
         }
@@ -198,6 +202,8 @@ public class PlayerMechController : MonoBehaviour
             grounded = false;
             rigi.drag = playerFallSpeed;
         }
+        if (transform.position.y <= killHeight & !GameManager.me.over)
+            GameManager.me.FailObjective();
 
         // This is for the warning lights in the cockpit
         if (warningLightning || dangerLightning)
@@ -244,7 +250,7 @@ public class PlayerMechController : MonoBehaviour
         }
 
         // This calls the landing sequence
-        if (Time.time > 0.5f & grounded & !wasGrounded || stunned)
+        if (Time.timeSinceLevelLoad > 0.5f & grounded & !wasGrounded || stunned)
         {
             if (Time.time >= airTime + landingForces[0] || stunned)
             {
@@ -254,6 +260,7 @@ public class PlayerMechController : MonoBehaviour
                     landedTime = Time.time;
                     if (!stunned)
                     {
+                        lightningStruckFall = false;
                         cameraShakeAni.CrossFadeInFixedTime("Land", 0.1f);
                         // For Squishing Bugs
                         foreach (Bug bug in FindObjectsOfType<Bug>())
@@ -326,6 +333,7 @@ public class PlayerMechController : MonoBehaviour
         stunned = true;
         if (lightning)
             dangerLightning = true;
+        lightningStruckFall = true;
         if (downSFX.Length > 0)
             FXManager.SpawnSFX(downSFX[Random.Range(0, downSFX.Length - 1)], transform.position, 10, 5, 0.3f);
     }
@@ -360,6 +368,7 @@ public class PlayerMechController : MonoBehaviour
         yield return new WaitForSeconds(jumpSpeed);
         rigi.AddForce(Vector3.up * jumpHeight);
         rigi.AddForce(Camera.main.transform.forward * jumpForward);
+        lightningStruckFall = false;
         if (jumpingSFX.Length > 0)
             FXManager.SpawnSFX(jumpingSFX[Random.Range(0, jumpingSFX.Length - 1)], transform.position, 50, 5);
         jumping = 0;
