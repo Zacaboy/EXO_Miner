@@ -7,6 +7,7 @@ public class UIMessageScript : MonoBehaviour
 {
     CanvasGroup canvas;
     public float flashTime = 3;
+    public float startAlpha;
     public float inRate = 0.1f;
     public float outRate = 0.05f;
     float time;
@@ -15,8 +16,9 @@ public class UIMessageScript : MonoBehaviour
     void Start()
     {
         canvas = GetComponent<CanvasGroup>();
-        canvas.alpha = 0;
+        canvas.alpha = startAlpha;
         time = Time.fixedTime;
+        Destroy(gameObject, flashTime + 5);
     }
 
     void FixedUpdate()

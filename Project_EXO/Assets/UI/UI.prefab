@@ -294,7 +294,7 @@ GameObject:
   - component: {fileID: 1223401865829582415}
   - component: {fileID: 8799370691182399819}
   m_Layer: 5
-  m_Name: UI 3D
+  m_Name: UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -641,6 +641,7 @@ GameObject:
   - component: {fileID: 6214141373565255947}
   - component: {fileID: 4581512811649469320}
   - component: {fileID: 7404480803774752709}
+  - component: {fileID: 5362677542486283547}
   m_Layer: 5
   m_Name: Time
   m_TagString: Untagged
@@ -764,6 +765,18 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!225 &5362677542486283547
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6355870795692377660}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &6555908012538283293
 GameObject:
   m_ObjectHideFlags: 0

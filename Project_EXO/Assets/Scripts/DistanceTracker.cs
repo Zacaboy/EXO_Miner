@@ -8,16 +8,17 @@ public class DistanceTracker : MonoBehaviour
     public Transform player; // Player's transform
     public Ore[] objectsToTrack; // Array of game objects to track
     public SpriteRenderer spriteRenderer; // SpriteRenderer for displaying images
-    public Sprite closestObjectImage; // Image for the closest object
     public Sprite noObjectsInRangeImage; // Image for no objects within range
     public TMP_Text distanceText; // TextMeshPro component to display distance information
     public float minimumRange = 5f; // Minimum range to detect objects
 
     private Ore closestObject; // Closest object to the player
+    Color startCol;
 
     void Start()
     {
         objectsToTrack = FindObjectsOfType<Ore>();
+        startCol = distanceText.color;
     }
 
     void Update()
@@ -45,14 +46,16 @@ public class DistanceTracker : MonoBehaviour
         if (closestObject != null)
         {
             // Display the sprite for closest object
-            spriteRenderer.sprite = closestObjectImage;
-            distanceText.text = "Closest Object Distance: " + minDistance.ToString("F2");
+            spriteRenderer.sprite = closestObject.icon;
+            distanceText.text = "Closest Object Distance: " + Mathf.Round(minDistance) + "m";
+            distanceText.color = startCol;
         }
         else
         {
             // Display the sprite for no objects within range
             spriteRenderer.sprite = noObjectsInRangeImage;
-            distanceText.text = "No objects within range";
+            distanceText.text = "No objects Close";
+            distanceText.color = Color.red;
         }
     }
 

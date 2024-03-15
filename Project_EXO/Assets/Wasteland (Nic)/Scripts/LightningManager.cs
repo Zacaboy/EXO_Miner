@@ -37,7 +37,7 @@ public class LightningManager : MonoBehaviour
             lastRandomChargeTime = Time.time + Random.Range(-2, 2);
             SpawnLightning(player.transform.position + new Vector3(Random.Range(-lightningRange, lightningRange), 0, Random.Range(-lightningRange, lightningRange)));
         }
-        if (player.rigi.velocity.magnitude > attractionSpeed)
+        if (player.rigi.velocity.magnitude > attractionSpeed & !player.lightningStruckFall)
         {
             if (Time.time > lastChargePlayerTime + chargeRate)
             {
@@ -47,7 +47,7 @@ public class LightningManager : MonoBehaviour
         }
         else
         {
-            if (Time.time > lastChargePlayerTime + chargeRate)
+            if (Time.time > lastChargePlayerTime + chargeRate & !player.lightningStruckFall)
             {
                 lastChargePlayerTime = Time.time;
                 charge -= 1;
@@ -57,7 +57,7 @@ public class LightningManager : MonoBehaviour
         player.warningLightning = charge >= 1;
         if (!player.dangerLightning)
             player.dangerLightning = charge >= charges[charges.Length - 1] - 1;
-        if (charge >= charges[charges.Length - 1])
+        if (charge >= charges[charges.Length - 1] & !player.lightningStruckFall)
         {
             charge = 0;
             lastChargePlayerTime = Time.time;
