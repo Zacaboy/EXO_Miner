@@ -15281,11 +15281,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 4805463539106460487}
-  objectsToTrack:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  objectsToTrack: []
   spriteRenderer: {fileID: 7973071376192499008}
   closestObjectImage: {fileID: 21300000, guid: cc04ff54c11265146875176379dd9469, type: 3}
   noObjectsInRangeImage: {fileID: 21300000, guid: 3d0b3de5131044447a9aa372b694ecd7,
