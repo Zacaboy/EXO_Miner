@@ -9,10 +9,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8513255714557474720}
+  - component: {fileID: 1120787528876586266}
   - component: {fileID: 3358589700547764375}
   - component: {fileID: 1148768226705499671}
   m_Layer: 0
-  m_Name: Resource Manager
+  m_Name: GameManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -33,6 +34,29 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1120787528876586266
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2929300211640277958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 090d67d38ae31604b8e65a2badd3c95f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startEffect: {fileID: 7695198194177534841, guid: 59f61764e1766f646b22125ad83af640,
+    type: 3}
+  endEffect: {fileID: 7695198194177534841, guid: 43810be12918191418465d713d1ae8df,
+    type: 3}
+  completeEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  failEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  over: 0
 --- !u!114 &3358589700547764375
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -56,12 +80,6 @@ MonoBehaviour:
     currentAmount: 0
   neededOres: []
   extraOres: []
-  completeEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  failEvent:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!114 &1148768226705499671
 MonoBehaviour:
   m_ObjectHideFlags: 0

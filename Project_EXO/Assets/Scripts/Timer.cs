@@ -42,7 +42,7 @@ public class Timer : MonoBehaviour
         if (noLimit) return;
         if (time <= 0)
         {
-            ResourceTracker.me.FailObjective();
+            GameManager.me.FailObjective();
             failed = true;
         }
     }

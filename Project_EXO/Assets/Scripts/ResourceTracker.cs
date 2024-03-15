@@ -2,8 +2,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
-using UnityEngine.SceneManagement;
 
 [Serializable]
 public class OreType
@@ -20,9 +18,6 @@ public class ResourceTracker : MonoBehaviour
     [SerializeField] public List<OreType> oreTypes = new List<OreType>();
     [HideInInspector][SerializeField] public List<OreType> neededOres = new List<OreType>();
     [HideInInspector][SerializeField] public List<OreType> extraOres = new List<OreType>();
-    bool over;
-    public UnityEvent completeEvent;
-    public UnityEvent failEvent;
 
     private void Awake()
     {
@@ -32,31 +27,6 @@ public class ResourceTracker : MonoBehaviour
                 neededOres.Add(type);
             else
                 extraOres.Add(type);
-    }
-
-    public void CompleteObjective()
-    {
-        if (over) return;
-        over = true;
-        completeEvent.Invoke();
-        StartCoroutine(WaitFinish(2));
-    }
-
-    public void FailObjective()
-    {
-        if (over) return;
-        over = true;
-        failEvent.Invoke();
-        StartCoroutine(WaitFinish(1));
-    }
-
-    public IEnumerator WaitFinish(int type)
-    {
-        yield return new WaitForSeconds(4);
-        if (type == 1)
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        if (type == 2)
-            SceneManager.LoadScene("Main Menu");
     }
 
     public void AddResource(string name)
@@ -77,6 +47,6 @@ public class ResourceTracker : MonoBehaviour
             if (type.currentAmount >= type.amountRequired)
                 aquired += 1;
         if (aquired >= neededOres.Count)
-            CompleteObjective();
+            GameManager.me.CompleteObjective();
     }
 }
