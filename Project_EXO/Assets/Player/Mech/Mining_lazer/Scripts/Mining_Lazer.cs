@@ -97,7 +97,7 @@ public class Mining_Lazer : MonoBehaviour
                 lazerR.transform.parent.localScale = Vector3.Lerp(lazerR.transform.parent.localScale, new Vector3(1, hit.distance, 1), lazerInSpeed);
                 if (lazerR.transform.parent.localScale.y > hit.distance)
                     lazerR.transform.parent.localScale = new Vector3(1, hit.distance, 1);
-                if (decal)
+                if (decal & Time.fixedTime >= lastHitSFX + (mineSFXRate - 0.4f))
                 {
                     Transform newDecal = Instantiate(decal);
                     newDecal.position = hit.point + hit.normal * 0.0001f;
@@ -116,6 +116,9 @@ public class Mining_Lazer : MonoBehaviour
                 if (showDebug)
                     Debug.DrawRay(muzzle.position, muzzle.TransformDirection(Vector3.forward) * range, Color.green, 1);
                 currentOre = currentObject.GetComponent<Ore>();
+                if (currentOre)
+                    if (currentOre.health <= 0)
+                        currentOre = null;
             }
             else
             {
@@ -130,7 +133,7 @@ public class Mining_Lazer : MonoBehaviour
                     shake = 2;
                     lastHitSFX = Time.fixedTime;
                     if (lazerHitVFX)
-                        FXManager.SpawnVFX(lazerHitVFX, hit.point, hit.point, 5, true);
+                        FXManager.SpawnVFX(lazerHitVFX, hit.point, hit.point, null, 5, true);
                     if (lazerHitSFX)
                         FXManager.SpawnSFX(lazerHitSFX, hit.point, 100, 5);
                 }
@@ -139,7 +142,7 @@ public class Mining_Lazer : MonoBehaviour
             {
                 lazerR.material.color = Color.red;
                 if (currentOre.mineVFX)
-                    FXManager.SpawnVFX(currentOre.mineVFX, hit.point, hit.point, 5, true);
+                    FXManager.SpawnVFX(currentOre.mineVFX, hit.point, hit.point, null, 5, true);
                 if (Time.fixedTime >= lastMineTime + mineRate)
                 {
                     lastMineTime = Time.fixedTime;

@@ -64,7 +64,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 3092439742945511283, guid: f84388f3a8e8732498afc4eb69895f5a, type: 3}
+  - {fileID: 2100000, guid: bb3b8474fb061c94eb0f33ccf53848bc, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -119,7 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf9d27da78ccd47439ec81974aa72c3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  maxHealth: 50
   resourceType: Fibre
   mineVFX: {fileID: 1419990315164436307, guid: 36164469864dba64580148557e0c0c80, type: 3}
   mineSFX: {fileID: 8300000, guid: 48a17a459a0fff441aea4f001becfe0a, type: 3}
@@ -128,6 +128,36 @@ MonoBehaviour:
   destroySFX: {fileID: 8300000, guid: 5cc2f76f984eae9409b914e6585a74b1, type: 3}
   icon: {fileID: 21300000, guid: cc04ff54c11265146875176379dd9469, type: 3}
   health: 0
+  spawnEffectTime: 4
+  pause: 3
+  fadeDelay: 1
+  useAlpha: 1
+  fadeIn:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  destroyFadeVFX: {fileID: 658887652791092909, guid: 2716e0f0b56412547a9bae63b33b26be,
+    type: 3}
 --- !u!54 &21588133388765367
 Rigidbody:
   m_ObjectHideFlags: 0

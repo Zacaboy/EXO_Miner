@@ -46,10 +46,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lightningPref: {fileID: 11427938, guid: a9892f6a83fd8d4468ce0c8a3d09d3cd, type: 3}
-  charges: 0000000004000000
+  charges: 0500000009000000
   chargeRate: 0.5
-  attractionSpeed: 9
-  randomChargeRate: 3
+  attractionSpeed: 17
+  randomChargeRate: 5
   lightningRange: 200
   charge: 0
 --- !u!82 &5698826089534749912

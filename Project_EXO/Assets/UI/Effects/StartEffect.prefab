@@ -67,15 +67,15 @@ MonoBehaviour:
       m_Calls: []
   m_text: Start
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 3370505062
+  m_fontColor: {r: 0.3987776, g: 0.829003, b: 0.899371, a: 0.78431374}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -92,8 +92,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 60
-  m_fontSizeBase: 60
+  m_fontSize: 45
+  m_fontSizeBase: 45
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -263,10 +263,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bacf6e36f4b0594193282105d889b08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flashTime: 0.15
+  flashTime: 0.2
   startAlpha: 1
   inRate: 0.1
-  outRate: 0.05
+  outRate: 0.03
 --- !u!1 &4997832314182950187
 GameObject:
   m_ObjectHideFlags: 0
@@ -377,8 +377,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1088.3303, y: 156.23022}
+  m_AnchoredPosition: {x: 0.000061035, y: -109}
+  m_SizeDelta: {x: 843.2573, y: 104.9214}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1049030870508147536
 CanvasRenderer:
@@ -401,7 +401,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.38204575, g: 0.8867924, b: 0.47411358, a: 0.392}
+  m_Color: {r: 0.38039213, g: 0.75922656, b: 0.8862745, a: 0.101960786}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

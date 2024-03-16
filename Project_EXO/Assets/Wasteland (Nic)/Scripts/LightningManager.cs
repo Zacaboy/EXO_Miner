@@ -54,7 +54,7 @@ public class LightningManager : MonoBehaviour
             }
         }
         charge = Mathf.Clamp(charge, 0, charges[charges.Length - 1]);
-        player.warningLightning = charge >= 1;
+        player.warningLightning = charge >= charges[0];
         if (!player.dangerLightning)
             player.dangerLightning = charge >= charges[charges.Length - 1] - 1;
         if (charge >= charges[charges.Length - 1] & !player.lightningStruckFall)
