@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Resources;
+using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -18,8 +20,11 @@ public class PlayerMechController : MonoBehaviour
     public float frequency = 10;
     [Range(10, 100)]
     public float smooth = 10;
+    public ParticleSystem[] walksVFX;
+    public Transform[] feet;
 
     [Header("SFX")]
+    public AudioClip startSFX;
     public AudioClip[] walkingSFX;
     public AudioClip[] jumpingSFX;
     public AudioClip[] landingSFX;
@@ -36,17 +41,19 @@ public class PlayerMechController : MonoBehaviour
     public Vector3 centrePoint = new Vector3(45, 0, 0);
     public Transform lightningPos;
 
+    [Header("Vaulting")]
+    public Transform[] vaultPos;
+    public float vaultForce = 300;
+
     [Header("Jump Stats")]
     public float jumpSpeed = 0.4f;
     public float jumpHeight = 6000;
     public float jumpForward = 6000;
-    public float playerFallSpeed = 0.05f;
+    public float playerFallMass = 5f;
+    public float playerFallDrag = 0.05f;
     public float landingTime = 1.5f;
     public float[] landingForces;
-
-    [Header("Jump Stats")]
-    public Animator cameraAni;
-    public Animator cameraShakeAni;
+    public float killHeight = -200;
 
     [Header("Landing")]
     public float landingDamageAreaEffect = 50;
@@ -62,8 +69,18 @@ public class PlayerMechController : MonoBehaviour
     public float lightningDangerFlashFrequency = 0.8f;
     public AudioClip lightningDangerSFX;
 
+    [Header("Camera Effects")]
+    public AnimationClip[] cameraAniList;
+    public AnimationClip[] cameraShakeAniList;
+    Animator cameraAniPref;
+    Animator cameraShakeAniPref;
+    Transform cameraPivot;
+    List<Animator> cameraAni = new List<Animator>();
+    List<Animator> cameraShakeAni = new List<Animator>();
+
     [Header("Ignore")]
     float drag;
+    float mass;
     float rotX;
     float rotY;
     Vector3 startPos;
@@ -77,18 +94,24 @@ public class PlayerMechController : MonoBehaviour
     [HideInInspector] public bool dangerLightning;
     bool stunned;
     bool jumpAni;
+    bool stunnedAni;
     int jumping;
     float airTime;
     bool wasGrounded;
+    [HideInInspector] public bool lightningStruckFall;
+    Transform lastCamEffect;
+    int currentFoot;
     float landedTime;
     float lastWalkTime;
     float lastLookTime;
     float lastLightningTime;
+    bool playedSFX;
 
     void Start()
     {
         me = this;
         rigi = GetComponent<Rigidbody>();
+        mass = rigi.mass;
         drag = rigi.drag;
         feetScript = GetComponentInChildren<FeetScript>();
         Cursor.lockState = CursorLockMode.Locked;
@@ -102,15 +125,66 @@ public class PlayerMechController : MonoBehaviour
         lookpos.transform.position += transform.forward * centrePoint.x;
         lookpos.SetParent(Camera.main.transform);
         lookpos.name = "Look Pos";
+        foreach (Animator ani in GetComponentsInChildren<Animator>())
+        {
+            if (ani.name == "Camera Ani")
+                cameraAniPref = ani;
+            if (ani.name == "Camera Shake")
+                cameraShakeAniPref = ani;
+        }
+        cameraPivot = cameraShakeAniPref.transform.GetChild(0);
         for (int i = 0; i < lightingLights.Length; i++)
         {
             lightingLights[i].intensity = 0;
             lightingLights[i].enabled = true;
         }
+        SetUpCameraInfo();
+    }
+
+    public void SetUpCameraInfo()
+    {
+        cameraPivot.SetParent(transform);
+        cameraShakeAniPref.transform.SetParent(transform);
+        lastCamEffect = cameraAniPref.transform.parent;
+        foreach (AnimationClip s in cameraAniList)
+            cameraAni.Add(AddCameraInfo(s.name, cameraAniPref));
+        foreach (AnimationClip s in cameraShakeAniList)
+            cameraShakeAni.Add(AddCameraInfo(s.name, cameraShakeAniPref));
+        cameraPivot.SetParent(lastCamEffect);
+        Destroy(cameraAniPref.gameObject);
+        Destroy(cameraShakeAniPref.gameObject);
+    }
+    public Animator AddCameraInfo(string name,Animator pref)
+    {
+        Animator ani = Instantiate(pref, lastCamEffect);
+        lastCamEffect = ani.transform;
+        ani.name = name;
+        return ani;
+    }
+    public Animator GetCameraInfo(string name, bool shake)
+    {
+        Animator ani = null;
+        if (shake)
+        {
+            foreach (Animator cam in cameraShakeAni)
+                if (cam.name == name)
+                    ani = cam;
+        }
+        else
+            foreach (Animator cam in cameraAni)
+                if (cam.name == name)
+                    ani = cam;
+        return ani;
     }
 
     void FixedUpdate()
     {
+        if (Time.timeSinceLevelLoad >= 1.2f & !playedSFX)
+        {
+            playedSFX = true;
+            if (startSFX)
+                FXManager.SpawnSFX(startSFX, transform.position, 10, 8, 0.6f);
+        }
         // Get movement input
         Vector3 forward = Camera.main.transform.forward;
         Vector3 right = Camera.main.transform.right;
@@ -126,7 +200,7 @@ public class PlayerMechController : MonoBehaviour
         float lookVertical = lookInput.y;
         if (lookVertical != 0)
             looking = true;
-        if (Time.time < 1)
+        if (Time.fixedTime < 1)
         {
             lookHorizontal = 0;
             lookVertical = 0;
@@ -143,17 +217,34 @@ public class PlayerMechController : MonoBehaviour
         {
             // Move the GameObject
             rigi.AddForce(movement * moveSpeed);
+            bool movingUp = false;
+            if (movementInput.y > 0 & CheckVault(transform.TransformDirection(Vector3.forward), 8))
+                movingUp = true;
+            if (movementInput.y < 0 & CheckVault(-transform.TransformDirection(Vector3.forward), 8))
+                movingUp = true;
+            if (movementInput.x > 0 & CheckVault(transform.TransformDirection(Vector3.right), 7))
+                movingUp = true;
+            if (movementInput.x < 0 & CheckVault(-transform.TransformDirection(Vector3.right), 7))
+                movingUp = true;
+            if (movingUp)
+                rigi.AddForce(transform.up * vaultForce);
 
             // Checks if moving for the camera bob
             if (movement.magnitude > 0)
             {
-                if(Time.time >= lastWalkTime + walkFrequency)
+                if (Time.time >= lastWalkTime + walkFrequency)
                 {
                     lastWalkTime = Time.time;
                     if (walkingSFX.Length > 0)
                         FXManager.SpawnSFX(walkingSFX[Random.Range(0, walkingSFX.Length - 1)], transform.position, 50, 5);
                     if (!stunned)
-                        cameraShakeAni.CrossFadeInFixedTime("Walk", 0.1f);  
+                        GetCameraInfo("Walk", true).CrossFadeInFixedTime("Walk", 0.1f);
+                    if (walksVFX.Length > 0)
+                        FXManager.SpawnVFX(walksVFX[Random.Range(0, walksVFX.Length - 1)], feet[currentFoot].transform.position, new Vector3(-90, 0, 0), null, 5, false, 0.7f);
+                    if (currentFoot == 0)
+                        currentFoot = 1;
+                    else
+                        currentFoot = 0;
                 }
                 StartHeadbob();
             }
@@ -170,25 +261,28 @@ public class PlayerMechController : MonoBehaviour
             lastWalkTime = Time.time;
         if (looking)
         {
-            if (Time.time >= lastLookTime + lookFrequency)
+            if (Time.fixedTime >= lastLookTime + lookFrequency)
             {
-                lastLookTime = Time.time;
+                lastLookTime = Time.fixedTime;
                 if (lookSFX.Length > 0)
-                    FXManager.SpawnSFX(lookSFX[Random.Range(0, lookSFX.Length - 1)], transform.position, 10, 5);
+                    FXManager.SpawnSFX(lookSFX[Random.Range(0, lookSFX.Length - 1)], transform.position, 10, 5, 0.1f);
             }
         }
         else
-            lastLookTime = Time.time;
+            lastLookTime = 0;
         StopHeadbob();
     }
 
     void Update()
     {
         // This checks if on the ground Camera.main.transform.parent
+        bool air = false;
         if (feetScript.ground.Count > 0)
         {
             grounded = true;
-            rigi.drag = drag;
+            if (jumping == 0)
+                air = true;
+            lightningStruckFall = false;
             if (wasGrounded)
                 airTime = Time.time;
         }
@@ -196,8 +290,20 @@ public class PlayerMechController : MonoBehaviour
         {
             // This determines how long you are in the air for for fall damage or a bigger landing effect
             grounded = false;
-            rigi.drag = playerFallSpeed;
         }
+        if (air)
+        {
+            rigi.mass = mass;
+            rigi.drag = drag;
+        }
+        else
+        {
+            rigi.mass = playerFallMass;
+            rigi.drag = playerFallDrag;
+        }
+        if (GameManager.me)
+            if (transform.position.y <= killHeight & !GameManager.me.over)
+                GameManager.me.FailObjective();
 
         // This is for the warning lights in the cockpit
         if (warningLightning || dangerLightning)
@@ -244,38 +350,43 @@ public class PlayerMechController : MonoBehaviour
         }
 
         // This calls the landing sequence
-        if (Time.time > 0.5f & grounded & !wasGrounded || stunned)
+        if (Time.timeSinceLevelLoad > 0.5f & grounded & !wasGrounded || stunned)
         {
             if (Time.time >= airTime + landingForces[0] || stunned)
             {
-                if (!jumpAni)
+                bool p = false;
+                if (!stunned & !jumpAni)
                 {
+                    lightningStruckFall = false;
+                    GetCameraInfo("Land", true).CrossFadeInFixedTime("Land", 0.1f);
                     jumpAni = true;
+                    p = true;
                     landedTime = Time.time;
-                    if (!stunned)
-                    {
-                        cameraShakeAni.CrossFadeInFixedTime("Land", 0.1f);
-                        // For Squishing Bugs
-                        foreach (Bug bug in FindObjectsOfType<Bug>())
-                            if (Vector3.Distance(transform.position, bug.transform.position) <= landingDamageAreaEffect)
-                                bug.Kill();
-                        if (landingSFX.Length > 0)
-                            FXManager.SpawnSFX(landingSFX[Random.Range(0, landingSFX.Length - 1)], transform.position, 100, 5);
-                        if (landingVFX)
-                            FXManager.SpawnVFX(landingVFX, feetScript.transform.position, transform.eulerAngles, 15);
-                    }
-                    else
-                    {
-                        cameraShakeAni.CrossFadeInFixedTime("Lightning", 0.1f);
-                        landedTime = Time.time + 2.3f;
-                    }
+                    // For Squishing Bugs
+                    foreach (Bug bug in FindObjectsOfType<Bug>())
+                        if (Vector3.Distance(transform.position, bug.transform.position) <= landingDamageAreaEffect)
+                            bug.Kill();
+                    if (landingSFX.Length > 0)
+                        FXManager.SpawnSFX(landingSFX[Random.Range(0, landingSFX.Length - 1)], transform.position, 100, 5);
+                    if (landingVFX)
+                        FXManager.SpawnVFX(landingVFX, feetScript.transform.position, transform.eulerAngles, null, 15);
+                }
+                else if (!stunnedAni)
+                {
+                    GetCameraInfo("Lightning", true).CrossFadeInFixedTime("Lightning", 0.1f);
+                    stunnedAni = true;
+                    p = true;
+                    landedTime = Time.time + 2.3f;
+                }
+                if (p)
+                {
                     string landAni = "Land";
                     if (Time.time >= airTime + landingForces[1])
                     {
                         landedTime = Time.time;
                         landAni = "Land";
                     }
-                    cameraAni.CrossFadeInFixedTime(landAni, 0.1f);
+                    GetCameraInfo("Land", false).CrossFadeInFixedTime(landAni, 0.1f);
                 }
             }
             else
@@ -287,6 +398,7 @@ public class PlayerMechController : MonoBehaviour
         if (Time.time >= landedTime + landingTime)
         {
             jumpAni = false;
+            stunnedAni = false;
             dangerLightning = false;
             landedTime = 0;
         }
@@ -302,6 +414,13 @@ public class PlayerMechController : MonoBehaviour
             else
                 Camera.main.transform.parent.parent.localPosition = Vector3.Lerp(Camera.main.transform.parent.parent.localPosition, new Vector3(0, 0, 0), 0.01f);
         }
+    }
+
+    public bool CheckVault(Vector3 direction, float range)
+    {
+        bool bottom = Physics.Raycast(vaultPos[0].transform.position, direction, range);
+        bool top = Physics.Raycast(vaultPos[1].transform.position, direction, range + 9);
+        return bottom & !top;
     }
 
     // Starts the camera headbob
@@ -326,20 +445,21 @@ public class PlayerMechController : MonoBehaviour
         stunned = true;
         if (lightning)
             dangerLightning = true;
+        lightningStruckFall = true;
         if (downSFX.Length > 0)
             FXManager.SpawnSFX(downSFX[Random.Range(0, downSFX.Length - 1)], transform.position, 10, 5, 0.3f);
     }
 
     public void FireWeapon()
     {
-        cameraShakeAni.CrossFadeInFixedTime("Cannon", 0.1f);
+        GetCameraInfo("Cannon", true).CrossFadeInFixedTime("Cannon", 0.1f);
     }
     public void FireMiningLazer(bool hit)
     {
         if (hit)
-            cameraShakeAni.CrossFadeInFixedTime("Mining_Lazer_Hit", 0.1f);
+            GetCameraInfo("Mining_Lazer_Hit", true).CrossFadeInFixedTime("Mining_Lazer_Hit", 0.1f);
         else
-            cameraShakeAni.CrossFadeInFixedTime("Mining_Lazer", 0.1f);
+            GetCameraInfo("Mining_Lazer", true).CrossFadeInFixedTime("Mining_Lazer", 0.1f);
     }
     public void OnMove(InputAction.CallbackContext context)
     {
@@ -356,12 +476,15 @@ public class PlayerMechController : MonoBehaviour
     public IEnumerator WaitJump()
     {
         jumping = 1;
-        cameraAni.CrossFadeInFixedTime("Jump", 0.1f);
+        rigi.mass = playerFallMass;
+        GetCameraInfo("Jump", false).CrossFadeInFixedTime("Jump", 0.1f);
         yield return new WaitForSeconds(jumpSpeed);
         rigi.AddForce(Vector3.up * jumpHeight);
         rigi.AddForce(Camera.main.transform.forward * jumpForward);
+        lightningStruckFall = false;
         if (jumpingSFX.Length > 0)
             FXManager.SpawnSFX(jumpingSFX[Random.Range(0, jumpingSFX.Length - 1)], transform.position, 50, 5);
+      //  yield return new WaitForSeconds(0.1f);
         jumping = 0;
     }
 
