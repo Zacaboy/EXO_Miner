@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using Unity.VisualScripting;
 
 public class Mining_UI : MonoBehaviour
 {
@@ -10,15 +11,19 @@ public class Mining_UI : MonoBehaviour
     public CanvasGroup ui;
     public Image health;
     public Image healthAfter;
+
     [HideInInspector] public Mining_Lazer lazer;
     [HideInInspector] public float healthAmount;
+    Animator ani;
     float lastMoveTime;
+    float lastFlashTime;
     Ore previousOre;
 
     // Start is called before the first frame update
     void Start()
     {
         me = this;
+        ani = GetComponent<Animator>();
         lazer = FindObjectOfType<Mining_Lazer>();
         ui.alpha = 0;
     }
@@ -57,5 +62,12 @@ public class Mining_UI : MonoBehaviour
             }
         }
         previousOre = lazer.currentOre;
+    }
+
+    public void Flash()
+    {
+        if (Time.fixedTime < lastFlashTime + 0.35f) return;
+        lastFlashTime = Time.fixedTime;
+        ani.CrossFadeInFixedTime("Flash", 0.1f);
     }
 }

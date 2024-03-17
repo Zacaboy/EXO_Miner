@@ -4,6 +4,7 @@ using UnityEngine.InputSystem;
 
 public class Mining_Lazer : MonoBehaviour
 {
+    [Header("Stats")]
     public float range = 18;
     public float mineRate = 0.1f;
     public float mineDamage = 25;
@@ -13,11 +14,14 @@ public class Mining_Lazer : MonoBehaviour
     public float lazerSFXRate = 0.49f;
     public float mineSFXRate = 0.18f;
     public Color[] lazerColours;
-    [HideInInspector] public bool isFiring;
     public bool showDebug;
+
+    [Header("Components")]
     public Renderer lazerR;
     public Transform muzzle;
     public Transform pivot;
+
+    [Header("Effects")]
     public ParticleSystem lazerVFX;
     public ParticleSystem lazerHitVFX;
     public Transform decal;
@@ -25,11 +29,14 @@ public class Mining_Lazer : MonoBehaviour
     public AudioClip lazerHitSFX;
     public AudioClip lazerStopSFX;
     public Light triggerLight;
+    public Animator ani;
+
     List<Light> m_Lights = new List<Light>();
     [HideInInspector] public Transform currentObject;
     [HideInInspector] public Ore currentOre;
     [HideInInspector] public float lastMineTime;
     public int heat;
+    [HideInInspector] public bool isFiring;
     float lastHeatChange;
     float lastMineSFX;
     float lastHitSFX;
@@ -115,6 +122,7 @@ public class Mining_Lazer : MonoBehaviour
             {
                 if (showDebug)
                     Debug.DrawRay(muzzle.position, muzzle.TransformDirection(Vector3.forward) * range, Color.green, 1);
+                ani.SetInteger("State", 2);
                 currentOre = currentObject.GetComponent<Ore>();
                 if (currentOre)
                     if (currentOre.health <= 0)
@@ -124,6 +132,7 @@ public class Mining_Lazer : MonoBehaviour
             {
                 if (showDebug)
                     Debug.DrawRay(muzzle.position, muzzle.TransformDirection(Vector3.forward) * range, Color.red, 1);
+                ani.SetInteger("State", 1);
                 currentOre = null;
             }
             if (currentObject)
@@ -145,6 +154,8 @@ public class Mining_Lazer : MonoBehaviour
                     FXManager.SpawnVFX(currentOre.mineVFX, hit.point, hit.point, null, 5, true);
                 if (Time.fixedTime >= lastMineTime + mineRate)
                 {
+                    if (Mining_UI.me)
+                        Mining_UI.me.Flash();
                     lastMineTime = Time.fixedTime;
                     currentOre.Mine(mineDamage);
                 }
@@ -156,6 +167,7 @@ public class Mining_Lazer : MonoBehaviour
         {
             if (lazerVFX)
                 lazerVFX.Stop();
+            ani.SetInteger("State", 0);
             triggerLight.intensity = Mathf.Lerp(triggerLight.intensity, 0, 0.2f);
             lazerR.transform.parent.localScale = Vector3.Lerp(lazerR.transform.parent.localScale, new Vector3(0, 0, 0), lazerOutSpeed);
             currentObject = null;
