@@ -7,7 +7,7 @@ using UnityEngine;
 public class OreType
 {
     public string name;
-    public int amountRequired = 5;
+    public int amountRequired;
     public bool essential = true;
     [HideInInspector] public int currentAmount;
 }
@@ -23,20 +23,29 @@ public class ResourceTracker : MonoBehaviour
     {
         me = this;
         foreach (OreType type in oreTypes)
+            if (type.amountRequired == 0)
+                foreach (Ore ore in FindObjectsOfType<Ore>())
+                    if (ore.resourceType == type.name)
+                        type.amountRequired += 1;
+        foreach (OreType type in oreTypes)
+            type.amountRequired = type.amountRequired /= 2;
+        foreach (OreType type in oreTypes)
             if (type.essential)
                 neededOres.Add(type);
             else
                 extraOres.Add(type);
     }
 
-    public void AddResource(string name)
+    public void AddResource(string name, int amount)
     {
         foreach (OreType type in neededOres)
             if (type.name == name)
-                type.currentAmount += 1;
+                type.currentAmount += amount;
         foreach (OreType type in extraOres)
             if (type.name == name)
-                type.currentAmount += 1;
+                type.currentAmount += amount;
+        if (ResourceUI.me)
+            ResourceUI.me.AddResource(name, amount);
         CheckIfCompleted();
     }
 

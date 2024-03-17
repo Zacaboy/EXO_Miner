@@ -363,9 +363,9 @@ public class PlayerMechController : MonoBehaviour
                     p = true;
                     landedTime = Time.time;
                     // For Squishing Bugs
-                    foreach (Bug bug in FindObjectsOfType<Bug>())
-                        if (Vector3.Distance(transform.position, bug.transform.position) <= landingDamageAreaEffect)
-                            bug.Kill();
+                    foreach (Health enemyHealth in FindObjectsOfType<Health>())
+                        if (Vector3.Distance(transform.position, enemyHealth.transform.position) <= landingDamageAreaEffect)
+                            enemyHealth.Damage((int)landingDamageAreaEffect);
                     if (landingSFX.Length > 0)
                         FXManager.SpawnSFX(landingSFX[Random.Range(0, landingSFX.Length - 1)], transform.position, 100, 5);
                     if (landingVFX)

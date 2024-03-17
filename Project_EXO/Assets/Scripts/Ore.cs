@@ -6,6 +6,7 @@ public class Ore : MonoBehaviour
 {
     public float maxHealth = 100;
     public string resourceType;
+    public int amount = 1;
     public ParticleSystem mineVFX;
     public AudioClip mineSFX;
     public ParticleSystem destroyVFX;
@@ -51,7 +52,7 @@ public class Ore : MonoBehaviour
             if (Mining_UI.me)
                 Mining_UI.me.healthAmount = 0;
             if (ResourceTracker.me)
-                ResourceTracker.me.AddResource(resourceType);
+                ResourceTracker.me.AddResource(resourceType, amount);
             Destroy(gameObject, 5);
         }
         else

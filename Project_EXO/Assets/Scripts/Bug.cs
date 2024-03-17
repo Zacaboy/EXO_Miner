@@ -4,10 +4,14 @@ using UnityEngine;
 
 public class Bug : MonoBehaviour
 {
+    [HideInInspector] public Health health;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        health = GetComponent<Health>();
+        health.damageEvent.AddListener(Damage);
+        health.deathEvent.AddListener(Kill);
     }
 
     // Update is called once per frame
@@ -16,10 +20,9 @@ public class Bug : MonoBehaviour
         
     }
 
-    public void OnCollisionEnter(Collision collision)
+    public void Damage()
     {
-        if (collision.transform.tag == "Player Legs")
-            Kill();
+
     }
 
     public void Kill()
