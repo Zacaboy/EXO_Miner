@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5462015443981047682}
   - component: {fileID: 4784869664976756951}
   m_Layer: 0
-  m_Name: Resource
+  m_Name: Niobium
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -63,7 +63,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 119657bdac630fb45bbd9feec2406a53, type: 2}
+  - {fileID: 2100000, guid: c1d4bb629ae529f45b82a0880d159257, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -121,13 +121,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
-  resourceType: Iron
+  resourceType: Niobium
   mineVFX: {fileID: 1419990315164436307, guid: 36164469864dba64580148557e0c0c80, type: 3}
   mineSFX: {fileID: 8300000, guid: 48a17a459a0fff441aea4f001becfe0a, type: 3}
   destroyVFX: {fileID: 1419990315164436307, guid: 740220e2c5728d44f8b755ca15e4ccc4,
     type: 3}
   destroySFX: {fileID: 8300000, guid: 5cc2f76f984eae9409b914e6585a74b1, type: 3}
-  icon: {fileID: 21300000, guid: cc04ff54c11265146875176379dd9469, type: 3}
+  icon: {fileID: 21300000, guid: 8d2cb435ee235564184009cacbeaba56, type: 3}
   health: 0
   spawnEffectTime: 4
   pause: 3

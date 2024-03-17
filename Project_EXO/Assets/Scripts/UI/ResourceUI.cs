@@ -3,6 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System;
+
+[Serializable]
+public class ResourcesFeedback
+{
+    public TextMeshProUGUI text;
+    public int amount;
+    public float currentAmount;
+    public float startTime;
+}
 
 public class ResourceUI : MonoBehaviour
 {
@@ -23,6 +33,7 @@ public class ResourceUI : MonoBehaviour
     CanvasGroup canvas;
     [HideInInspector] public List<TextMeshProUGUI> needed = new List<TextMeshProUGUI>();
     [HideInInspector] public List<TextMeshProUGUI> extra = new List<TextMeshProUGUI>();
+    [SerializeField] List<ResourcesFeedback> feedback = new List<ResourcesFeedback>();
     float spawnTime;
     float timerFloat;
 
@@ -65,12 +76,14 @@ public class ResourceUI : MonoBehaviour
             {
                 TextMeshProUGUI text = Instantiate(essentialOrePref, essentialOrePref.transform.parent);
                 text.gameObject.SetActive(true);
+                text.name = ore.name;
                 needed.Add(text);
             }
             foreach (OreType ore in FindObjectOfType<ResourceTracker>().extraOres)
             {
                 TextMeshProUGUI text = Instantiate(extraOrePref, extraOrePref.transform.parent);
                 text.gameObject.SetActive(true);
+                text.name = ore.name;
                 extra.Add(text);
             }
         }
@@ -101,7 +114,7 @@ public class ResourceUI : MonoBehaviour
             essentialPanel.alpha = Mathf.Lerp(essentialPanel.alpha, 1, 0.005f);
         if (ResourceTracker.me & Time.timeSinceLevelLoad >= spawnTime + 1.8f)
             extraPanel.alpha = Mathf.Lerp(extraPanel.alpha, 1, 0.005f);
-        if (ResourceTracker.me & Time.timeSinceLevelLoad >= spawnTime + 2)
+        if (ResourceTracker.me & Time.timeSinceLevelLoad >= spawnTime + 2.1f)
         {
             if (ResourceTracker.me.oreTypes.Count > 0)
             {
@@ -122,7 +135,31 @@ public class ResourceUI : MonoBehaviour
             else
                 resourcePanel.alpha = Mathf.Lerp(resourcePanel.alpha, 0, 0.1f);
         }
-        canvas.alpha = Mathf.Lerp(resourcePanel.alpha, 1, 0.5f);
+        canvas.alpha = Mathf.Lerp(resourcePanel.alpha, 1, 0.2f);
+        foreach (ResourcesFeedback feed in feedback)
+        {
+            if (Time.time >= feed.startTime + 0.06f)
+                feed.currentAmount = Mathf.Lerp(feed.currentAmount, feed.amount, 0.01f);
+            feed.text.text = "+ " + Mathf.Round(feed.currentAmount).ToString();
+            if (feed.currentAmount >= feed.amount)
+                feedback.Remove(feed);
+        }
+    }
+
+    public void AddResource(string name, int amount)
+    {
+        foreach (TextMeshProUGUI text in needed)
+            if (text.name == name)
+            {
+                text.GetComponent<Animator>().CrossFadeInFixedTime("Flash", 0.1f);
+                feedback.Add(new ResourcesFeedback() { text = text.transform.GetChild(0).GetComponent<TextMeshProUGUI>(), amount = amount, startTime = Time.time });
+            }
+        foreach (TextMeshProUGUI text in extra)
+            if (text.name == name)
+            {
+                text.GetComponent<Animator>().CrossFadeInFixedTime("Flash", 0.1f);
+                feedback.Add(new ResourcesFeedback() { text = text.transform.GetChild(0).GetComponent<TextMeshProUGUI>(), amount = amount, startTime = Time.time });
+            }
     }
 
     public void Win()

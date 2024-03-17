@@ -139,6 +139,7 @@ GameObject:
   - component: {fileID: 7985028149072869151}
   - component: {fileID: 8442551053599018780}
   - component: {fileID: 5141555356877270367}
+  - component: {fileID: 1910235829944191874}
   m_Layer: 5
   m_Name: UI
   m_TagString: Untagged
@@ -244,8 +245,30 @@ MonoBehaviour:
   ui: {fileID: 2861448962813737977}
   health: {fileID: 4806139039758766075}
   healthAfter: {fileID: 5821395014217982848}
+  ani: {fileID: 0}
   lazer: {fileID: 0}
   healthAmount: 0
+--- !u!95 &1910235829944191874
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4552234943837439487}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 7cbb512c073b4a04f8ff82ba2e0a2f4f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &7825529798506266566
 GameObject:
   m_ObjectHideFlags: 0

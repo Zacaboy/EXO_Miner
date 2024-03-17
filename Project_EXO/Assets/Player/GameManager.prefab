@@ -71,11 +71,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   oreTypes:
   - name: Iron
-    amountRequired: 5
+    amountRequired: 0
     essential: 1
     currentAmount: 0
-  - name: Fibre
-    amountRequired: 10
+  - name: Dysprosium
+    amountRequired: 0
+    essential: 1
+    currentAmount: 0
+  - name: Neodymium
+    amountRequired: 0
+    essential: 1
+    currentAmount: 0
+  - name: Niobium
+    amountRequired: 0
+    essential: 1
+    currentAmount: 0
+  - name: Verglas Shards
+    amountRequired: 0
+    essential: 0
+    currentAmount: 0
+  - name: Sulphur
+    amountRequired: 0
     essential: 0
     currentAmount: 0
   neededOres: []

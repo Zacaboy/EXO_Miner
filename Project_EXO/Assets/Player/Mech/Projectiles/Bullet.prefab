@@ -73,6 +73,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8206b0172465e24409fbea8caa97187d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 15
+  areaOfEffect: 8
   vfx: {fileID: 198917022394846920, guid: 54bf4638f88445f4b93d57b9a51cc871, type: 3}
   sfx: {fileID: 8300000, guid: 61bb02fb9ea0d49428846aeda78245cc, type: 3}
 --- !u!1 &8055986535750896137
