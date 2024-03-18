@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8510810770535183307}
   - component: {fileID: 6353532544747513494}
   - component: {fileID: 5462015443981047682}
+  - component: {fileID: 52223888570259667}
   - component: {fileID: 4784869664976756951}
   m_Layer: 0
   m_Name: Iron
@@ -108,6 +109,40 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+--- !u!114 &52223888570259667
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 872916322113918914}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a16f94c7ed9f0fe4e946eaf5a66dc391, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  immuneToLazer: 1
+  objectiveName: 
+  objective:
+    name: 
+    type: 0
+    requiredProgress: 15
+    showProgress: 1
+    group: {fileID: 0}
+    targets: []
+    nextObjective: []
+    progress: 0
+    completed: 0
+    failed: 0
+  health: 0
+  dead: 0
+  damageEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  deathEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &4784869664976756951
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -122,6 +157,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   resourceType: Iron
+  amount: 1
   mineVFX: {fileID: 1419990315164436307, guid: 36164469864dba64580148557e0c0c80, type: 3}
   mineSFX: {fileID: 8300000, guid: 48a17a459a0fff441aea4f001becfe0a, type: 3}
   destroyVFX: {fileID: 1419990315164436307, guid: 740220e2c5728d44f8b755ca15e4ccc4,
@@ -159,3 +195,4 @@ MonoBehaviour:
     m_RotationOrder: 4
   destroyFadeVFX: {fileID: 658887652791092909, guid: 2716e0f0b56412547a9bae63b33b26be,
     type: 3}
+  healthScript: {fileID: 0}

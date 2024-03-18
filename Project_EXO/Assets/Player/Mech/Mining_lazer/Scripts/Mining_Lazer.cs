@@ -8,6 +8,7 @@ public class Mining_Lazer : MonoBehaviour
     public float range = 18;
     public float mineRate = 0.1f;
     public float mineDamage = 25;
+    public int attackDamage = 5;
     public float lazerInSpeed = 0.4f;
     public float lazerOutSpeed = 0.5f;
     public float heatChangeRate = 0.5f;
@@ -15,6 +16,7 @@ public class Mining_Lazer : MonoBehaviour
     public float mineSFXRate = 0.18f;
     public Color[] lazerColours;
     public bool showDebug;
+    public LayerMask mask;
 
     [Header("Components")]
     public Renderer lazerR;
@@ -86,6 +88,7 @@ public class Mining_Lazer : MonoBehaviour
             if (lazerVFX)
                 lazerVFX.Play();
             int shake = 0;
+            bool spawnDecal = false;
             if (Time.fixedTime >= lastMineSFX + lazerSFXRate)
             {
                 lastMineSFX = Time.fixedTime;
@@ -98,20 +101,13 @@ public class Mining_Lazer : MonoBehaviour
             else
                 triggerLight.intensity = Mathf.Lerp(triggerLight.intensity, 0, 0.2f);
             RaycastHit hit;
-            if (Physics.Raycast(muzzle.position, muzzle.TransformDirection(Vector3.forward), out hit, range))
+            if (Physics.Raycast(muzzle.position, muzzle.TransformDirection(Vector3.forward), out hit, range, mask))
             {
                 currentObject = hit.transform;
                 lazerR.transform.parent.localScale = Vector3.Lerp(lazerR.transform.parent.localScale, new Vector3(1, hit.distance, 1), lazerInSpeed);
                 if (lazerR.transform.parent.localScale.y > hit.distance)
                     lazerR.transform.parent.localScale = new Vector3(1, hit.distance, 1);
-                if (decal & Time.fixedTime >= lastHitSFX + (mineSFXRate - 0.4f))
-                {
-                    Transform newDecal = Instantiate(decal);
-                    newDecal.position = hit.point + hit.normal * 0.0001f;
-                    newDecal.rotation = Quaternion.LookRotation(-hit.normal);
-                    newDecal.SetParent(hit.transform);
-                    Destroy(newDecal.gameObject, 15);
-                }
+                spawnDecal = true;
             }
             else
             {
@@ -147,21 +143,42 @@ public class Mining_Lazer : MonoBehaviour
                         FXManager.SpawnSFX(lazerHitSFX, hit.point, 100, 5);
                 }
             }
-            if (currentOre & lazerR.transform.parent.localScale.magnitude >= 0.9f)
+            if (currentObject & lazerR.transform.parent.localScale.magnitude >= 0.9f)
             {
                 lazerR.material.color = Color.red;
-                if (currentOre.mineVFX)
-                    FXManager.SpawnVFX(currentOre.mineVFX, hit.point, hit.point, null, 5, true);
-                if (Time.fixedTime >= lastMineTime + mineRate)
+                Health objecthealth = currentObject.GetComponentInChildren<Health>();
+                if (!objecthealth)
+                    objecthealth = currentObject.GetComponentInParent<Health>();
+                if (currentOre)
                 {
-                    if (Mining_UI.me)
-                        Mining_UI.me.Flash();
-                    lastMineTime = Time.fixedTime;
-                    currentOre.Mine(mineDamage);
+                    if (currentOre.health > 0)
+                    {
+                        if (currentOre.mineVFX)
+                            FXManager.SpawnVFX(currentOre.mineVFX, hit.point, hit.point, null, 5, true);
+                        if (Time.fixedTime >= lastMineTime + mineRate)
+                        {
+                            if (Mining_UI.me)
+                                Mining_UI.me.Flash();
+                            lastMineTime = Time.fixedTime;
+                            currentOre.Mine(mineDamage, true);
+                        }
+                    }
+                    else
+                        spawnDecal = false;
                 }
+                else if (objecthealth)
+                    objecthealth.Damage(attackDamage);
             }
             if(shake > 0)
                 GetComponentInParent<PlayerMechController>().FireMiningLazer(shake == 2);
+            if (decal & Time.fixedTime >= lastHitSFX + (mineSFXRate - 0.4f) & spawnDecal)
+            {
+                Transform newDecal = Instantiate(decal);
+                newDecal.position = hit.point + hit.normal * 0.0001f;
+                newDecal.rotation = Quaternion.LookRotation(-hit.normal);
+                newDecal.name = decal.name;
+                newDecal.SetParent(hit.transform);
+            }
         }
         else
         {

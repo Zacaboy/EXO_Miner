@@ -11,7 +11,13 @@ public class GameManager : MonoBehaviour
     [Header("Effects")]
     public UIMessageScript startEffect;
     public UIMessageScript endEffect;
+    public UIMessageScript winUI;
+    public UIMessageScript failUI;
 
+    [Header("Other")]
+    public AnimationCurve fadeIn;
+
+    [HideInInspector] public Vector3 startPos;
     [HideInInspector] public UnityEvent completeEvent;
     [HideInInspector] public UnityEvent failEvent;
     [HideInInspector] public bool over;
@@ -24,6 +30,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        startPos = PlayerMechController.me.transform.position;
         UIMessageScript effect = Instantiate(startEffect);
     }
 
@@ -31,6 +38,7 @@ public class GameManager : MonoBehaviour
     {
         if (over) return;
         over = true;
+        UIMessageScript ui = Instantiate(winUI);
         completeEvent.Invoke();
         StartCoroutine(WaitFinish(2));
     }
@@ -39,6 +47,7 @@ public class GameManager : MonoBehaviour
     {
         if (over) return;
         over = true;
+        UIMessageScript ui = Instantiate(failUI);
         failEvent.Invoke();
         StartCoroutine(WaitFinish(1));
     }
