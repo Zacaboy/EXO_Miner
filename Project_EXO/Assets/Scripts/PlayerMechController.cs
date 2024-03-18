@@ -107,9 +107,13 @@ public class PlayerMechController : MonoBehaviour
     float lastLightningTime;
     bool playedSFX;
 
-    void Start()
+    private void Awake()
     {
         me = this;
+    }
+
+    void Start()
+    {
         rigi = GetComponent<Rigidbody>();
         mass = rigi.mass;
         drag = rigi.drag;

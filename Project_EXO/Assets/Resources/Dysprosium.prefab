@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 21588133388765367}
   - component: {fileID: 2742185280965671464}
   - component: {fileID: 4987055549561737392}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Dysprosium
   m_TagString: Untagged
   m_Icon: {fileID: 0}
