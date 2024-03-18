@@ -9893,7 +9893,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 8.14e-43, y: 7.1e-44, z: 0, w: -2.8168343e-36}
+  m_BoundingSphereOverride: {x: 1.02e-43, y: 6e-45, z: 1.0437e-41, w: 2.3339558e+30}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
@@ -10051,22 +10051,22 @@ PrefabInstance:
     - target: {fileID: 198603562046773920, guid: 378b2c30ef426554495292cb902cb8f4,
         type: 3}
       propertyPath: InitialModule.startColor.maxColor.a
-      value: 0.07058824
+      value: 0.007843138
       objectReference: {fileID: 0}
     - target: {fileID: 198603562046773920, guid: 378b2c30ef426554495292cb902cb8f4,
         type: 3}
       propertyPath: InitialModule.startColor.maxColor.b
-      value: 0.22012573
+      value: 0.2275424
       objectReference: {fileID: 0}
     - target: {fileID: 198603562046773920, guid: 378b2c30ef426554495292cb902cb8f4,
         type: 3}
       propertyPath: InitialModule.startColor.maxColor.g
-      value: 0.22012573
+      value: 0.2275424
       objectReference: {fileID: 0}
     - target: {fileID: 198603562046773920, guid: 378b2c30ef426554495292cb902cb8f4,
         type: 3}
       propertyPath: InitialModule.startColor.maxColor.r
-      value: 0.22012573
+      value: 0.24528301
       objectReference: {fileID: 0}
     - target: {fileID: 199185188785216948, guid: 378b2c30ef426554495292cb902cb8f4,
         type: 3}

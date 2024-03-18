@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1738261529573381743}
   - component: {fileID: 3934511506452468883}
   - component: {fileID: 7381327046279716571}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -129,9 +129,9 @@ GameObject:
   - component: {fileID: 8652358401405093412}
   - component: {fileID: 3757323145318228390}
   - component: {fileID: 7633418274636832085}
-  - component: {fileID: 1869939763308693811}
+  - component: {fileID: 5667594130018123454}
   - component: {fileID: 6294609713309132248}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Explosive Plant
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -190,6 +190,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 25
+  immuneToLazer: 1
+  objectiveName: 
+  objective:
+    name: 
+    type: 0
+    requiredProgress: 15
+    showProgress: 1
+    destroy: 0
+    group: {fileID: 0}
+    failIfNoTargetsLeft: 1
+    hardFail: 0
+    targets: []
+    nextObjective: []
+    progress: 0
+    completed: 0
+    failed: 0
   health: 0
   dead: 0
   damageEvent:
@@ -198,8 +214,8 @@ MonoBehaviour:
   deathEvent:
     m_PersistentCalls:
       m_Calls: []
---- !u!135 &1869939763308693811
-SphereCollider:
+--- !u!65 &5667594130018123454
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -213,12 +229,12 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 20
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 3, y: 4.701601, z: 3}
+  m_Center: {x: 0, y: 2.3083005, z: 0}
 --- !u!82 &6294609713309132248
 AudioSource:
   m_ObjectHideFlags: 0
@@ -323,9 +339,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8652358401405093412}
     m_Modifications:
+    - target: {fileID: 100000, guid: 5e4f0092c47fe7447a4fa6552f6e24b9, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: 5e4f0092c47fe7447a4fa6552f6e24b9, type: 3}
       propertyPath: m_Name
       value: MARMO LOD 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 5e4f0092c47fe7447a4fa6552f6e24b9, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 5e4f0092c47fe7447a4fa6552f6e24b9, type: 3}
       propertyPath: m_LocalPosition.x
