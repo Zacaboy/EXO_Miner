@@ -7,11 +7,16 @@ public class DayNightCycle : MonoBehaviour
     public GameObject sun;
     public float cycleDurationInMinutes = 120f; // Duration of each cycle in minutes (2 hours)
     private float cycleProgress = 0f; // Current progress of the cycle in seconds
+    public float startingAngle = 0f; // Starting angle of the sun
 
     void Start()
     {
         // Load saved cycle progress if available
         cycleProgress = PlayerPrefs.GetFloat("CycleProgress", 0f);
+
+        // Set the starting angle of the sun
+        SetSunRotation(startingAngle);
+
         UpdateSunPosition();
     }
 
@@ -31,7 +36,7 @@ public class DayNightCycle : MonoBehaviour
     void UpdateSunPosition()
     {
         // Calculate the angle of the sun based on the cycle progress
-        float angle = Mathf.Lerp(-90f, 270f, cycleProgress / (cycleDurationInMinutes * 60f));
+        float angle = Mathf.Lerp(45f, 270f, cycleProgress / (cycleDurationInMinutes * 60f));
 
         // Update sun rotation
         sun.transform.rotation = Quaternion.Euler(angle, 0f, 0f);
@@ -42,5 +47,18 @@ public class DayNightCycle : MonoBehaviour
         // Save cycle progress when the application quits
         PlayerPrefs.SetFloat("CycleProgress", cycleProgress);
         PlayerPrefs.Save();
+    }
+
+    public void SetStartingAngle(float angle)
+    {
+        // Set the starting angle of the sun
+        startingAngle = angle;
+        SetSunRotation(startingAngle);
+    }
+
+    private void SetSunRotation(float angle)
+    {
+        // Set the rotation of the sun GameObject
+        sun.transform.rotation = Quaternion.Euler(startingAngle, 0f, 0f);
     }
 }
