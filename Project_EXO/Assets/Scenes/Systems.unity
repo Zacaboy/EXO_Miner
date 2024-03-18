@@ -125,6 +125,78 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1001 &19158602
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4805463539106460487, guid: 450ebc53b817279458eabe32b3132225,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 503.14017
+      objectReference: {fileID: 0}
+    - target: {fileID: 4805463539106460487, guid: 450ebc53b817279458eabe32b3132225,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 21.51
+      objectReference: {fileID: 0}
+    - target: {fileID: 4805463539106460487, guid: 450ebc53b817279458eabe32b3132225,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 383.6927
+      objectReference: {fileID: 0}
+    - target: {fileID: 4805463539106460487, guid: 450ebc53b817279458eabe32b3132225,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4805463539106460487, guid: 450ebc53b817279458eabe32b3132225,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4805463539106460487, guid: 450ebc53b817279458eabe32b3132225,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4805463539106460487, guid: 450ebc53b817279458eabe32b3132225,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4805463539106460487, guid: 450ebc53b817279458eabe32b3132225,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4805463539106460487, guid: 450ebc53b817279458eabe32b3132225,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 4805463539106460487, guid: 450ebc53b817279458eabe32b3132225,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8516170848169426389, guid: 450ebc53b817279458eabe32b3132225,
+        type: 3}
+      propertyPath: m_Name
+      value: PlayerController (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5383654015203752235, guid: 450ebc53b817279458eabe32b3132225,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+  m_SourcePrefab: {fileID: 100100000, guid: 450ebc53b817279458eabe32b3132225, type: 3}
 --- !u!1 &38097802
 GameObject:
   m_ObjectHideFlags: 0
@@ -493,11 +565,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 580134458}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f0e23cfc5453304fb40fd1cffb16f5a, type: 3}
+  m_Script: {fileID: 11500000, guid: fc7926d250754394a81be5b14fcc852b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   sun: {fileID: 580134458}
-  cycleDurationInMinutes: 60
+  cycleDurationInMinutes: 1
 --- !u!227 &580134463
 BillboardRenderer:
   m_ObjectHideFlags: 0
@@ -700,7 +772,7 @@ TerrainCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_TerrainData: {fileID: 15600000, guid: a4f2107e5c218d1488041a9ead3f9216, type: 2}
+  m_TerrainData: {fileID: 15600000, guid: 217abe380a74b1f4f9ccd315d92a501e, type: 2}
   m_EnableTreeColliders: 1
 --- !u!218 &1463401501
 Terrain:
@@ -711,7 +783,7 @@ Terrain:
   m_GameObject: {fileID: 1463401499}
   m_Enabled: 1
   serializedVersion: 6
-  m_TerrainData: {fileID: 15600000, guid: a4f2107e5c218d1488041a9ead3f9216, type: 2}
+  m_TerrainData: {fileID: 15600000, guid: 217abe380a74b1f4f9ccd315d92a501e, type: 2}
   m_TreeDistance: 5000
   m_TreeBillboardDistance: 50
   m_TreeCrossFadeLength: 5
@@ -1018,7 +1090,6 @@ SceneRoots:
   - {fileID: 1609952628}
   - {fileID: 8243687689446618066}
   - {fileID: 38097803}
-  - {fileID: 1489151099}
-  - {fileID: 2120794048}
   - {fileID: 43344798}
   - {fileID: 903890527}
+  - {fileID: 19158602}
