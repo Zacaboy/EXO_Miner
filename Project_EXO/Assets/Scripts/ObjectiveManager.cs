@@ -74,19 +74,24 @@ public class ObjectiveManager : MonoBehaviour
             if (ObjectiveUI.me)
                 ObjectiveUI.me.AddObjective(objective);
         }
+
         if (objective.group)
         {
             foreach (Health health in objective.group.GetComponentsInChildren<Health>())
                 if (!objective.targets.Contains(health.transform))
                     objective.targets.Add(health.transform);
-            foreach (Transform target in objective.targets)
-                if (target.GetComponent<Health>())
-                {
-                    target.GetComponent<Health>().objectiveName = objective.name;
-                    target.GetComponent<Health>().objective = objective;
-                }
             objective.group.SetActive(true);
         }
+        else if (objective.type == ObjectiveType.CollectResources)
+            foreach (Ore ore in FindObjectsOfType<Ore>())
+                if (!objective.targets.Contains(ore.transform))
+                    objective.targets.Add(ore.transform);
+        foreach (Transform target in objective.targets)
+            if (target.GetComponent<Health>())
+            {
+                target.GetComponent<Health>().objectiveName = objective.name;
+                target.GetComponent<Health>().objective = objective;
+            }
         SwitchObjective(objective.name);
     }
     public void SwitchObjective(string objective)

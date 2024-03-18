@@ -69,6 +69,8 @@ public class BugScript : MonoBehaviour
     {
         FXManager.SpawnVFX(damageVFX, transform.position, transform.eulerAngles, null, 5);
         FXManager.SpawnSFX(damageSFX, transform.position, 15, 5);
+        if (!target)
+            target = PlayerMechController.me.transform;
     }
 
     public void Kill()

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5462015443981047682}
   - component: {fileID: 1735859279901747871}
   - component: {fileID: 4784869664976756951}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Neodymium
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -129,7 +129,10 @@ MonoBehaviour:
     type: 0
     requiredProgress: 15
     showProgress: 1
+    destroy: 0
     group: {fileID: 0}
+    failIfNoTargetsLeft: 0
+    hardFail: 0
     targets: []
     nextObjective: []
     progress: 0
