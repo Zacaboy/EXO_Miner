@@ -8,7 +8,7 @@ public class FeetScript : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
-        if (!ground.Contains(other.transform))
+        if (!ground.Contains(other.transform) & !other.isTrigger)
             ground.Add(other.transform);
     }
     public void OnTriggerExit(Collider other)

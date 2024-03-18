@@ -33,6 +33,8 @@ public class Mining_UI : MonoBehaviour
         if (lazer.currentOre != previousOre)
             if (lazer.currentOre)
             {
+                health.sprite = lazer.currentOre.icon;
+                healthAfter.sprite = lazer.currentOre.icon;
                 healthAmount = lazer.currentOre.health / lazer.currentOre.maxHealth;
                 health.fillAmount = healthAmount;
                 healthAfter.fillAmount = healthAmount;

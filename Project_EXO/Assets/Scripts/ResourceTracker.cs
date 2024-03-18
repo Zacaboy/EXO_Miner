@@ -7,55 +7,35 @@ using UnityEngine;
 public class OreType
 {
     public string name;
-    public int amountRequired;
-    public bool essential = true;
-    [HideInInspector] public int currentAmount;
+    [HideInInspector] public int amount;
 }
 
 public class ResourceTracker : MonoBehaviour
 {
     public static ResourceTracker me;
     [SerializeField] public List<OreType> oreTypes = new List<OreType>();
-    [HideInInspector][SerializeField] public List<OreType> neededOres = new List<OreType>();
-    [HideInInspector][SerializeField] public List<OreType> extraOres = new List<OreType>();
 
     private void Awake()
     {
         me = this;
-        foreach (OreType type in oreTypes)
-            if (type.amountRequired == 0)
-                foreach (Ore ore in FindObjectsOfType<Ore>())
-                    if (ore.resourceType == type.name)
-                        type.amountRequired += 1;
-        foreach (OreType type in oreTypes)
-            type.amountRequired = type.amountRequired /= 2;
-        foreach (OreType type in oreTypes)
-            if (type.essential)
-                neededOres.Add(type);
-            else
-                extraOres.Add(type);
     }
 
     public void AddResource(string name, int amount)
     {
-        foreach (OreType type in neededOres)
+        OreType hasOre = null;
+        foreach (OreType type in oreTypes)
             if (type.name == name)
-                type.currentAmount += amount;
-        foreach (OreType type in extraOres)
-            if (type.name == name)
-                type.currentAmount += amount;
+                hasOre = type;
+        if (hasOre != null)
+            hasOre.amount += amount;
+        else
+        {
+            hasOre = new OreType { name = name, amount = amount };
+            oreTypes.Add(hasOre);
+        }
         if (ResourceUI.me)
-            ResourceUI.me.AddResource(name, amount);
-        CheckIfCompleted();
-    }
-
-    public void CheckIfCompleted()
-    {
-        int aquired = 0;
-        foreach (OreType type in neededOres)
-            if (type.currentAmount >= type.amountRequired)
-                aquired += 1;
-        if (aquired >= neededOres.Count)
-            GameManager.me.CompleteObjective();
+            ResourceUI.me.AddResource(name, amount, hasOre.amount);
+        if (ObjectiveManager.me)
+            ObjectiveManager.me.UpdateType(ObjectiveType.CollectResources, amount);
     }
 }
