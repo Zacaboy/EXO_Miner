@@ -1,0 +1,1604 @@
+newmtl Small_Grid_3511:material_1
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd material_1_ca.png
+map_Ka material_1_ca.png
+Ni 1.00
+Ks 0.10 0.10 0.10
+Ns 95.00
+newmtl Small_Grid_3511:material_3
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd material_2_ca.png
+map_Ka material_2_ca.png
+Ni 1.00
+Ks 0.10 0.10 0.10
+Ns 95.00
+newmtl Small_Grid_3511:material_5
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd material_3_ca.png
+map_Ka material_3_ca.png
+Ni 1.00
+Ks 0.10 0.10 0.10
+Ns 95.00
+newmtl Small_Grid_3511:material_7
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd material_4_ca.png
+map_Ka material_4_ca.png
+Ni 1.00
+Ks 0.10 0.10 0.10
+Ns 95.00
+newmtl Small_Grid_3511:material_9
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd material_5_ca.png
+map_Ka material_5_ca.png
+Ni 1.00
+Ks 0.10 0.10 0.10
+Ns 95.00
+newmtl Small_Grid_3511:material_11
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd material_6_ca.png
+map_Ka material_6_ca.png
+Ni 1.00
+Ks 0.10 0.10 0.10
+Ns 95.00
+newmtl Small_Grid_3511:material_13
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd material_7_ca.png
+map_Ka material_7_ca.png
+Ni 1.00
+Ks 0.10 0.10 0.10
+Ns 95.00
+newmtl Small_Grid_3511:material_15
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd material_8_ca.png
+map_Ka material_8_ca.png
+Ni 1.00
+Ks 0.10 0.10 0.10
+Ns 95.00
+newmtl Small_Grid_3511:material_17
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd material_9_ca.png
+map_Ka material_9_ca.png
+Ni 1.00
+Ks 0.10 0.10 0.10
+Ns 95.00
+newmtl Small_Grid_3511:material_19
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd material_10_ca.png
+map_Ka material_10_ca.png
+Ni 1.00
+Ks 0.10 0.10 0.10
+Ns 95.00
+newmtl Small_Grid_3511:material_21
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd material_11_ca.png
+map_Ka material_11_ca.png
+Ni 1.00
+Ks 0.10 0.10 0.10
+Ns 95.00
+newmtl Small_Grid_3511:material_23
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd material_12_ca.png
+map_Ka material_12_ca.png
+Ni 1.00
+Ks 0.10 0.10 0.10
+Ns 95.00
+newmtl Small_Grid_3511:material_25
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd material_13_ca.png
+map_Ka material_13_ca.png
+Ni 1.00
+Ks 0.10 0.10 0.10
+Ns 95.00
+newmtl Small_Grid_3511:material_27
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd material_14_ca.png
+map_Ka material_14_ca.png
+Ni 1.00
+Ks 0.10 0.10 0.10
+Ns 95.00
+newmtl Small_Grid_3511:material_29
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd material_15_ca.png
+map_Ka material_15_ca.png
+Ni 1.00
+Ks 0.10 0.10 0.10
+Ns 95.00
+newmtl Small_Grid_3511:material_31
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd material_16_ca.png
+map_Ka material_16_ca.png
+Ni 1.00
+Ks 0.10 0.10 0.10
+Ns 95.00
+newmtl Small_Grid_3511:material_33
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 0.00 0.00 0.00
+map_Kd material_17_ca.png
+map_Ka material_17_ca.png
+Ni 1.00
+Ks 0.10 0.10 0.10
+Ns 95.00
+newmtl Small_Grid_3511:material_35
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 0.00 0.00 0.00
+map_Kd material_18_ca.png
+map_Ka material_18_ca.png
+Ni 1.00
+Ks 0.10 0.10 0.10
+Ns 95.00
+newmtl Small_Grid_3511:material_37
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 0.00 0.00 0.00
+map_Kd material_19_ca.png
+map_Ka material_19_ca.png
+Ni 1.00
+Ks 0.10 0.10 0.10
+Ns 95.00
+newmtl Small_Grid_3511:material_39
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 0.00 0.00 0.00
+map_Kd material_20_ca.png
+map_Ka material_20_ca.png
+Ni 1.00
+Ks 0.10 0.10 0.10
+Ns 95.00
+newmtl Small_Grid_3511:material_41
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 0.00 0.00 0.00
+map_Kd material_21_ca.png
+map_Ka material_21_ca.png
+Ni 1.00
+Ks 0.10 0.10 0.10
+Ns 95.00
+newmtl Small_Grid_3511:material_43
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd material_22_ca.png
+map_Ka material_22_ca.png
+Ni 1.00
+Ks 0.10 0.10 0.10
+Ns 95.00
+newmtl Small_Grid_3511:material_45
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd material_23_ca.png
+map_Ka material_23_ca.png
+Ni 1.00
+Ks 0.10 0.10 0.10
+Ns 95.00
+newmtl Small_Grid_3511:material_47
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd material_24_ca.png
+map_Ka material_24_ca.png
+Ni 1.00
+Ks 0.10 0.10 0.10
+Ns 95.00
+newmtl Small_Grid_3511:material_49
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd material_25_ca.png
+map_Ka material_25_ca.png
+Ni 1.00
+Ks 0.10 0.10 0.10
+Ns 95.00
+newmtl Small_Grid_3511:material_51
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd material_26_ca.png
+map_Ka material_26_ca.png
+Ni 1.00
+Ks 0.10 0.10 0.10
+Ns 95.00
+newmtl Small_Grid_3511:material_53
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd material_27_ca.png
+map_Ka material_27_ca.png
+Ni 1.00
+Ks 0.10 0.10 0.10
+Ns 95.00
+newmtl Small_Grid_3511:material_55
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd material_28_ca.png
+map_Ka material_28_ca.png
+Ni 1.00
+Ks 0.10 0.10 0.10
+Ns 95.00
+newmtl Small_Grid_3511:material_57
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd material_29_ca.png
+map_Ka material_29_ca.png
+Ni 1.00
+Ks 0.10 0.10 0.10
+Ns 95.00
+newmtl Small_Grid_3511:material_59
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd material_30_ca.png
+map_Ka material_30_ca.png
+Ni 1.00
+Ks 0.10 0.10 0.10
+Ns 95.00
+newmtl Small_Grid_3511:material_61
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd material_31_ca.png
+map_Ka material_31_ca.png
+Ni 1.00
+Ks 0.10 0.10 0.10
+Ns 95.00
+newmtl Small_Grid_3511:material_63
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 0.00 0.00 0.00
+map_Kd material_32_ca.png
+map_Ka material_32_ca.png
+Ni 1.00
+Ks 0.10 0.10 0.10
+Ns 95.00
+newmtl Small_Grid_3511:material_65
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 0.00 0.00 0.00
+map_Kd material_33_ca.png
+map_Ka material_33_ca.png
+Ni 1.00
+Ks 0.10 0.10 0.10
+Ns 95.00
+newmtl Small_Grid_3511:material_67
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 0.00 0.00 0.00
+map_Kd material_34_ca.png
+map_Ka material_34_ca.png
+Ni 1.00
+Ks 0.10 0.10 0.10
+Ns 95.00
+newmtl Small_Grid_3511:material_69
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 0.00 0.00 0.00
+map_Kd material_35_ca.png
+map_Ka material_35_ca.png
+Ni 1.00
+Ks 0.10 0.10 0.10
+Ns 95.00
+newmtl Small_Grid_3511:material_71
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 0.00 0.00 0.00
+map_Kd material_36_ca.png
+map_Ka material_36_ca.png
+Ni 1.00
+Ks 0.10 0.10 0.10
+Ns 95.00
+newmtl Small_Grid_3511:material_73
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd material_37_ca.png
+map_Ka material_37_ca.png
+Ni 1.00
+Ks 0.10 0.10 0.10
+Ns 95.00
+newmtl Small_Grid_3511:material_75
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd material_38_ca.png
+map_Ka material_38_ca.png
+Ni 1.00
+Ks 0.10 0.10 0.10
+Ns 95.00
+newmtl Small_Grid_3511:material_77
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd material_39_ca.png
+map_Ka material_39_ca.png
+Ni 1.00
+Ks 0.10 0.10 0.10
+Ns 95.00
+newmtl Small_Grid_3511:material_79
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 0.00 0.00 0.00
+map_Kd material_40_ca.png
+map_Ka material_40_ca.png
+Ni 1.00
+Ks 0.10 0.10 0.10
+Ns 95.00
+newmtl Small_Grid_3511:material_81
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 0.00 0.00 0.00
+map_Kd material_41_ca.png
+map_Ka material_41_ca.png
+Ni 1.00
+Ks 0.10 0.10 0.10
+Ns 95.00
+newmtl Small_Grid_3511:material_83
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 0.00 0.00 0.00
+map_Kd material_42_ca.png
+map_Ka material_42_ca.png
+Ni 1.00
+Ks 0.10 0.10 0.10
+Ns 95.00
+newmtl Small_Grid_3511:material_85
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 0.00 0.00 0.00
+map_Kd material_43_ca.png
+map_Ka material_43_ca.png
+Ni 1.00
+Ks 0.10 0.10 0.10
+Ns 95.00
+newmtl Small_Grid_3511:material_87
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 0.00 0.00 0.00
+map_Kd material_44_ca.png
+map_Ka material_44_ca.png
+Ni 1.00
+Ks 0.10 0.10 0.10
+Ns 95.00
+newmtl Small_Grid_3511:material_89
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 0.00 0.00 0.00
+map_Kd material_45_ca.png
+map_Ka material_45_ca.png
+Ni 1.00
+Ks 0.10 0.10 0.10
+Ns 95.00
+newmtl Small_Grid_3511:material_91
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 0.00 0.00 0.00
+map_Kd material_46_ca.png
+map_Ka material_46_ca.png
+Ni 1.00
+Ks 0.10 0.10 0.10
+Ns 95.00
+newmtl Small_Grid_3511:material_93
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd material_47_ca.png
+map_Ka material_47_ca.png
+Ni 1.00
+Ks 0.10 0.10 0.10
+Ns 95.00
+newmtl Small_Grid_3511:material_95
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd material_48_ca.png
+map_Ka material_48_ca.png
+Ni 1.00
+Ks 0.10 0.10 0.10
+Ns 95.00
+newmtl Small_Grid_3511:material_97
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd material_49_ca.png
+map_Ka material_49_ca.png
+Ni 1.00
+Ks 0.10 0.10 0.10
+Ns 95.00
+newmtl Small_Grid_3511:material_99
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd material_50_ca.png
+map_Ka material_50_ca.png
+Ni 1.00
+Ks 0.10 0.10 0.10
+Ns 95.00
+newmtl Small_Grid_3511:material_101
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd material_51_ca.png
+map_Ka material_51_ca.png
+Ni 1.00
+Ks 0.10 0.10 0.10
+Ns 95.00
+newmtl Small_Grid_3511:material_103
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 0.00 0.00 0.00
+map_Kd material_52_ca.png
+map_Ka material_52_ca.png
+Ni 1.00
+Ks 0.10 0.10 0.10
+Ns 95.00
+newmtl Small_Grid_3511:material_105
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 0.00 0.00 0.00
+map_Kd material_53_ca.png
+map_Ka material_53_ca.png
+Ni 1.00
+Ks 0.10 0.10 0.10
+Ns 95.00
+newmtl Small_Grid_3511:material_107
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 0.00 0.00 0.00
+map_Kd material_54_ca.png
+map_Ka material_54_ca.png
+Ni 1.00
+Ks 0.10 0.10 0.10
+Ns 95.00
+newmtl Small_Grid_3511:material_109
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 0.00 0.00 0.00
+map_Kd material_55_ca.png
+map_Ka material_55_ca.png
+Ni 1.00
+Ks 0.10 0.10 0.10
+Ns 95.00
+newmtl Small_Grid_3511:material_111
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd material_56_ca.png
+map_Ka material_56_ca.png
+Ni 1.00
+Ks 0.10 0.10 0.10
+Ns 95.00
+newmtl Small_Grid_3511:material_113
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 0.00 0.00 0.00
+map_Kd material_57_ca.png
+map_Ka material_57_ca.png
+Ni 1.00
+Ks 0.10 0.10 0.10
+Ns 95.00
+newmtl Small_Grid_3511:material_115
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd material_58_ca.png
+map_Ka material_58_ca.png
+Ni 1.00
+Ks 0.10 0.10 0.10
+Ns 95.00
+newmtl Small_Grid_3511:material_117
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd material_59_ca.png
+map_Ka material_59_ca.png
+Ni 1.00
+Ks 0.10 0.10 0.10
+Ns 95.00
+newmtl Small_Grid_3511:material_119
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd material_60_ca.png
+map_Ka material_60_ca.png
+Ni 1.00
+Ks 0.10 0.10 0.10
+Ns 95.00
+newmtl Small_Grid_3511:material_121
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd material_61_ca.png
+map_Ka material_61_ca.png
+Ni 1.00
+Ks 0.10 0.10 0.10
+Ns 95.00
+newmtl Small_Grid_3511:material_123
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd material_62_ca.png
+map_Ka material_62_ca.png
+Ni 1.00
+Ks 0.10 0.10 0.10
+Ns 95.00
+newmtl Small_Grid_3511:material_125
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd material_63_ca.png
+map_Ka material_63_ca.png
+Ni 1.00
+Ks 0.10 0.10 0.10
+Ns 95.00
+newmtl Small_Grid_3511:material_127
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd material_64_ca.png
+map_Ka material_64_ca.png
+Ni 1.00
+Ks 0.10 0.10 0.10
+Ns 95.00
+newmtl Small_Grid_3511:material_129
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd material_65_ca.png
+map_Ka material_65_ca.png
+Ni 1.00
+Ks 0.10 0.10 0.10
+Ns 95.00
+newmtl Small_Grid_3511:material_131
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 0.00 0.00 0.00
+map_Kd material_66_ca.png
+map_Ka material_66_ca.png
+Ni 1.00
+Ks 0.10 0.10 0.10
+Ns 95.00
+newmtl Small_Grid_3511:material_133
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 0.00 0.00 0.00
+map_Kd material_67_ca.png
+map_Ka material_67_ca.png
+Ni 1.00
+Ks 0.10 0.10 0.10
+Ns 95.00
+newmtl Small_Grid_3511:material_135
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 0.00 0.00 0.00
+map_Kd material_68_ca.png
+map_Ka material_68_ca.png
+Ni 1.00
+Ks 0.10 0.10 0.10
+Ns 95.00
+newmtl Small_Grid_3511:material_137
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 0.00 0.00 0.00
+map_Kd material_69_ca.png
+map_Ka material_69_ca.png
+Ni 1.00
+Ks 0.10 0.10 0.10
+Ns 95.00
+newmtl Small_Grid_3511:material_139
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 0.00 0.00 0.00
+map_Kd material_70_ca.png
+map_Ka material_70_ca.png
+Ni 1.00
+Ks 0.10 0.10 0.10
+Ns 95.00
+newmtl Small_Grid_3511:material_141
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 0.00 0.00 0.00
+map_Kd material_71_ca.png
+map_Ka material_71_ca.png
+Ni 1.00
+Ks 0.10 0.10 0.10
+Ns 95.00
+newmtl Small_Grid_3511:material_143
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 0.00 0.00 0.00
+map_Kd material_72_ca.png
+map_Ka material_72_ca.png
+Ni 1.00
+Ks 0.10 0.10 0.10
+Ns 95.00
+newmtl Small_Grid_3511:material_145
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 0.00 0.00 0.00
+map_Kd material_73_ca.png
+map_Ka material_73_ca.png
+Ni 1.00
+Ks 0.10 0.10 0.10
+Ns 95.00
+newmtl Small_Grid_3511:material_147
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 0.35 0.35 0.35
+Ni 1.00
+Ks 0.90 0.90 0.90
+Ns 95.00
+newmtl Small_Grid_3511:material_149
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd material_75_ca.png
+map_Ka material_75_ca.png
+Ni 1.00
+Ks 0.10 0.10 0.10
+Ns 95.00
+newmtl Small_Grid_3511:material_151
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd material_76_ca.png
+map_Ka material_76_ca.png
+Ni 1.00
+Ks 0.10 0.10 0.10
+Ns 95.00
+newmtl Small_Grid_3511:material_153
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd material_77_ca.png
+map_Ka material_77_ca.png
+Ni 1.00
+Ks 0.10 0.10 0.10
+Ns 95.00
+newmtl Small_Grid_3511:material_155
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 0.00 0.00 0.00
+map_Kd material_78_ca.png
+map_Ka material_78_ca.png
+Ni 1.00
+Ks 0.10 0.10 0.10
+Ns 95.00
+newmtl Small_Grid_3511:material_157
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 0.00 0.00 0.00
+map_Kd material_79_ca.png
+map_Ka material_79_ca.png
+Ni 1.00
+Ks 0.10 0.10 0.10
+Ns 95.00
+newmtl Small_Grid_3511:material_159
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 0.00 0.00 0.00
+map_Kd material_80_ca.png
+map_Ka material_80_ca.png
+Ni 1.00
+Ks 0.10 0.10 0.10
+Ns 95.00
+newmtl Small_Grid_3511:material_161
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 0.00 0.00 0.00
+map_Kd material_81_ca.png
+map_Ka material_81_ca.png
+Ni 1.00
+Ks 0.10 0.10 0.10
+Ns 95.00
+newmtl Small_Grid_3511:material_163
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd material_82_ca.png
+map_Ka material_82_ca.png
+Ni 1.00
+Ks 0.10 0.10 0.10
+Ns 95.00
+newmtl Small_Grid_3511:material_165
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 0.00 0.00 0.00
+map_Kd material_83_ca.png
+map_Ka material_83_ca.png
+Ni 1.00
+Ks 0.10 0.10 0.10
+Ns 95.00
+newmtl Small_Grid_3511:material_167
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd material_84_ca.png
+map_Ka material_84_ca.png
+Ni 1.00
+Ks 0.10 0.10 0.10
+Ns 95.00
+newmtl Small_Grid_3511:material_169
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd material_85_ca.png
+map_Ka material_85_ca.png
+Ni 1.00
+Ks 0.10 0.10 0.10
+Ns 95.00
+newmtl Small_Grid_3511:material_171
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+Ks 0.10 0.10 0.10
+Ns 95.00
+newmtl Small_Grid_3511:material_173
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd material_87_ca.png
+map_Ka material_87_ca.png
+Ni 1.00
+Ks 0.10 0.10 0.10
+Ns 95.00
+newmtl Small_Grid_3511:material_175
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd material_88_ca.png
+map_Ka material_88_ca.png
+Ni 1.00
+Ks 0.10 0.10 0.10
+Ns 95.00
+newmtl Small_Grid_3511:material_177
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd material_89_ca.png
+map_Ka material_89_ca.png
+Ni 1.00
+Ks 0.10 0.10 0.10
+Ns 95.00
+newmtl Small_Grid_3511:material_179
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd material_90_ca.png
+map_Ka material_90_ca.png
+Ni 1.00
+Ks 0.10 0.10 0.10
+Ns 95.00
+newmtl Small_Grid_3511:material_181
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd material_91_ca.png
+map_Ka material_91_ca.png
+Ni 1.00
+Ks 0.10 0.10 0.10
+Ns 95.00
+newmtl Small_Grid_3511:material_183
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd material_92_ca.png
+map_Ka material_92_ca.png
+Ni 1.00
+Ks 0.10 0.10 0.10
+Ns 95.00
+newmtl Small_Grid_3511:material_185
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 0.00 0.00 0.00
+map_Kd material_93_ca.png
+map_Ka material_93_ca.png
+Ni 1.00
+Ks 0.10 0.10 0.10
+Ns 95.00
+newmtl Small_Grid_3511:material_187
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 0.00 0.00 0.00
+map_Kd material_94_ca.png
+map_Ka material_94_ca.png
+Ni 1.00
+Ks 0.10 0.10 0.10
+Ns 95.00
+newmtl Small_Grid_3511:material_189
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 0.00 0.00 0.00
+map_Kd material_95_ca.png
+map_Ka material_95_ca.png
+Ni 1.00
+Ks 0.10 0.10 0.10
+Ns 95.00
+newmtl Small_Grid_3511:material_191
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 0.00 0.00 0.00
+map_Kd material_96_ca.png
+map_Ka material_96_ca.png
+Ni 1.00
+Ks 0.10 0.10 0.10
+Ns 95.00
+newmtl Small_Grid_3511:material_193
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd material_97_ca.png
+map_Ka material_97_ca.png
+Ni 1.00
+Ks 0.10 0.10 0.10
+Ns 95.00
+newmtl Small_Grid_3511:material_195
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd material_98_ca.png
+map_Ka material_98_ca.png
+Ni 1.00
+Ks 0.10 0.10 0.10
+Ns 95.00
+newmtl Small_Grid_3511:material_197
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd material_99_ca.png
+map_Ka material_99_ca.png
+Ni 1.00
+Ks 0.10 0.10 0.10
+Ns 95.00
+newmtl Small_Grid_3511:material_199
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 0.00 0.00 0.00
+Ni 1.00
+Ks 0.10 0.10 0.10
+Ns 95.00
+newmtl Small_Grid_3511:material_201
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 0.00 0.00 0.00
+map_Kd material_101_ca.png
+map_Ka material_101_ca.png
+Ni 1.00
+Ks 0.10 0.10 0.10
+Ns 95.00
+newmtl Small_Grid_3511:material_203
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 0.00 0.00 0.00
+map_Kd material_102_ca.png
+map_Ka material_102_ca.png
+Ni 1.00
+Ks 0.10 0.10 0.10
+Ns 95.00
+newmtl Small_Grid_3511:material_205
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd material_103_ca.png
+map_Ka material_103_ca.png
+Ni 1.00
+Ks 0.10 0.10 0.10
+Ns 95.00
+newmtl Small_Grid_3511:material_207
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 0.00 0.00 0.00
+map_Kd material_104_ca.png
+map_Ka material_104_ca.png
+Ni 1.00
+Ks 0.10 0.10 0.10
+Ns 95.00
+newmtl Small_Grid_3511:material_209
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 0.00 0.00 0.00
+map_Kd material_105_ca.png
+map_Ka material_105_ca.png
+Ni 1.00
+Ks 0.10 0.10 0.10
+Ns 95.00
+newmtl Small_Grid_3511:material_211
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd material_106_ca.png
+map_Ka material_106_ca.png
+Ni 1.00
+Ks 0.10 0.10 0.10
+Ns 95.00
+newmtl Small_Grid_3511:material_213
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd material_107_ca.png
+map_Ka material_107_ca.png
+Ni 1.00
+Ks 0.10 0.10 0.10
+Ns 95.00
+newmtl Small_Grid_3511:material_215
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd material_108_ca.png
+map_Ka material_108_ca.png
+Ni 1.00
+Ks 0.10 0.10 0.10
+Ns 95.00
+newmtl Small_Grid_3511:material_217
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd material_109_ca.png
+map_Ka material_109_ca.png
+Ni 1.00
+Ks 0.10 0.10 0.10
+Ns 95.00
+newmtl Small_Grid_3511:material_219
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd material_110_ca.png
+map_Ka material_110_ca.png
+Ni 1.00
+Ks 0.10 0.10 0.10
+Ns 95.00
+newmtl Small_Grid_3511:material_221
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 0.00 0.00 0.00
+map_Kd material_111_ca.png
+map_Ka material_111_ca.png
+Ni 1.00
+Ks 0.10 0.10 0.10
+Ns 95.00
+newmtl Small_Grid_3511:material_223
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 0.00 0.00 0.00
+map_Kd material_112_ca.png
+map_Ka material_112_ca.png
+Ni 1.00
+Ks 0.10 0.10 0.10
+Ns 95.00
+newmtl Small_Grid_3511:material_225
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd material_113_ca.png
+map_Ka material_113_ca.png
+Ni 1.00
+Ks 0.10 0.10 0.10
+Ns 95.00
+newmtl Small_Grid_3511:material_227
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 0.00 0.00 0.00
+Ni 1.00
+Ks 0.10 0.10 0.10
+Ns 95.00
+newmtl Small_Grid_3511:material_229
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+Ks 0.10 0.10 0.10
+Ns 95.00
+newmtl Small_Grid_3511:material_231
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 0.00 0.00 0.00
+Ni 1.00
+Ks 0.10 0.10 0.10
+Ns 95.00
+newmtl Small_Grid_3511:material_233
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 0.00 0.00 0.00
+Ni 1.00
+Ks 0.10 0.10 0.10
+Ns 95.00
+newmtl Small_Grid_3511:material_235
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 0.00 0.00 0.00
+Ni 1.00
+Ks 0.10 0.10 0.10
+Ns 95.00
+newmtl Small_Grid_3511:material_237
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+Ks 0.10 0.10 0.10
+Ns 95.00
+newmtl Small_Grid_3511:material_239
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+Ks 0.10 0.10 0.10
+Ns 95.00
+newmtl Small_Grid_3511:material_241
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 0.00 0.00 0.00
+Ni 1.00
+Ks 0.10 0.10 0.10
+Ns 95.00
+newmtl Small_Grid_3511:material_243
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 0.00 0.00 0.00
+Ni 1.00
+Ks 0.10 0.10 0.10
+Ns 95.00
+newmtl Small_Grid_3511:material_245
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+Ks 0.10 0.10 0.10
+Ns 95.00
+newmtl Small_Grid_3511:material_247
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+Ks 0.10 0.10 0.10
+Ns 95.00
+newmtl Small_Grid_3511:material_249
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+Ks 0.10 0.10 0.10
+Ns 95.00
+newmtl Small_Grid_3511:material_251
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+Ks 0.10 0.10 0.10
+Ns 95.00
+newmtl Small_Grid_3511:material_253
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+Ks 0.10 0.10 0.10
+Ns 95.00
+newmtl Small_Grid_3511:material_255
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+Ks 0.10 0.10 0.10
+Ns 95.00
+newmtl Small_Grid_3511:material_257
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+Ks 0.10 0.10 0.10
+Ns 95.00
+newmtl Small_Grid_3511:material_259
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 0.35 0.35 0.35
+Ni 1.00
+Ks 0.90 0.90 0.90
+Ns 95.00
+newmtl Small_Grid_3511:material_261
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 0.00 0.00 0.00
+Ni 1.00
+Ks 0.10 0.10 0.10
+Ns 95.00
+newmtl Small_Grid_3511:material_263
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+Ks 0.10 0.10 0.10
+Ns 95.00
+newmtl Small_Grid_3511:material_265
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+Ks 0.10 0.10 0.10
+Ns 95.00
+newmtl Small_Grid_3511:material_267
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 0.35 0.35 0.35
+Ni 1.00
+Ks 0.90 0.90 0.90
+Ns 95.00
+newmtl Small_Grid_3511:material_269
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+Ks 0.10 0.10 0.10
+Ns 95.00
+newmtl Small_Grid_3511:material_271
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 0.00 0.00 0.00
+Ni 1.00
+Ks 0.10 0.10 0.10
+Ns 95.00
+newmtl Small_Grid_3511:material_273
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 0.00 0.00 0.00
+Ni 1.00
+Ks 0.10 0.10 0.10
+Ns 95.00
+newmtl Small_Grid_3511:material_275
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 0.00 0.00 0.00
+Ni 1.00
+Ks 0.10 0.10 0.10
+Ns 95.00
+newmtl Small_Grid_3511:material_277
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 0.00 0.00 0.00
+Ni 1.00
+Ks 0.10 0.10 0.10
+Ns 95.00
+newmtl Small_Grid_3511:material_279
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 0.00 0.00 0.00
+Ni 1.00
+Ks 0.10 0.10 0.10
+Ns 95.00
+newmtl Small_Grid_3511:material_281
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+Ks 0.10 0.10 0.10
+Ns 95.00
+newmtl Small_Grid_3511:material_283
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 0.00 0.00 0.00
+Ni 1.00
+Ks 0.10 0.10 0.10
+Ns 95.00
+newmtl Small_Grid_3511:material_285
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 0.00 0.00 0.00
+Ni 1.00
+Ks 0.10 0.10 0.10
+Ns 95.00
+newmtl Small_Grid_3511:material_287
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+Ks 0.10 0.10 0.10
+Ns 95.00
+newmtl Small_Grid_3511:material_289
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+Ks 0.10 0.10 0.10
+Ns 95.00
+newmtl Small_Grid_3511:material_291
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 0.00 0.00 0.00
+Ni 1.00
+Ks 0.10 0.10 0.10
+Ns 95.00
+newmtl Small_Grid_3511:material_293
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 0.00 0.00 0.00
+Ni 1.00
+Ks 0.10 0.10 0.10
+Ns 95.00
+newmtl Small_Grid_3511:material_295
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+Ks 0.10 0.10 0.10
+Ns 95.00
+newmtl Small_Grid_3511:material_297
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+Ks 0.10 0.10 0.10
+Ns 95.00
+newmtl Small_Grid_3511:material_299
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 0.00 0.00 0.00
+Ni 1.00
+Ks 0.10 0.10 0.10
+Ns 95.00
+newmtl Small_Grid_3511:material_301
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+Ks 0.10 0.10 0.10
+Ns 95.00
+newmtl Small_Grid_3511:material_303
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 0.00 0.00 0.00
+Ni 1.00
+Ks 0.10 0.10 0.10
+Ns 95.00
+newmtl Small_Grid_3511:material_305
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 0.00 0.00 0.00
+Ni 1.00
+Ks 0.10 0.10 0.10
+Ns 95.00
+newmtl Small_Grid_3511:material_307
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 0.00 0.00 0.00
+Ni 1.00
+Ks 0.10 0.10 0.10
+Ns 95.00
+newmtl Small_Grid_3511:material_309
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+Ks 0.10 0.10 0.10
+Ns 95.00
+newmtl Small_Grid_3511:material_311
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 0.00 0.00 0.00
+Ni 1.00
+Ks 0.10 0.10 0.10
+Ns 95.00
+newmtl Small_Grid_3511:material_313
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 0.00 0.00 0.00
+Ni 1.00
+Ks 0.10 0.10 0.10
+Ns 95.00
+newmtl Small_Grid_3511:material_315
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 0.00 0.00 0.00
+Ni 1.00
+Ks 0.10 0.10 0.10
+Ns 95.00
+newmtl Small_Grid_3511:material_317
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 0.35 0.35 0.35
+Ni 1.00
+Ks 0.90 0.90 0.90
+Ns 95.00
+newmtl Small_Grid_3511:material_319
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 0.00 0.00 0.00
+Ni 1.00
+Ks 0.10 0.10 0.10
+Ns 95.00
+newmtl Small_Grid_3511:material_321
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+Ks 0.10 0.10 0.10
+Ns 95.00
+newmtl Small_Grid_3511:material_323
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+Ks 0.10 0.10 0.10
+Ns 95.00
+newmtl Small_Grid_3511:material_325
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+Ks 0.10 0.10 0.10
+Ns 95.00
+newmtl Small_Grid_3511:material_327
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 0.00 0.00 0.00
+Ni 1.00
+Ks 0.10 0.10 0.10
+Ns 95.00
+newmtl Small_Grid_3511:material_329
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 0.00 0.00 0.00
+Ni 1.00
+Ks 0.10 0.10 0.10
+Ns 95.00
+newmtl Small_Grid_3511:material_331
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+Ks 0.10 0.10 0.10
+Ns 95.00
+newmtl Small_Grid_3511:material_333
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 0.00 0.00 0.00
+Ni 1.00
+Ks 0.10 0.10 0.10
+Ns 95.00
+newmtl Small_Grid_3511:material_335
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 0.00 0.00 0.00
+Ni 1.00
+Ks 0.10 0.10 0.10
+Ns 95.00
+newmtl Small_Grid_3511:material_337
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 0.00 0.00 0.00
+Ni 1.00
+Ks 0.10 0.10 0.10
+Ns 95.00
+newmtl Small_Grid_3511:material_339
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 0.00 0.00 0.00
+Ni 1.00
+Ks 0.10 0.10 0.10
+Ns 95.00
+newmtl Small_Grid_3511:material_341
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 0.00 0.00 0.00
+Ni 1.00
+Ks 0.10 0.10 0.10
+Ns 95.00
+newmtl Small_Grid_3511:material_343
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+Ks 0.10 0.10 0.10
+Ns 95.00
+newmtl Small_Grid_3511:material_345
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+Ks 0.10 0.10 0.10
+Ns 95.00
