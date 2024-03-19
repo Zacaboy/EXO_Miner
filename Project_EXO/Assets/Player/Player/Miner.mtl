@@ -1,0 +1,92 @@
+newmtl A%2E003
+illum 7
+Kd 0.735357 0.735357 0.735357
+adobe_interior_color 1 1 1
+Ni 1.5
+adobe_density 0
+Tr 0
+d 1
+Ka 0 0 0
+Ke 0 0 0
+Pm 0
+adobe_translucence 0
+Pr 1
+Ns 16
+Ks 1 1 1
+adobe_glow 0
+map_Kd Miner/A%2E003_base_color.png
+norm Miner/A%2E003_normal.png
+
+newmtl material
+illum 7
+Kd 0.735357 0.735357 0.735357
+adobe_interior_color 1 1 1
+Ni 1.5
+adobe_density 0
+Tr 0
+d 1
+Ka 0 0 0
+Ke 0 0 0
+Pm 0
+adobe_translucence 0
+Pr 1
+Ns 16
+Ks 1 1 1
+adobe_glow 0
+map_Kd Miner/material_base_color.png
+norm Miner/material_normal.png
+
+newmtl Material
+illum 7
+Kd 0.906332 0.906332 0.906332
+adobe_interior_color 1 1 1
+Ni 1.5
+adobe_density 0
+Tr 0
+d 1
+Ka 0 0 0
+Ke 0 0 0
+Pm 0
+adobe_translucence 0
+Pr 0.804041
+Ns 16
+Ks 1 1 1
+adobe_glow 0
+
+newmtl A%2E001
+illum 7
+Kd 0.735357 0.735357 0.735357
+adobe_interior_color 1 1 1
+Ni 1.5
+adobe_density 0
+Tr 0
+d 1
+Ka 0 0 0
+Ke 0 0 0
+Pm 0
+adobe_translucence 0
+Pr 1
+Ns 16
+Ks 1 1 1
+adobe_glow 0
+map_Kd Miner/A%2E001_base_color.png
+norm Miner/A%2E001_normal.png
+
+newmtl A%2E002
+illum 7
+Kd 0.735357 0.735357 0.735357
+adobe_interior_color 1 1 1
+Ni 1.5
+adobe_density 0
+Tr 0
+d 1
+Ka 0 0 0
+Ke 0 0 0
+Pm 0
+adobe_translucence 0
+Pr 1
+Ns 16
+Ks 1 1 1
+adobe_glow 0
+map_Kd Miner/A%2E002_base_color.png
+norm Miner/A%2E002_normal.png
