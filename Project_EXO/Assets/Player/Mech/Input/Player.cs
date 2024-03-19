@@ -89,6 +89,15 @@ public partial class @Player: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""New action"",
+                    ""type"": ""Button"",
+                    ""id"": ""77bc721d-46e1-4a74-8e20-361c47272a1e"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -322,6 +331,17 @@ public partial class @Player: IInputActionCollection2, IDisposable
                     ""action"": ""Mine"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0f79fa5e-afb6-4b7c-bdb6-02ceaa4713f9"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""New action"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -391,6 +411,15 @@ public partial class @Player: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Get in"",
+                    ""type"": ""Button"",
+                    ""id"": ""e59dbac7-0ec0-45ae-8055-3fd44160127b"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -514,6 +543,17 @@ public partial class @Player: IInputActionCollection2, IDisposable
                     ""action"": ""Mine"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1435a5fa-47e8-4fce-ae24-bc5d0272c476"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Get in"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -529,6 +569,7 @@ public partial class @Player: IInputActionCollection2, IDisposable
         m_JoystickController_Mine = m_JoystickController.FindAction("Mine", throwIfNotFound: true);
         m_JoystickController_Weapon1 = m_JoystickController.FindAction("Weapon1", throwIfNotFound: true);
         m_JoystickController_Weapon2 = m_JoystickController.FindAction("Weapon2", throwIfNotFound: true);
+        m_JoystickController_Newaction = m_JoystickController.FindAction("New action", throwIfNotFound: true);
         // Keyboard
         m_Keyboard = asset.FindActionMap("Keyboard", throwIfNotFound: true);
         m_Keyboard_Look = m_Keyboard.FindAction("Look", throwIfNotFound: true);
@@ -538,6 +579,7 @@ public partial class @Player: IInputActionCollection2, IDisposable
         m_Keyboard_Mine = m_Keyboard.FindAction("Mine", throwIfNotFound: true);
         m_Keyboard_Weapon1 = m_Keyboard.FindAction("Weapon1", throwIfNotFound: true);
         m_Keyboard_Weapon2 = m_Keyboard.FindAction("Weapon2", throwIfNotFound: true);
+        m_Keyboard_Getin = m_Keyboard.FindAction("Get in", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -606,6 +648,7 @@ public partial class @Player: IInputActionCollection2, IDisposable
     private readonly InputAction m_JoystickController_Mine;
     private readonly InputAction m_JoystickController_Weapon1;
     private readonly InputAction m_JoystickController_Weapon2;
+    private readonly InputAction m_JoystickController_Newaction;
     public struct JoystickControllerActions
     {
         private @Player m_Wrapper;
@@ -617,6 +660,7 @@ public partial class @Player: IInputActionCollection2, IDisposable
         public InputAction @Mine => m_Wrapper.m_JoystickController_Mine;
         public InputAction @Weapon1 => m_Wrapper.m_JoystickController_Weapon1;
         public InputAction @Weapon2 => m_Wrapper.m_JoystickController_Weapon2;
+        public InputAction @Newaction => m_Wrapper.m_JoystickController_Newaction;
         public InputActionMap Get() { return m_Wrapper.m_JoystickController; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -647,6 +691,9 @@ public partial class @Player: IInputActionCollection2, IDisposable
             @Weapon2.started += instance.OnWeapon2;
             @Weapon2.performed += instance.OnWeapon2;
             @Weapon2.canceled += instance.OnWeapon2;
+            @Newaction.started += instance.OnNewaction;
+            @Newaction.performed += instance.OnNewaction;
+            @Newaction.canceled += instance.OnNewaction;
         }
 
         private void UnregisterCallbacks(IJoystickControllerActions instance)
@@ -672,6 +719,9 @@ public partial class @Player: IInputActionCollection2, IDisposable
             @Weapon2.started -= instance.OnWeapon2;
             @Weapon2.performed -= instance.OnWeapon2;
             @Weapon2.canceled -= instance.OnWeapon2;
+            @Newaction.started -= instance.OnNewaction;
+            @Newaction.performed -= instance.OnNewaction;
+            @Newaction.canceled -= instance.OnNewaction;
         }
 
         public void RemoveCallbacks(IJoystickControllerActions instance)
@@ -700,6 +750,7 @@ public partial class @Player: IInputActionCollection2, IDisposable
     private readonly InputAction m_Keyboard_Mine;
     private readonly InputAction m_Keyboard_Weapon1;
     private readonly InputAction m_Keyboard_Weapon2;
+    private readonly InputAction m_Keyboard_Getin;
     public struct KeyboardActions
     {
         private @Player m_Wrapper;
@@ -711,6 +762,7 @@ public partial class @Player: IInputActionCollection2, IDisposable
         public InputAction @Mine => m_Wrapper.m_Keyboard_Mine;
         public InputAction @Weapon1 => m_Wrapper.m_Keyboard_Weapon1;
         public InputAction @Weapon2 => m_Wrapper.m_Keyboard_Weapon2;
+        public InputAction @Getin => m_Wrapper.m_Keyboard_Getin;
         public InputActionMap Get() { return m_Wrapper.m_Keyboard; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -741,6 +793,9 @@ public partial class @Player: IInputActionCollection2, IDisposable
             @Weapon2.started += instance.OnWeapon2;
             @Weapon2.performed += instance.OnWeapon2;
             @Weapon2.canceled += instance.OnWeapon2;
+            @Getin.started += instance.OnGetin;
+            @Getin.performed += instance.OnGetin;
+            @Getin.canceled += instance.OnGetin;
         }
 
         private void UnregisterCallbacks(IKeyboardActions instance)
@@ -766,6 +821,9 @@ public partial class @Player: IInputActionCollection2, IDisposable
             @Weapon2.started -= instance.OnWeapon2;
             @Weapon2.performed -= instance.OnWeapon2;
             @Weapon2.canceled -= instance.OnWeapon2;
+            @Getin.started -= instance.OnGetin;
+            @Getin.performed -= instance.OnGetin;
+            @Getin.canceled -= instance.OnGetin;
         }
 
         public void RemoveCallbacks(IKeyboardActions instance)
@@ -792,6 +850,7 @@ public partial class @Player: IInputActionCollection2, IDisposable
         void OnMine(InputAction.CallbackContext context);
         void OnWeapon1(InputAction.CallbackContext context);
         void OnWeapon2(InputAction.CallbackContext context);
+        void OnNewaction(InputAction.CallbackContext context);
     }
     public interface IKeyboardActions
     {
@@ -802,5 +861,6 @@ public partial class @Player: IInputActionCollection2, IDisposable
         void OnMine(InputAction.CallbackContext context);
         void OnWeapon1(InputAction.CallbackContext context);
         void OnWeapon2(InputAction.CallbackContext context);
+        void OnGetin(InputAction.CallbackContext context);
     }
 }
