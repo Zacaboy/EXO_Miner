@@ -52,6 +52,7 @@ MonoBehaviour:
   endEffect: {fileID: 7695198194177534841, guid: 43810be12918191418465d713d1ae8df,
     type: 3}
   winUI: {fileID: 7695198194177534841, guid: 4c31cddc7977aad4c8514bf6b73e3b05, type: 3}
+  deathUI: {fileID: 7695198194177534841, guid: 33515b4cf48ce3143b12bbfd460b986f, type: 3}
   failUI: {fileID: 7695198194177534841, guid: 613ce43fc07919247838f3eef9ff5367, type: 3}
   fadeIn:
     serializedVersion: 2

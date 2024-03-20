@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6888815257788431480}
   - component: {fileID: 7336417924710123381}
   m_Layer: 5
-  m_Name: Text (1)
+  m_Name: Insult
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

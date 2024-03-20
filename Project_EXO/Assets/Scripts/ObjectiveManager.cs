@@ -11,12 +11,18 @@ public class Objective
 {
     public string name;
     public ObjectiveType type;
+
+    [Header("Progress")]
     public int requiredProgress = 15;
     public bool showProgress = true;
-    public bool destroy;
+
+    [Header("Group And Targets")]
     public GameObject group;
-    public bool failIfNoTargetsLeft = true;
-    public bool hardFail;
+    public bool destroyTargets;
+    public bool failIfNoTargetsAvailable = true;
+    public bool hardFail; // This fails the whole game
+
+    [Header("Ignore")]
     [HideInInspector] public List<Transform> targets = new List<Transform>();
     [SerializeField] public List<Objective> nextObjective = new List<Objective>();
     [HideInInspector] public int progress;
@@ -56,7 +62,7 @@ public class ObjectiveManager : MonoBehaviour
     public void Update()
     {
         if (currentObjective != null)
-            if (currentObjective.failIfNoTargetsLeft)
+            if (currentObjective.failIfNoTargetsAvailable)
             {
                 foreach(Transform target in currentObjective.targets)
                     if(!target)
@@ -74,12 +80,13 @@ public class ObjectiveManager : MonoBehaviour
             if (ObjectiveUI.me)
                 ObjectiveUI.me.AddObjective(objective);
         }
-
         if (objective.group)
         {
             foreach (Health health in objective.group.GetComponentsInChildren<Health>())
                 if (!objective.targets.Contains(health.transform))
                     objective.targets.Add(health.transform);
+            if (objective.requiredProgress == 0)
+                objective.requiredProgress = objective.targets.Count;
             objective.group.SetActive(true);
         }
         else if (objective.type == ObjectiveType.CollectResources)
@@ -92,6 +99,17 @@ public class ObjectiveManager : MonoBehaviour
                 target.GetComponent<Health>().objectiveName = objective.name;
                 target.GetComponent<Health>().objective = objective;
             }
+        if (objective.type == ObjectiveType.MoveToExtraction)
+        {
+            if (!objective.group)
+            {
+                Transform extraction = Instantiate(extractionPointPref);
+                extraction.transform.position = GameManager.me.startPos;
+                extraction.GetComponentInChildren<ExtractionPoint>().objective = objective;
+            }
+            else if (objective.group.transform.GetComponentInChildren<ExtractionPoint>())
+                objective.group.transform.GetComponentInChildren<ExtractionPoint>().objective = objective;
+        }
         SwitchObjective(objective.name);
     }
     public void SwitchObjective(string objective)
@@ -100,12 +118,6 @@ public class ObjectiveManager : MonoBehaviour
             if (type.name == objective)
             {
                 currentObjective = type;
-                if(type.type == ObjectiveType.MoveToExtraction)
-                {
-                    Transform extraction = Instantiate(extractionPointPref);
-                    extraction.transform.position = GameManager.me.startPos;
-                    extraction.GetComponentInChildren<ExtractionPoint>().objective = type;
-                }
                 if (ObjectiveUI.me)
                     ObjectiveUI.me.AddObjective(type);
             }
@@ -155,7 +167,7 @@ public class ObjectiveManager : MonoBehaviour
             {
                 type.failed = true;
                 if (type.hardFail)
-                    GameManager.me.FailObjective();
+                    GameManager.me.FailObjective(false);
                 else
                     AddObjective(type.nextObjective[0]);
             }

@@ -61,6 +61,7 @@ public class CannonScript : MonoBehaviour
         look.position = projectile.transform.position;
         look.LookAt(PlayerMechController.me.lookpos.position);
         projectile.transform.eulerAngles = new Vector3(look.eulerAngles.x, projectile.transform.eulerAngles.y, projectile.transform.eulerAngles.z);
+        projectile.GetComponent<ProjectileScript>().shooter = gameObject;
         Destroy(look.gameObject);
 
         // Add force to the projectile
