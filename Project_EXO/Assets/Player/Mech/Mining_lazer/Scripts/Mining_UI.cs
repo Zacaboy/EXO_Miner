@@ -11,6 +11,7 @@ public class Mining_UI : MonoBehaviour
     public CanvasGroup ui;
     public Image health;
     public Image healthAfter;
+    public Image healthBackground;
 
     [HideInInspector] public Mining_Lazer lazer;
     [HideInInspector] public float healthAmount;
@@ -35,6 +36,7 @@ public class Mining_UI : MonoBehaviour
             {
                 health.sprite = lazer.currentOre.icon;
                 healthAfter.sprite = lazer.currentOre.icon;
+                healthBackground.sprite = lazer.currentOre.icon;
                 healthAmount = lazer.currentOre.health / lazer.currentOre.maxHealth;
                 health.fillAmount = healthAmount;
                 healthAfter.fillAmount = healthAmount;

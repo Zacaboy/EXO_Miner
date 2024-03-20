@@ -16,11 +16,14 @@ public class TimerUI : MonoBehaviour
     float timerFloat;
     float spawnTime;
 
+    private void Awake()
+    {
+        me = this;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
-        me = this;
-
         timePanel.alpha = 0;
         timerBackgroundPanel.alpha = 0;
 

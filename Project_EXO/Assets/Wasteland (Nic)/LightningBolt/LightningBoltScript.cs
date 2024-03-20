@@ -357,7 +357,7 @@ namespace DigitalRuby.LightningBolt
             RaycastHit hit;
             if (Physics.Raycast(StartObject.transform.position, StartObject.transform.TransformDirection(Vector3.down), out hit, Vector3.Distance(StartObject.transform.position, EndObject.transform.position)))
                 if (hit.transform.GetComponent<PlayerMechController>())
-                    hit.transform.GetComponent<PlayerMechController>().Stun(true);
+                    hit.transform.GetComponent<PlayerMechController>().Stun(2.3f);
         }
 
         /// <summary>

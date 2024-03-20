@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
+public enum DamageType { Lead, Physical, Lazer }
+
 public class Health : MonoBehaviour
 {
     public int maxHealth = 25;
@@ -22,10 +24,11 @@ public class Health : MonoBehaviour
             objective = ObjectiveManager.me.FindObjective(objectiveName);
     }
 
-    public void Damage(int damage)
+    public void Damage(int damage, DamageType type)
     {
         if (!dead)
         {
+            if (type == DamageType.Lazer & immuneToLazer) return;
             health -= damage;
             health = Mathf.Clamp(health, 0, maxHealth);
             if (health <= 0)
@@ -40,7 +43,7 @@ public class Health : MonoBehaviour
         if (dead) return;
         if (ObjectiveManager.me & objective.name != "")
         {
-            if (objective.destroy)
+            if (objective.destroyTargets)
                 ObjectiveManager.me.UpdateProgress(objectiveName, 1);
             if (ObjectiveManager.me.currentObjective.targets.Contains(transform))
                 ObjectiveManager.me.currentObjective.targets.Remove(transform);

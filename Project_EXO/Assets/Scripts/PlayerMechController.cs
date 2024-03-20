@@ -88,6 +88,7 @@ public class PlayerMechController : MonoBehaviour
     private Vector2 lookInput; // Input for looking
     [HideInInspector] public Transform lookpos;
     FeetScript feetScript;
+    public Health health;
     [HideInInspector] public Rigidbody rigi;
     [HideInInspector] public bool grounded;
     [HideInInspector] public bool warningLightning;
@@ -101,11 +102,14 @@ public class PlayerMechController : MonoBehaviour
     [HideInInspector] public bool lightningStruckFall;
     Transform lastCamEffect;
     int currentFoot;
+    public float stunTime;
     float landedTime;
     float lastWalkTime;
     float lastLookTime;
     float lastLightningTime;
+    [HideInInspector] public float lastStunTime;
     bool playedSFX;
+    public bool active;
 
     private void Awake()
     {
@@ -118,6 +122,9 @@ public class PlayerMechController : MonoBehaviour
         mass = rigi.mass;
         drag = rigi.drag;
         feetScript = GetComponentInChildren<FeetScript>();
+        health = GetComponent<Health>();
+        health.damageEvent.AddListener(Damage);
+        health.deathEvent.AddListener(Die);
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         rotX = transform.eulerAngles.y;
@@ -129,6 +136,8 @@ public class PlayerMechController : MonoBehaviour
         lookpos.transform.position += transform.forward * centrePoint.x;
         lookpos.SetParent(Camera.main.transform);
         lookpos.name = "Look Pos";
+        lastStunTime = -1;
+        active = true;
         foreach (Animator ani in GetComponentsInChildren<Animator>())
         {
             if (ani.name == "Camera Ani")
@@ -215,9 +224,10 @@ public class PlayerMechController : MonoBehaviour
         rotY = Mathf.Clamp(rotY, lookDownLimit, lookUpLimit);
 
         // Camera rotation
-        Camera.main.transform.localRotation = Quaternion.Slerp(Camera.main.transform.localRotation, Quaternion.Euler(rotY, 0f, 0f), 0.1f);
+        if (active)
+            Camera.main.transform.localRotation = Quaternion.Slerp(Camera.main.transform.localRotation, Quaternion.Euler(rotY, 0f, 0f), 0.1f);
 
-        if (jumping == 0 & landedTime == 0 & grounded)
+        if (jumping == 0 & landedTime == 0 & grounded & active)
         {
             // Move the GameObject
             rigi.AddForce(movement * moveSpeed);
@@ -259,7 +269,8 @@ public class PlayerMechController : MonoBehaviour
                 looking = true;
 
             // Camera rotation
-            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0f, rotX, 0f).normalized, 0.04f);
+            if (active)
+                transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0f, rotX, 0f).normalized, 0.04f);
         }
         else
             lastWalkTime = Time.time;
@@ -307,7 +318,7 @@ public class PlayerMechController : MonoBehaviour
         }
         if (GameManager.me)
             if (transform.position.y <= killHeight & !GameManager.me.over)
-                GameManager.me.FailObjective();
+                GameManager.me.FailObjective(true);
 
         // This is for the warning lights in the cockpit
         if (warningLightning || dangerLightning)
@@ -368,8 +379,8 @@ public class PlayerMechController : MonoBehaviour
                     landedTime = Time.time;
                     // For Squishing Bugs
                     foreach (Health enemyHealth in FindObjectsOfType<Health>())
-                        if (Vector3.Distance(transform.position, enemyHealth.transform.position) <= landingDamageAreaEffect)
-                            enemyHealth.Damage((int)landingDamageAreaEffect);
+                        if (enemyHealth.gameObject != gameObject & Vector3.Distance(transform.position, enemyHealth.transform.position) <= landingDamageAreaEffect)
+                            enemyHealth.Damage((int)landingDamageAreaEffect, DamageType.Physical);
                     if (landingSFX.Length > 0)
                         FXManager.SpawnSFX(landingSFX[Random.Range(0, landingSFX.Length - 1)], transform.position, 100, 5);
                     if (landingVFX)
@@ -380,7 +391,7 @@ public class PlayerMechController : MonoBehaviour
                     GetCameraInfo("Lightning", true).CrossFadeInFixedTime("Lightning", 0.1f);
                     stunnedAni = true;
                     p = true;
-                    landedTime = Time.time + 2.3f;
+                    landedTime = Time.time + stunTime;
                 }
                 if (p)
                 {
@@ -404,6 +415,7 @@ public class PlayerMechController : MonoBehaviour
             jumpAni = false;
             stunnedAni = false;
             dangerLightning = false;
+            stunTime = 0;
             landedTime = 0;
         }
         wasGrounded = grounded;
@@ -444,11 +456,13 @@ public class PlayerMechController : MonoBehaviour
         Camera.main.transform.parent.localPosition = Vector3.Lerp(Camera.main.transform.parent.localPosition, startPos, 1 * 1 * Time.deltaTime);
     }
 
-    public void Stun(bool lightning = false)
+    public void Stun(float time = 2.3f, bool lightning = false)
     {
         stunned = true;
         if (lightning)
             dangerLightning = true;
+        stunTime = time;
+        lastStunTime = Time.time;
         lightningStruckFall = true;
         if (downSFX.Length > 0)
             FXManager.SpawnSFX(downSFX[Random.Range(0, downSFX.Length - 1)], transform.position, 10, 5, 0.3f);
@@ -465,6 +479,20 @@ public class PlayerMechController : MonoBehaviour
         else
             GetCameraInfo("Mining_Lazer", true).CrossFadeInFixedTime("Mining_Lazer", 0.1f);
     }
+
+    public void Damage()
+    {
+        GetCameraInfo("Damage", true).CrossFadeInFixedTime("Damage", 0.1f);
+    }
+
+    public void Die()
+    {
+        active = false;
+        GetCameraInfo("Death", true).CrossFadeInFixedTime("Death", 0.1f);
+        if (GameManager.me)
+            GameManager.me.FailObjective(true);
+    }
+
     public void OnMove(InputAction.CallbackContext context)
     {
         // Get movement input from joystick

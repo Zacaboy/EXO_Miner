@@ -54,7 +54,7 @@ public class ExplosivePlantScript : MonoBehaviour
                     m_Renderer.material.SetColor("_EmissionColor", Color.Lerp(m_Renderer.material.GetColor("_EmissionColor") * imissiveIntensity, explodeColour, 0.1f));
                     m_Light.intensity = Mathf.Lerp(m_Light.intensity, startIntensity, 0.1f);
                     if (Time.time >= lastTime + explodeTime)
-                        health.Damage(1000);
+                        health.Damage(1000, DamageType.Physical);
                 }
                 else
                 {
@@ -94,7 +94,7 @@ public class ExplosivePlantScript : MonoBehaviour
             FXManager.SpawnSFX(explodeSFX, transform.position, 60, 7);
         if (PlayerMechController.me)
             if (Vector3.Distance(transform.position, PlayerMechController.me.transform.position) <= explodeRadius)
-                PlayerMechController.me.Stun(true);
+                PlayerMechController.me.Stun(2.3f, true);
         Destroy(gameObject);
     }
 
