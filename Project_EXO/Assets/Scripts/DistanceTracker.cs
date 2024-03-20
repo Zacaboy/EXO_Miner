@@ -43,8 +43,15 @@ public class DistanceTracker : MonoBehaviour
 
     void Update()
     {
+        objectsToTrack = FindObjectsOfType<Ore>();
         if (Time.timeSinceLevelLoad >= startTime + 2.5f)
-            spriteRenderer.color = new Color(spriteRenderer.color.r, spriteRenderer.color.g, spriteRenderer.color.b, Mathf.Lerp(spriteRenderer.color.a, startAlphas[0], 0.01f));
+        {
+            if(!Mining_UI.me.lazer.currentOre)
+                spriteRenderer.color = new Color(spriteRenderer.color.r, spriteRenderer.color.g, spriteRenderer.color.b, Mathf.Lerp(spriteRenderer.color.a, startAlphas[0], 0.01f));
+            else
+                spriteRenderer.color = new Color(spriteRenderer.color.r, spriteRenderer.color.g, spriteRenderer.color.b, Mathf.Lerp(spriteRenderer.color.a, 1, 0.01f));
+
+        }
         if (Time.timeSinceLevelLoad >= startTime + 1)
         {
             m_Light.intensity = Mathf.Lerp(m_Light.intensity, startLight, 0.005f);

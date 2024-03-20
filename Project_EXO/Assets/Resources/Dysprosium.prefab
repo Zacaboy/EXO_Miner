@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 1475846460743087069}
   - component: {fileID: 3388158460652669485}
   - component: {fileID: 9173455940965869756}
-  - component: {fileID: 4987055549561737392}
   - component: {fileID: 21588133388765367}
-  m_Layer: 0
+  - component: {fileID: 2742185280965671464}
+  - component: {fileID: 4987055549561737392}
+  m_Layer: 6
   m_Name: Dysprosium
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -32,7 +33,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -25.743729, y: -15.17, z: 0.5091095}
   m_LocalScale: {x: 10.085956, y: 8.259792, z: 1.8234}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -107,6 +108,70 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &21588133388765367
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6545329910304529663}
+  serializedVersion: 4
+  m_Mass: 5
+  m_Drag: 1
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &2742185280965671464
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6545329910304529663}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a16f94c7ed9f0fe4e946eaf5a66dc391, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 60
+  immuneToLazer: 1
+  objectiveName: 
+  objective:
+    name: 
+    type: 0
+    requiredProgress: 15
+    showProgress: 1
+    destroy: 0
+    group: {fileID: 0}
+    failIfNoTargetsLeft: 0
+    hardFail: 0
+    targets: []
+    nextObjective: []
+    progress: 0
+    completed: 0
+    failed: 0
+  health: 0
+  dead: 0
+  damageEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  deathEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &4987055549561737392
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -121,6 +186,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 50
   resourceType: Dysprosium
+  amount: 1
   mineVFX: {fileID: 1419990315164436307, guid: 36164469864dba64580148557e0c0c80, type: 3}
   mineSFX: {fileID: 8300000, guid: 48a17a459a0fff441aea4f001becfe0a, type: 3}
   destroyVFX: {fileID: 1419990315164436307, guid: 740220e2c5728d44f8b755ca15e4ccc4,
@@ -158,30 +224,4 @@ MonoBehaviour:
     m_RotationOrder: 4
   destroyFadeVFX: {fileID: 658887652791092909, guid: 2716e0f0b56412547a9bae63b33b26be,
     type: 3}
---- !u!54 &21588133388765367
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6545329910304529663}
-  serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
+  healthScript: {fileID: 0}
