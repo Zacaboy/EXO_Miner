@@ -50,7 +50,7 @@ public class Timer : MonoBehaviour
         if (time <= 0)
         {
             outOfTime.Invoke();
-            GameManager.me.FailObjective();
+            GameManager.me.FailObjective(false);
             failed = true;
         }
     }

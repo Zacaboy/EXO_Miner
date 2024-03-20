@@ -167,7 +167,7 @@ public class Mining_Lazer : MonoBehaviour
                         spawnDecal = false;
                 }
                 else if (objecthealth)
-                    objecthealth.Damage(attackDamage);
+                    objecthealth.Damage(attackDamage, DamageType.Lazer);
             }
             if(shake > 0)
                 GetComponentInParent<PlayerMechController>().FireMiningLazer(shake == 2);

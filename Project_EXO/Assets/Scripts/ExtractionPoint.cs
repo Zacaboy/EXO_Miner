@@ -9,7 +9,8 @@ public class ExtractionPoint : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        if(Time.timeSinceLevelLoad <= 2)
+            transform.parent.gameObject.SetActive(false);
     }
 
     // Update is called once per frame

@@ -74,12 +74,13 @@ public class ObjectiveManager : MonoBehaviour
             if (ObjectiveUI.me)
                 ObjectiveUI.me.AddObjective(objective);
         }
-
         if (objective.group)
         {
             foreach (Health health in objective.group.GetComponentsInChildren<Health>())
                 if (!objective.targets.Contains(health.transform))
                     objective.targets.Add(health.transform);
+            if (objective.requiredProgress == 0)
+                objective.requiredProgress = objective.targets.Count;
             objective.group.SetActive(true);
         }
         else if (objective.type == ObjectiveType.CollectResources)
@@ -92,6 +93,17 @@ public class ObjectiveManager : MonoBehaviour
                 target.GetComponent<Health>().objectiveName = objective.name;
                 target.GetComponent<Health>().objective = objective;
             }
+        if (objective.type == ObjectiveType.MoveToExtraction)
+        {
+            if (!objective.group)
+            {
+                Transform extraction = Instantiate(extractionPointPref);
+                extraction.transform.position = GameManager.me.startPos;
+                extraction.GetComponentInChildren<ExtractionPoint>().objective = objective;
+            }
+            else if (objective.group.transform.GetComponentInChildren<ExtractionPoint>())
+                objective.group.transform.GetComponentInChildren<ExtractionPoint>().objective = objective;
+        }
         SwitchObjective(objective.name);
     }
     public void SwitchObjective(string objective)
@@ -100,12 +112,6 @@ public class ObjectiveManager : MonoBehaviour
             if (type.name == objective)
             {
                 currentObjective = type;
-                if(type.type == ObjectiveType.MoveToExtraction)
-                {
-                    Transform extraction = Instantiate(extractionPointPref);
-                    extraction.transform.position = GameManager.me.startPos;
-                    extraction.GetComponentInChildren<ExtractionPoint>().objective = type;
-                }
                 if (ObjectiveUI.me)
                     ObjectiveUI.me.AddObjective(type);
             }
@@ -155,7 +161,7 @@ public class ObjectiveManager : MonoBehaviour
             {
                 type.failed = true;
                 if (type.hardFail)
-                    GameManager.me.FailObjective();
+                    GameManager.me.FailObjective(false);
                 else
                     AddObjective(type.nextObjective[0]);
             }
