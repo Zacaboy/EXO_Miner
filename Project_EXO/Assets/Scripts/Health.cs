@@ -43,7 +43,7 @@ public class Health : MonoBehaviour
         if (dead) return;
         if (ObjectiveManager.me & objective.name != "")
         {
-            if (objective.destroy)
+            if (objective.destroyTargets)
                 ObjectiveManager.me.UpdateProgress(objectiveName, 1);
             if (ObjectiveManager.me.currentObjective.targets.Contains(transform))
                 ObjectiveManager.me.currentObjective.targets.Remove(transform);

@@ -1564,6 +1564,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1963089211565906328, guid: c56eb19a3e12bfa428ae83d59a5326a4,
         type: 3}
+      propertyPath: objectives.Array.data[0].destroyTargets
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1963089211565906328, guid: c56eb19a3e12bfa428ae83d59a5326a4,
+        type: 3}
       propertyPath: objectives.Array.data[0].requiredProgress
       value: 0
       objectReference: {fileID: 0}
@@ -1635,6 +1640,11 @@ PrefabInstance:
     - target: {fileID: 1963089211565906328, guid: c56eb19a3e12bfa428ae83d59a5326a4,
         type: 3}
       propertyPath: objectives.Array.data[0].nextObjective.Array.data[0].nextObjective.Array.data[0].hardFail
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1963089211565906328, guid: c56eb19a3e12bfa428ae83d59a5326a4,
+        type: 3}
+      propertyPath: objectives.Array.data[0].nextObjective.Array.data[0].nextObjective.Array.data[0].destroyTargets
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1963089211565906328, guid: c56eb19a3e12bfa428ae83d59a5326a4,

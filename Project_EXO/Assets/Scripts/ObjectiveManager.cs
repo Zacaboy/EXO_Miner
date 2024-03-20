@@ -11,12 +11,18 @@ public class Objective
 {
     public string name;
     public ObjectiveType type;
+
+    [Header("Progress")]
     public int requiredProgress = 15;
     public bool showProgress = true;
-    public bool destroy;
+
+    [Header("Group And Targets")]
     public GameObject group;
-    public bool failIfNoTargetsLeft = true;
-    public bool hardFail;
+    public bool destroyTargets;
+    public bool failIfNoTargetsAvailable = true;
+    public bool hardFail; // This fails the whole game
+
+    [Header("Ignore")]
     [HideInInspector] public List<Transform> targets = new List<Transform>();
     [SerializeField] public List<Objective> nextObjective = new List<Objective>();
     [HideInInspector] public int progress;
@@ -56,7 +62,7 @@ public class ObjectiveManager : MonoBehaviour
     public void Update()
     {
         if (currentObjective != null)
-            if (currentObjective.failIfNoTargetsLeft)
+            if (currentObjective.failIfNoTargetsAvailable)
             {
                 foreach(Transform target in currentObjective.targets)
                     if(!target)
