@@ -33,7 +33,7 @@ public class ExplosivePlantScript : MonoBehaviour
         health.deathEvent.AddListener(Explode);
         if (GetComponentInChildren<Collider>())
         {
-            if (!GetComponentInChildren<Collider>().enabled)
+            if (!GetComponentInChildren<Collider>().enabled || !GetComponentInChildren<Collider>().isTrigger)
                 close = true;
         }
         else

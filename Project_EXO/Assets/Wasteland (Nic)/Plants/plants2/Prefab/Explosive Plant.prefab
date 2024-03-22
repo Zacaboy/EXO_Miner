@@ -197,9 +197,9 @@ MonoBehaviour:
     type: 0
     requiredProgress: 15
     showProgress: 1
-    destroy: 0
     group: {fileID: 0}
-    failIfNoTargetsLeft: 1
+    destroyTargets: 0
+    failIfNoTargetsAvailable: 1
     hardFail: 0
     targets: []
     nextObjective: []
@@ -245,9 +245,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 28048b6c68bfa438192bf982ef7f5175, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 7eb5d6d6ab2c0441da89c6c8247bbd54, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.369
   m_Pitch: 1
   Loop: 1
   Mute: 0
