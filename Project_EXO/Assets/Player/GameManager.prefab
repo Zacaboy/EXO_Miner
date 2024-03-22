@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8513255714557474720}
   - component: {fileID: 1120787528876586266}
+  - component: {fileID: 99196684230625853}
   - component: {fileID: 1963089211565906328}
   - component: {fileID: 3358589700547764375}
   - component: {fileID: 1148768226705499671}
@@ -86,6 +87,20 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   over: 0
+--- !u!114 &99196684230625853
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2929300211640277958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba441869d6be02e478a8940ae65f3cc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distance: 400
+  objects: []
 --- !u!114 &1963089211565906328
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -103,9 +118,9 @@ MonoBehaviour:
     type: 0
     requiredProgress: 15
     showProgress: 1
-    destroy: 0
     group: {fileID: 0}
-    failIfNoTargetsLeft: 1
+    destroyTargets: 0
+    failIfNoTargetsAvailable: 1
     hardFail: 1
     targets: []
     nextObjective:
@@ -113,9 +128,9 @@ MonoBehaviour:
       type: 3
       requiredProgress: 1
       showProgress: 0
-      destroy: 0
       group: {fileID: 0}
-      failIfNoTargetsLeft: 1
+      destroyTargets: 0
+      failIfNoTargetsAvailable: 1
       hardFail: 0
       targets: []
       nextObjective: []
@@ -132,9 +147,9 @@ MonoBehaviour:
     type: 0
     requiredProgress: 15
     showProgress: 1
-    destroy: 0
     group: {fileID: 0}
-    failIfNoTargetsLeft: 1
+    destroyTargets: 0
+    failIfNoTargetsAvailable: 1
     hardFail: 0
     targets: []
     nextObjective: []
