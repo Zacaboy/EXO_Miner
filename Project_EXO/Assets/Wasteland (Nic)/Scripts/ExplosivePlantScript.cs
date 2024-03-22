@@ -31,6 +31,8 @@ public class ExplosivePlantScript : MonoBehaviour
         m_Light.intensity = 0;
         normalColour = m_Renderer.material.GetColor("_EmissionColor");
         health.deathEvent.AddListener(Explode);
+        if (OptimizationManager.me)
+            OptimizationManager.me.objects.Add(gameObject);
         if (GetComponentInChildren<Collider>())
         {
             if (!GetComponentInChildren<Collider>().enabled || !GetComponentInChildren<Collider>().isTrigger)

@@ -18,8 +18,6 @@ public class OptimizationManager : MonoBehaviour
     {
         foreach (BugScript obj in FindObjectsOfType<BugScript>())
             objects.Add(obj.gameObject);
-        foreach (ExplosivePlantScript obj in FindObjectsOfType<ExplosivePlantScript>())
-            objects.Add(obj.gameObject);
         foreach (Ore obj in FindObjectsOfType<Ore>())
             objects.Add(obj.gameObject);
     }
