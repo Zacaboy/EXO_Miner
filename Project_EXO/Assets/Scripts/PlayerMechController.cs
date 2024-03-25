@@ -239,8 +239,8 @@ public class PlayerMechController : MonoBehaviour
                 if (Time.time >= lastWalkTime + walkFrequency)
                 {
                     lastWalkTime = Time.time;
-                    if (walkingSFX.Length > 0)
-                        FXManager.SpawnSFX(walkingSFX[Random.Range(0, walkingSFX.Length - 1)], transform.position, 50, 5);
+                 //   if (walkingSFX.Length > 0)
+                   //     FXManager.SpawnSFX(walkingSFX[Random.Range(0, walkingSFX.Length - 1)], transform.position, 50, 5);
                     if (!stunned)
                         GetCameraInfo("Walk", true).CrossFadeInFixedTime("Walk", 0.1f);
                     if (walksVFX.Length > 0)

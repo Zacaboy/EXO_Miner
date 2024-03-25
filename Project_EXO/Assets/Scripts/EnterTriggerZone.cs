@@ -7,9 +7,9 @@ using TMPro;
 
 public class EnterTriggerZone : MonoBehaviour
 {
-    public Behaviour[] scriptsToDeactivate;
+    public GameObject[] objectsToDeactivate;
     public PlayableDirector timeline;
-    public Behaviour[] scriptsToActivate;
+    public GameObject[] objectsToActivate;
     public TMP_Text promptText;
     public InputActionReference inputAction;
 
@@ -43,10 +43,10 @@ public class EnterTriggerZone : MonoBehaviour
 
     void StartSequence()
     {
-        // Deactivate the specified scripts
-        foreach (var script in scriptsToDeactivate)
+        // Deactivate the specified GameObjects
+        foreach (var obj in objectsToDeactivate)
         {
-            script.enabled = false;
+            obj.SetActive(false);
         }
 
         // Play the specified timeline
@@ -58,14 +58,21 @@ public class EnterTriggerZone : MonoBehaviour
         {
             Debug.LogError("Timeline is not assigned!");
         }
+        StartCoroutine(WaitFinish());
+    }
+
+    public IEnumerator WaitFinish()
+    {
+        yield return new WaitForSeconds((float)timeline.duration);
+        OnTimelineFinished();
     }
 
     public void OnTimelineFinished()
     {
-        // Activate the specified scripts
-        foreach (var script in scriptsToActivate)
+        // Activate the specified GameObjects
+        foreach (var obj in objectsToActivate)
         {
-            script.enabled = true;
+           obj.SetActive(true);
         }
     }
 }
