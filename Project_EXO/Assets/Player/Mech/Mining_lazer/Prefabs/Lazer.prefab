@@ -520,7 +520,7 @@ MonoBehaviour:
     type: 3}
   decal: {fileID: 8313332065024553009, guid: b1f350ebe50050c47b12bb3ff4167b20, type: 3}
   lazerSFX: {fileID: 8300000, guid: c342818e3480ed047ba040b0bfcbe50a, type: 3}
-  lazerHitSFX: {fileID: 8300000, guid: 883fa9a2d910b044b87d9227339b7917, type: 3}
+  lazerHitSFX: {fileID: 8300000, guid: bcfbda5c276f2a8459273cd37eb9dbed, type: 3}
   lazerStopSFX: {fileID: 8300000, guid: f65fdf84059308943803d8abd2cdda1c, type: 3}
   triggerLight: {fileID: 5727410107868299796}
   ani: {fileID: 8421776111211681513}
@@ -956,6 +956,26 @@ PrefabInstance:
     - target: {fileID: 5317596653866689980, guid: c7a01512fe7636d42995ee9173fc5178,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7518820125660438370, guid: c7a01512fe7636d42995ee9173fc5178,
+        type: 3}
+      propertyPath: m_BoundingSphereOverride.w
+      value: -7.3480943e+19
+      objectReference: {fileID: 0}
+    - target: {fileID: 7518820125660438370, guid: c7a01512fe7636d42995ee9173fc5178,
+        type: 3}
+      propertyPath: m_BoundingSphereOverride.x
+      value: 8.11e-43
+      objectReference: {fileID: 0}
+    - target: {fileID: 7518820125660438370, guid: c7a01512fe7636d42995ee9173fc5178,
+        type: 3}
+      propertyPath: m_BoundingSphereOverride.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7518820125660438370, guid: c7a01512fe7636d42995ee9173fc5178,
+        type: 3}
+      propertyPath: m_BoundingSphereOverride.z
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

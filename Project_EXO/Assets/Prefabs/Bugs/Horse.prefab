@@ -2822,7 +2822,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 552.2009, y: 0, z: 455.16782}
-  m_LocalScale: {x: 8, y: 8, z: 8}
+  m_LocalScale: {x: 8.5, y: 8.5, z: 8.5}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 9190009964619849984}
@@ -2848,8 +2848,8 @@ MonoBehaviour:
   dieSFX: {fileID: 8300000, guid: 42f9dcb28aeaf43a6a8d1b0fedfa9618, type: 3}
   fadeMat: {fileID: 2100000, guid: e94a187ceb4ee13408d522b6d48a9f02, type: 2}
   property: _BaseColor
-  alertDistance: 170
-  looseDistance: 700
+  alertDistance: 100
+  looseDistance: 500
   attackDistance: 45
   attackRange: 45
   attackRate: 4
@@ -2898,9 +2898,9 @@ MonoBehaviour:
     type: 0
     requiredProgress: 15
     showProgress: 1
-    destroy: 0
     group: {fileID: 0}
-    failIfNoTargetsLeft: 1
+    destroyTargets: 0
+    failIfNoTargetsAvailable: 1
     hardFail: 0
     targets: []
     nextObjective: []
@@ -2925,7 +2925,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 1.21
-  m_Speed: 45
+  m_Speed: 60
   m_Acceleration: 15
   avoidancePriority: 50
   m_AngularSpeed: 120
