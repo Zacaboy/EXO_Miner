@@ -121,7 +121,7 @@ Material:
     m_Colors:
     - _Alpha: {r: 1, g: 1, b: 1, a: 0}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
-    - _CloudSpeed: {r: 0.01, g: 0.01, b: 0, a: 0}
+    - _CloudSpeed: {r: 0.0005, g: 0.0005, b: 0, a: 0}
     - _Cloud_Distorting: {r: 0.01, g: 0.02, b: 0, a: 0}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _Colour_1: {r: 0.7738519, g: 0.88029677, b: 0.8867924, a: 0}
