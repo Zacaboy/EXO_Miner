@@ -8,6 +8,9 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager me;
 
+    [Header("Map")]
+    public Sprite mapIcon;
+
     [Header("Effects")]
     public UIMessageScript startEffect;
     public UIMessageScript endEffect;
