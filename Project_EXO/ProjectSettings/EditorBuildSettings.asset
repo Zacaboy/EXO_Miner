@@ -6,6 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Systems.unity
-    guid: d3314649f571d0c4b927d677f0dd4f4e
+    path: Assets/Wasteland (Nic)/Wasteland.unity
+    guid: b40e38af02239f844840107c7ccc3a6d
   m_configObjects: {}
