@@ -492,7 +492,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27b4cb2402760154387fc30183603f5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 50
+  range: 100
   mineRate: 0.1
   mineDamage: 5
   attackDamage: 1
@@ -961,17 +961,12 @@ PrefabInstance:
     - target: {fileID: 7518820125660438370, guid: c7a01512fe7636d42995ee9173fc5178,
         type: 3}
       propertyPath: m_BoundingSphereOverride.w
-      value: -7.3480943e+19
-      objectReference: {fileID: 0}
-    - target: {fileID: 7518820125660438370, guid: c7a01512fe7636d42995ee9173fc5178,
-        type: 3}
-      propertyPath: m_BoundingSphereOverride.x
-      value: 8.11e-43
+      value: 4e-45
       objectReference: {fileID: 0}
     - target: {fileID: 7518820125660438370, guid: c7a01512fe7636d42995ee9173fc5178,
         type: 3}
       propertyPath: m_BoundingSphereOverride.y
-      value: 0
+      value: 1e-45
       objectReference: {fileID: 0}
     - target: {fileID: 7518820125660438370, guid: c7a01512fe7636d42995ee9173fc5178,
         type: 3}

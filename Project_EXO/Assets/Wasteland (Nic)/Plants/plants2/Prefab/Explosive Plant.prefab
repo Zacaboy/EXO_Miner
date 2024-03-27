@@ -190,7 +190,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 25
-  immuneToLazer: 1
+  immuneToLazer: 0
   objectiveName: 
   objective:
     name: 
