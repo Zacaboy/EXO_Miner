@@ -286,6 +286,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
       value: Wasteland
       objectReference: {fileID: 0}
+    - target: {fileID: 5413984182948084664, guid: 7050664433c79284f852d3a59b460316,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_StringArgument
+      value: Wasteland
+      objectReference: {fileID: 0}
     - target: {fileID: 5748702332883116975, guid: 7050664433c79284f852d3a59b460316,
         type: 3}
       propertyPath: m_Name
@@ -738,6 +743,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
       value: Jungle
       objectReference: {fileID: 0}
+    - target: {fileID: 5413984182948084664, guid: 7050664433c79284f852d3a59b460316,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_StringArgument
+      value: Jungle
+      objectReference: {fileID: 0}
     - target: {fileID: 5748702332883116975, guid: 7050664433c79284f852d3a59b460316,
         type: 3}
       propertyPath: m_Name
@@ -877,6 +887,11 @@ PrefabInstance:
     - target: {fileID: 5413984182948084664, guid: 7050664433c79284f852d3a59b460316,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: Mech_Hanger
+      objectReference: {fileID: 0}
+    - target: {fileID: 5413984182948084664, guid: 7050664433c79284f852d3a59b460316,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_StringArgument
       value: Mech_Hanger
       objectReference: {fileID: 0}
     - target: {fileID: 5748702332883116975, guid: 7050664433c79284f852d3a59b460316,
@@ -1606,6 +1621,11 @@ PrefabInstance:
     - target: {fileID: 5413984182948084664, guid: 7050664433c79284f852d3a59b460316,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: Cave
+      objectReference: {fileID: 0}
+    - target: {fileID: 5413984182948084664, guid: 7050664433c79284f852d3a59b460316,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_StringArgument
       value: Cave
       objectReference: {fileID: 0}
     - target: {fileID: 5748702332883116975, guid: 7050664433c79284f852d3a59b460316,
