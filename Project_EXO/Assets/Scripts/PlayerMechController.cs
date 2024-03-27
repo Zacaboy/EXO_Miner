@@ -4,7 +4,6 @@ using System.Resources;
 using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using static Unity.VisualScripting.Member;
 
 public class PlayerMechController : MonoBehaviour
 {
@@ -35,9 +34,8 @@ public class PlayerMechController : MonoBehaviour
     public float lookFrequency = 0.5f;
 
     [Header("Audio Sources")]
-    public AudioSource walkingSource;
-    public AudioSource jumpingSource;
-    public AudioSource landingSource;
+    public AudioSource[] walkingSources;
+    public AudioSource wasteSource;
 
     [Header("Look Limits")]
     public float lookUpLimit = 45;
@@ -256,7 +254,7 @@ public class PlayerMechController : MonoBehaviour
                 {
                     lastWalkTime = Time.time;
                     if (walkingSFX.Length > 0)
-                        walkingSource.PlayOneShot(walkingSFX[Random.Range(0, walkingSFX.Length - 1)]);
+                        walkingSources[currentFoot].PlayOneShot(walkingSFX[Random.Range(0, walkingSFX.Length - 1)]);
                     //  FXManager.SpawnSFX(walkingSFX[Random.Range(0, walkingSFX.Length - 1)], transform.position, 50, 5);
                     if (!stunned)
                         GetCameraInfo("Walk", true).CrossFadeInFixedTime("Walk", 0.1f);
@@ -389,7 +387,7 @@ public class PlayerMechController : MonoBehaviour
                         if (enemyHealth.gameObject != gameObject & Vector3.Distance(transform.position, enemyHealth.transform.position) <= landingDamageAreaEffect)
                             enemyHealth.Damage((int)landingDamageAreaEffect, DamageType.Physical);
                     if (landingSFX.Length > 0)
-                        landingSource.PlayOneShot(landingSFX[Random.Range(0, landingSFX.Length - 1)]);
+                        wasteSource.PlayOneShot(landingSFX[Random.Range(0, landingSFX.Length - 1)]);
                     //   FXManager.SpawnSFX(landingSFX[Random.Range(0, landingSFX.Length - 1)], transform.position, 100, 5);
                     if (landingVFX)
                         FXManager.SpawnVFX(landingVFX, feetScript.transform.position, transform.eulerAngles, null, 15);
@@ -523,7 +521,7 @@ public class PlayerMechController : MonoBehaviour
         rigi.AddForce(Camera.main.transform.forward * jumpForward);
         lightningStruckFall = false;
         if (jumpingSFX.Length > 0)
-            jumpingSource.PlayOneShot(jumpingSFX[Random.Range(0, jumpingSFX.Length - 1)]);
+            wasteSource.PlayOneShot(jumpingSFX[Random.Range(0, jumpingSFX.Length - 1)]);
          //   FXManager.SpawnSFX(jumpingSFX[Random.Range(0, jumpingSFX.Length - 1)], transform.position, 50, 5);
         jumping = 0;
     }
