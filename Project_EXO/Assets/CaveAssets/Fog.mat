@@ -91,7 +91,7 @@ Material:
     - _ClearCoatSmoothness: 0
     - _CloudSpeed: 0
     - _Cloud_Contrast: 1.59
-    - _Cloud_Density: 1.15
+    - _Cloud_Density: 0.76
     - _Cloud_Distortion_Size: 2
     - _Cloud_Size: 247
     - _Cull: 2
