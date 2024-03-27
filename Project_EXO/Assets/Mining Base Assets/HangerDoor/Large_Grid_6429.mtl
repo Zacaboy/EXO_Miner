@@ -1,0 +1,198 @@
+newmtl material_1
+Ka 1.000 1.000 1.000
+Kd 1.000 1.000 1.000
+Ks 0.100 0.100 0.100
+d 1.0
+Ns 95.00
+illum 2
+map_Ka material_1_ca.png
+map_Kd material_1_ca.png
+map_Bump material_1_ng.png
+
+newmtl material_2
+Ka 1.000 1.000 1.000
+Kd 1.000 1.000 1.000
+Ks 0.100 0.100 0.100
+d 1.0
+Ns 95.00
+illum 2
+map_Ka material_2_ca.png
+map_Kd material_2_ca.png
+map_Bump material_1_ng.png
+
+newmtl material_3
+Ka 1.000 1.000 1.000
+Kd 1.000 1.000 1.000
+Ks 0.100 0.100 0.100
+d 1.0
+Ns 95.00
+illum 2
+map_Ka material_3_ca.png
+map_Kd material_3_ca.png
+map_Bump material_3_ng.png
+
+newmtl material_4
+Ka 1.000 1.000 1.000
+Kd 1.000 1.000 1.000
+Ks 0.100 0.100 0.100
+d 0.0
+Ns 95.00
+illum 2
+map_Ka material_4_ca.png
+map_Kd material_4_ca.png
+map_d material_4_ca.png
+map_Bump material_4_ng.png
+
+newmtl material_5
+Ka 1.000 1.000 1.000
+Kd 1.000 1.000 1.000
+Ks 0.100 0.100 0.100
+d 1.0
+Ns 95.00
+illum 2
+map_Ka material_5_ca.png
+map_Kd material_5_ca.png
+map_Bump material_5_ng.png
+
+newmtl material_6
+Ka 1.000 1.000 1.000
+Kd 1.000 1.000 1.000
+Ks 0.100 0.100 0.100
+d 1.0
+Ns 95.00
+illum 2
+map_Ka material_6_ca.png
+map_Kd material_6_ca.png
+map_Bump material_6_ng.png
+
+newmtl material_7
+Ka 1.000 1.000 1.000
+Kd 1.000 1.000 1.000
+Ks 0.100 0.100 0.100
+d 0.0
+Ns 95.00
+illum 2
+map_Ka material_7_ca.png
+map_Kd material_7_ca.png
+map_d material_7_ca.png
+map_Bump material_7_ng.png
+
+newmtl material_8
+Ka 1.000 1.000 1.000
+Kd 1.000 1.000 1.000
+Ks 0.100 0.100 0.100
+d 0.0
+Ns 95.00
+illum 2
+map_Ka material_8_ca.png
+map_Kd material_8_ca.png
+map_d material_8_ca.png
+map_Bump material_8_ng.png
+
+newmtl material_9
+Ka 1.000 1.000 1.000
+Kd 1.000 1.000 1.000
+Ks 0.100 0.100 0.100
+d 0.0
+Ns 95.00
+illum 2
+map_Ka material_9_ca.png
+map_Kd material_9_ca.png
+map_d material_9_ca.png
+map_Bump material_9_ng.png
+
+newmtl material_10
+Ka 1.000 1.000 1.000
+Kd 1.000 1.000 1.000
+Ks 0.100 0.100 0.100
+d 0.0
+Ns 95.00
+illum 2
+map_Ka material_10_ca.png
+map_Kd material_10_ca.png
+map_d material_10_ca.png
+map_Bump material_10_ng.png
+
+newmtl material_11
+Ka 1.000 1.000 1.000
+Kd 1.000 1.000 1.000
+Ks 0.100 0.100 0.100
+d 0.0
+Ns 95.00
+illum 2
+map_Ka material_11_ca.png
+map_Kd material_11_ca.png
+map_d material_11_ca.png
+map_Bump material_11_ng.png
+
+newmtl material_12
+Ka 1.000 1.000 1.000
+Kd 1.000 1.000 1.000
+Ks 0.100 0.100 0.100
+d 0.0
+Ns 95.00
+illum 2
+map_Ka material_12_ca.png
+map_Kd material_12_ca.png
+map_d material_12_ca.png
+map_Bump material_12_ng.png
+
+newmtl material_13
+Ka 1.000 1.000 1.000
+Kd 1.000 1.000 1.000
+Ks 0.100 0.100 0.100
+d 0.0
+Ns 95.00
+illum 2
+map_Ka material_13_ca.png
+map_Kd material_13_ca.png
+map_d material_13_ca.png
+map_Bump material_7_ng.png
+
+newmtl material_14
+Ka 1.000 1.000 1.000
+Kd 1.000 1.000 1.000
+Ks 0.100 0.100 0.100
+d 0.0
+Ns 95.00
+illum 2
+map_Ka material_14_ca.png
+map_Kd material_14_ca.png
+map_d material_14_ca.png
+map_Bump material_7_ng.png
+
+newmtl material_15
+Ka 1.000 1.000 1.000
+Kd 1.000 1.000 1.000
+Ks 0.100 0.100 0.100
+d 0.0
+Ns 95.00
+illum 2
+map_Ka material_15_ca.png
+map_Kd material_15_ca.png
+map_d material_15_ca.png
+map_Bump material_15_ng.png
+
+newmtl material_16
+Ka 1.000 1.000 1.000
+Kd 1.000 1.000 1.000
+Ks 0.100 0.100 0.100
+d 0.0
+Ns 95.00
+illum 2
+map_Ka material_16_ca.png
+map_Kd material_16_ca.png
+map_d material_16_ca.png
+map_Bump material_16_ng.png
+
+newmtl material_17
+Ka 1.000 1.000 1.000
+Kd 1.000 1.000 1.000
+Ks 0.100 0.100 0.100
+d 1.0
+Ns 95.00
+illum 2
+map_Ka material_17_ca.png
+map_Kd material_17_ca.png
+map_Bump material_17_ng.png
+
