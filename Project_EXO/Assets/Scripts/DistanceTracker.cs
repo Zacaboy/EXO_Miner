@@ -87,7 +87,7 @@ public class DistanceTracker : MonoBehaviour
                 spriteRenderer.sprite = closestObject.icon;
                 if (Time.timeSinceLevelLoad >= startTime + 2.5f)
                 {
-                    distanceText.text = "Closest Object Distance: " + Mathf.Round(minDistance) + "m";
+                    distanceText.text = "Distance: " + Mathf.Round(minDistance) + "m";
                     distanceText.color = startCol;
                 }
             }
@@ -97,7 +97,7 @@ public class DistanceTracker : MonoBehaviour
                 spriteRenderer.sprite = noObjectsInRangeImage;
                 if (Time.timeSinceLevelLoad >= startTime + 2.5f)
                 {
-                    distanceText.text = "No Ores In Range";
+                    distanceText.text = "Out of Range";
                     distanceText.color = Color.red;
                 }
             }

@@ -3,7 +3,37 @@ guid: 23166bd2bfefd534695f5e9ea9e2f8f1
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Small_Grid_6961_part1Mat
+    second: {fileID: 2100000, guid: 19eb8dfd83188e643bd0646b311dbc3c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Small_Grid_6961_part2Mat
+    second: {fileID: 2100000, guid: ada0ab270b6994d499e9dfeebaa94d6b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Small_Grid_6961_part3Mat
+    second: {fileID: 2100000, guid: 27b9e90914c7e6c4b95fe4085d473faa, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Small_Grid_6961_part4Mat
+    second: {fileID: 2100000, guid: df195d54d282033498fc9487f843f4b3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Small_Grid_6961_part5Mat
+    second: {fileID: 2100000, guid: c2d12e5e910a82d4495cf1a4235c4670, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Small_Grid_6961_part6Mat
+    second: {fileID: 2100000, guid: 53d76d5bf81fcf44c8470fa6710191d8, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
