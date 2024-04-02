@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4788478710981855852}
   - component: {fileID: 6726021743726138157}
   - component: {fileID: 808471140718947061}
+  - component: {fileID: 3883599237031012930}
   m_Layer: 0
   m_Name: Bullet
   m_TagString: Untagged
@@ -75,6 +76,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 15
   areaOfEffect: 16
+  type: 0
   vfx: {fileID: 198917022394846920, guid: 54bf4638f88445f4b93d57b9a51cc871, type: 3}
   sfx: {fileID: 0}
 --- !u!1 &8055986535750896137

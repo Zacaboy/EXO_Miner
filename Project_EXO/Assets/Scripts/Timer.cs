@@ -7,9 +7,11 @@ public class Timer : MonoBehaviour
 {
     public static Timer me;
     public int maxTime = 15;
+    public int timeRate = 60;
     public int bonusTime = 10;
     public bool showTime;
     public bool noLimit;
+    public float failTime = 3;
     public UnityEvent outOfTime;
     [HideInInspector] public float time;
     [HideInInspector] public Vector3 startPos;
@@ -31,7 +33,7 @@ public class Timer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Time.time >= lastTime + 60 & !failed)
+        if (Time.time >= lastTime + timeRate & !failed)
         {
             lastTime = Time.time;
             if (!noLimit)
@@ -50,8 +52,14 @@ public class Timer : MonoBehaviour
         if (time <= 0)
         {
             outOfTime.Invoke();
-            GameManager.me.FailObjective();
+            StartCoroutine(WaitFail());
             failed = true;
         }
+    }
+
+    public IEnumerator WaitFail()
+    {
+        yield return new WaitForSeconds(failTime);
+        GameManager.me.FailObjective(false);
     }
 }

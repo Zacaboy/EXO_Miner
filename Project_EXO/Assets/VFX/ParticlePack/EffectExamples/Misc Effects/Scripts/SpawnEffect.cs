@@ -2,11 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum SurfaceType
+{
+    Opaque,
+    Transparent
+}
+
 public class SpawnEffect : MonoBehaviour {
 
     public float spawnEffectTime = 2;
     public float pause = 1;
     public float fadeDelay = 1;
+    [HideInInspector] public Material newMat;
+    Material normalMat;
     public AnimationCurve fadeIn;
     public bool useAlpha = true;
     public bool fadingIn;
@@ -21,15 +29,18 @@ public class SpawnEffect : MonoBehaviour {
 
 	void Start ()
     {
+        _renderer = GetComponentInChildren<Renderer>();
+        normalMat = _renderer.material;
         Initiate();
     }
 
     public void Initiate()
     {
         shaderProperty = Shader.PropertyToID("_Cutoff");
-        _renderer = GetComponentInChildren<Renderer>();
         ps = GetComponentInChildren<ParticleSystem>();
         lastTime = Time.time;
+        if(newMat)
+            _renderer.material = newMat;
         if (useAlpha & fadingIn)
             _renderer.material.SetColor(property, new Color(_renderer.material.GetColor(property).r, _renderer.material.GetColor(property).g, _renderer.material.GetColor(property).b, 0));
         if (ps)
@@ -40,7 +51,7 @@ public class SpawnEffect : MonoBehaviour {
         }
     }
 	
-	void Update ()
+	void Update()
     {
         if (timer < spawnEffectTime + pause & Time.time >= lastTime + fadeDelay)
             timer += Time.deltaTime;
@@ -62,10 +73,13 @@ public class SpawnEffect : MonoBehaviour {
             if (fadingIn)
             {
                 if (_renderer.material.GetColor(property).a >= 1)
+                {
+                    _renderer.material = normalMat;
                     Destroy(this);
+                }
             }
             else if (_renderer.material.GetColor(property).a <= 0.3f)
-                    Destroy(gameObject);       
+                Destroy(gameObject);
         }
         else
         {
@@ -73,7 +87,10 @@ public class SpawnEffect : MonoBehaviour {
             if (fadingIn)
             {
                 if (_renderer.material.GetColor(property).a >= 1)
+                {
+                    _renderer.material = normalMat;
                     Destroy(this);
+                }
             }
             else if (_renderer.material.GetFloat("_Cutoff") <= 0.3f)
                 Destroy(gameObject);

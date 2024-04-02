@@ -121,7 +121,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a16f94c7ed9f0fe4e946eaf5a66dc391, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  maxHealth: 200
   immuneToLazer: 1
   objectiveName: 
   objective:
@@ -129,9 +129,9 @@ MonoBehaviour:
     type: 0
     requiredProgress: 15
     showProgress: 1
-    destroy: 0
     group: {fileID: 0}
-    failIfNoTargetsLeft: 0
+    destroyTargets: 0
+    failIfNoTargetsAvailable: 1
     hardFail: 0
     targets: []
     nextObjective: []
@@ -158,14 +158,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf9d27da78ccd47439ec81974aa72c3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  maxHealth: 200
   resourceType: Iron
   amount: 1
   mineVFX: {fileID: 1419990315164436307, guid: 36164469864dba64580148557e0c0c80, type: 3}
-  mineSFX: {fileID: 8300000, guid: 48a17a459a0fff441aea4f001becfe0a, type: 3}
+  mineSFX: {fileID: 8300000, guid: 32de744f2f7321d4d866ef9078873682, type: 3}
   destroyVFX: {fileID: 1419990315164436307, guid: 740220e2c5728d44f8b755ca15e4ccc4,
     type: 3}
-  destroySFX: {fileID: 8300000, guid: 5cc2f76f984eae9409b914e6585a74b1, type: 3}
+  destroySFX: {fileID: 8300000, guid: 3a7ca8f7ce23b9b4db0b18c1953864e6, type: 3}
   icon: {fileID: 21300000, guid: cc04ff54c11265146875176379dd9469, type: 3}
   health: 0
   spawnEffectTime: 4

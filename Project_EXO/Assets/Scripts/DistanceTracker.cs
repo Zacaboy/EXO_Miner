@@ -46,17 +46,20 @@ public class DistanceTracker : MonoBehaviour
         objectsToTrack = FindObjectsOfType<Ore>();
         if (Time.timeSinceLevelLoad >= startTime + 2.5f)
         {
-            if(!Mining_UI.me.lazer.currentOre)
+            bool show = true;
+            if (Mining_UI.me)
+                if (Mining_UI.me.lazer.currentOre)
+                    show = false;
+            if (show)
                 spriteRenderer.color = new Color(spriteRenderer.color.r, spriteRenderer.color.g, spriteRenderer.color.b, Mathf.Lerp(spriteRenderer.color.a, startAlphas[0], 0.01f));
             else
-                spriteRenderer.color = new Color(spriteRenderer.color.r, spriteRenderer.color.g, spriteRenderer.color.b, Mathf.Lerp(spriteRenderer.color.a, 1, 0.01f));
-
+                spriteRenderer.color = new Color(spriteRenderer.color.r, spriteRenderer.color.g, spriteRenderer.color.b, Mathf.Lerp(spriteRenderer.color.a, 0, 0.01f));
         }
         if (Time.timeSinceLevelLoad >= startTime + 1)
         {
             m_Light.intensity = Mathf.Lerp(m_Light.intensity, startLight, 0.005f);
-            panel.color =  new Color(panel.color.r, panel.color.g, panel.color.b, Mathf.Lerp(panel.color.a, startAlphas[1], 0.01f));
-            distanceText.color =  new Color(distanceText.color.r, distanceText.color.g, distanceText.color.b, Mathf.Lerp(distanceText.color.a, startAlphas[2], 0.01f));
+            panel.color = new Color(panel.color.r, panel.color.g, panel.color.b, Mathf.Lerp(panel.color.a, startAlphas[1], 0.01f));
+            distanceText.color = new Color(distanceText.color.r, distanceText.color.g, distanceText.color.b, Mathf.Lerp(distanceText.color.a, startAlphas[2], 0.01f));
 
             float minDistance = Mathf.Infinity;
             closestObject = null;
@@ -84,7 +87,7 @@ public class DistanceTracker : MonoBehaviour
                 spriteRenderer.sprite = closestObject.icon;
                 if (Time.timeSinceLevelLoad >= startTime + 2.5f)
                 {
-                    distanceText.text = "Closest Object Distance: " + Mathf.Round(minDistance) + "m";
+                    distanceText.text = "Distance: " + Mathf.Round(minDistance) + "m";
                     distanceText.color = startCol;
                 }
             }
@@ -94,7 +97,7 @@ public class DistanceTracker : MonoBehaviour
                 spriteRenderer.sprite = noObjectsInRangeImage;
                 if (Time.timeSinceLevelLoad >= startTime + 2.5f)
                 {
-                    distanceText.text = "No objects Close";
+                    distanceText.text = "Out of Range";
                     distanceText.color = Color.red;
                 }
             }

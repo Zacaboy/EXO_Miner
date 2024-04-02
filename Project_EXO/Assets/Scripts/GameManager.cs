@@ -8,10 +8,14 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager me;
 
+    [Header("Map")]
+    public Sprite mapIcon;
+
     [Header("Effects")]
     public UIMessageScript startEffect;
     public UIMessageScript endEffect;
     public UIMessageScript winUI;
+    public UIMessageScript deathUI;
     public UIMessageScript failUI;
 
     [Header("Other")]
@@ -43,11 +47,18 @@ public class GameManager : MonoBehaviour
         StartCoroutine(WaitFinish(2));
     }
 
-    public void FailObjective()
+    public void FailObjective(bool dead)
     {
         if (over) return;
         over = true;
-        UIMessageScript ui = Instantiate(failUI);
+        if (dead)
+        {
+            UIMessageScript ui = Instantiate(deathUI);
+        }
+        else
+        {
+            UIMessageScript ui = Instantiate(failUI);
+        }
         failEvent.Invoke();
         StartCoroutine(WaitFinish(1));
     }
