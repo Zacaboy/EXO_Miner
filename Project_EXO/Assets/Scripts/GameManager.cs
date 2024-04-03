@@ -43,6 +43,13 @@ public class GameManager : MonoBehaviour
         if (over) return;
         over = true;
         UIMessageScript ui = Instantiate(winUI);
+        if (ObjectiveUI.me)
+        {
+            ui.transform.SetParent(ObjectiveUI.me.objectivesPanel.transform);
+            ui.transform.position = ObjectiveUI.me.objectivesPanel.transform.position;
+            ui.transform.eulerAngles = ObjectiveUI.me.objectivesPanel.transform.eulerAngles;
+            ui.transform.localScale = winUI.transform.localScale;
+        }
         completeEvent.Invoke();
         StartCoroutine(WaitFinish(2));
     }
@@ -54,10 +61,24 @@ public class GameManager : MonoBehaviour
         if (dead)
         {
             UIMessageScript ui = Instantiate(deathUI);
+            if (ObjectiveUI.me)
+            {
+                ui.transform.SetParent(ObjectiveUI.me.objectivesPanel.transform);
+                ui.transform.position = ObjectiveUI.me.objectivesPanel.transform.position;
+                ui.transform.eulerAngles = ObjectiveUI.me.objectivesPanel.transform.eulerAngles;
+                ui.transform.localScale = deathUI.transform.localScale;
+            }
         }
         else
         {
             UIMessageScript ui = Instantiate(failUI);
+            if (ObjectiveUI.me)
+            {
+                ui.transform.SetParent(ObjectiveUI.me.objectivesPanel.transform);
+                ui.transform.position = ObjectiveUI.me.objectivesPanel.transform.position;
+                ui.transform.eulerAngles = ObjectiveUI.me.objectivesPanel.transform.eulerAngles;
+                ui.transform.localScale = failUI.transform.localScale;
+            }
         }
         failEvent.Invoke();
         StartCoroutine(WaitFinish(1));
