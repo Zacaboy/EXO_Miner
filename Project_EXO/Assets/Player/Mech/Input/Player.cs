@@ -149,17 +149,6 @@ public partial class @Player: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""fde6c1fc-625d-463d-b0aa-4f69a6e20bdc"",
-                    ""path"": ""<Mouse>/delta"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Look"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""c04a835d-785d-42a5-bd43-a788ee4b2331"",
                     ""path"": ""<HID::Logitech Extreme 3D pro>/trigger"",
                     ""interactions"": """",
