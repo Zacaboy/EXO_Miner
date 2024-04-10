@@ -57,6 +57,7 @@ MonoBehaviour:
   winUI: {fileID: 7695198194177534841, guid: 4c31cddc7977aad4c8514bf6b73e3b05, type: 3}
   deathUI: {fileID: 7695198194177534841, guid: 33515b4cf48ce3143b12bbfd460b986f, type: 3}
   failUI: {fileID: 7695198194177534841, guid: 613ce43fc07919247838f3eef9ff5367, type: 3}
+  abortUI: {fileID: 7695198194177534841, guid: d020aaa0a375ec440af34cbf537f2435, type: 3}
   fadeIn:
     serializedVersion: 2
     m_Curve:
@@ -89,6 +90,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   over: 0
+  exitTimer: 0
 --- !u!114 &99196684230625853
 MonoBehaviour:
   m_ObjectHideFlags: 0

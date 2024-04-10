@@ -30,10 +30,10 @@ public class ProjectileScript : MonoBehaviour
         if (Time.fixedTime < spawnTime + 0.01f) return;
         FXManager.SpawnVFX(vfx, collision.contacts[0].point, collision.contacts[0].point, null, 5f);
         source.PlayOneShot(sfx);
-        //  FXManager.SpawnSFX(sfx, collision.contacts[0].point, 400, 5f);
         Health health = collision.transform.GetComponentInParent<Health>();
         if (health)
-            health.Damage(damage, type);
+            if (health.gameObject != shooter)
+                health.Damage(damage, type);
         foreach (Health enemyHealth in FindObjectsOfType<Health>())
         {
             bool hit = true;

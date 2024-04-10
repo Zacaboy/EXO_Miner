@@ -17,14 +17,16 @@ public class GameManager : MonoBehaviour
     public UIMessageScript winUI;
     public UIMessageScript deathUI;
     public UIMessageScript failUI;
+    public UIMessageScript abortUI;  
 
     [Header("Other")]
     public AnimationCurve fadeIn;
-
     [HideInInspector] public Vector3 startPos;
     [HideInInspector] public UnityEvent completeEvent;
     [HideInInspector] public UnityEvent failEvent;
     [HideInInspector] public bool over;
+    [HideInInspector] public bool aborting;
+    [HideInInspector] public float exitTimer;
 
     private void Awake()
     {
@@ -38,6 +40,22 @@ public class GameManager : MonoBehaviour
         UIMessageScript effect = Instantiate(startEffect);
     }
 
+    // Update is called once per frame
+    void Update()
+    {
+        if (over)
+            aborting = false;
+        if (!over & Time.timeSinceLevelLoad > 1)
+        {
+            if (!aborting)
+                exitTimer = Time.time;
+            if (Time.time >= exitTimer + 3)
+                AbortObjective();
+        }
+        else
+            exitTimer = Time.time;
+    }
+
     public void CompleteObjective()
     {
         if (over) return;
@@ -49,8 +67,28 @@ public class GameManager : MonoBehaviour
             ui.transform.position = ObjectiveUI.me.objectivesPanel.transform.position;
             ui.transform.eulerAngles = ObjectiveUI.me.objectivesPanel.transform.eulerAngles;
             ui.transform.localScale = winUI.transform.localScale;
+            ui.transform.SetAsFirstSibling();
+            ui.transform.localScale = winUI.transform.localScale;
         }
         completeEvent.Invoke();
+        StartCoroutine(WaitFinish(2));
+    }
+
+    public void AbortObjective()
+    {
+        if (over) return;
+        over = true;
+        UIMessageScript ui = Instantiate(abortUI);
+        if (ObjectiveUI.me)
+        {
+            ui.transform.SetParent(ObjectiveUI.me.objectivesPanel.transform);
+            ui.transform.position = ObjectiveUI.me.objectivesPanel.transform.position;
+            ui.transform.eulerAngles = ObjectiveUI.me.objectivesPanel.transform.eulerAngles;
+            ui.transform.localScale = winUI.transform.localScale;
+            ui.transform.SetParent(ObjectiveUI.me.objectivesPanel.transform);
+            ui.transform.SetAsFirstSibling();
+        }
+        failEvent.Invoke();
         StartCoroutine(WaitFinish(2));
     }
 
@@ -67,6 +105,8 @@ public class GameManager : MonoBehaviour
                 ui.transform.position = ObjectiveUI.me.objectivesPanel.transform.position;
                 ui.transform.eulerAngles = ObjectiveUI.me.objectivesPanel.transform.eulerAngles;
                 ui.transform.localScale = deathUI.transform.localScale;
+                ui.transform.SetParent(ObjectiveUI.me.objectivesPanel.transform);
+                ui.transform.SetAsFirstSibling();
             }
         }
         else
@@ -78,6 +118,8 @@ public class GameManager : MonoBehaviour
                 ui.transform.position = ObjectiveUI.me.objectivesPanel.transform.position;
                 ui.transform.eulerAngles = ObjectiveUI.me.objectivesPanel.transform.eulerAngles;
                 ui.transform.localScale = failUI.transform.localScale;
+                ui.transform.SetParent(ObjectiveUI.me.objectivesPanel.transform);
+                ui.transform.SetAsFirstSibling();
             }
         }
         failEvent.Invoke();
@@ -97,7 +139,7 @@ public class GameManager : MonoBehaviour
         if (type == 2)
         {
             yield return new WaitForSeconds(4);
-            SceneManager.LoadScene("Main Menu");
+            SceneManager.LoadScene("Hub");
         }
     }
 }

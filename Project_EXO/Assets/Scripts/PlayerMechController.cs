@@ -4,6 +4,9 @@ using System.Resources;
 using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.LowLevel;
+using UnityEngine.Windows;
+using UnityEngine.XR;
 
 public class PlayerMechController : MonoBehaviour
 {
@@ -91,6 +94,7 @@ public class PlayerMechController : MonoBehaviour
     private Vector2 movementInput; // Input for movement
     private Vector2 lookInput; // Input for looking
     [HideInInspector] public Transform lookpos;
+    PlayerInput input;
     FeetScript feetScript;
     public Health health;
     [HideInInspector] public Rigidbody rigi;
@@ -126,6 +130,7 @@ public class PlayerMechController : MonoBehaviour
         mass = rigi.mass;
         drag = rigi.drag;
         feetScript = GetComponentInChildren<FeetScript>();
+        input = GetComponent<PlayerInput>();
         health = GetComponent<Health>();
         health.damageEvent.AddListener(Damage);
         health.deathEvent.AddListener(Die);
@@ -325,6 +330,9 @@ public class PlayerMechController : MonoBehaviour
             if (transform.position.y <= killHeight & !GameManager.me.over)
                 GameManager.me.FailObjective(true);
 
+     //   input.defaultActionMap = "Keyboard";
+      //  input.defaultActionMap = "JoystickController";
+
         // This is for the warning lights in the cockpit
         if (warningLightning || dangerLightning)
         {
@@ -471,7 +479,7 @@ public class PlayerMechController : MonoBehaviour
         lastStunTime = Time.time;
         lightningStruckFall = true;
         if (downSFX.Length > 0)
-            FXManager.SpawnSFX(downSFX[Random.Range(0, downSFX.Length - 1)], transform.position, 10, 5, 0.3f);
+            FXManager.SpawnSFX(downSFX[Random.Range(0, downSFX.Length - 1)], transform.position, 100, 5, 0.3f);
     }
 
     public void FireWeapon()
@@ -489,12 +497,16 @@ public class PlayerMechController : MonoBehaviour
     public void Damage()
     {
         GetCameraInfo("Damage", true).CrossFadeInFixedTime("Damage", 0.1f);
+        if (downSFX.Length > 0)
+            FXManager.SpawnSFX(downSFX[Random.Range(0, downSFX.Length - 1)], transform.position, 100, 5, 0.3f);
     }
 
     public void Die()
     {
         active = false;
         GetCameraInfo("Death", true).CrossFadeInFixedTime("Death", 0.1f);
+        if (downSFX.Length > 0)
+            FXManager.SpawnSFX(downSFX[Random.Range(0, downSFX.Length - 1)], transform.position, 100, 5, 0.3f);
         if (GameManager.me)
             GameManager.me.FailObjective(true);
     }
@@ -510,6 +522,15 @@ public class PlayerMechController : MonoBehaviour
         if (jumping == 0 & jumping == 0 & landedTime == 0 & grounded)
             StartCoroutine(WaitJump());
     }
+
+    public void OnAbort(InputAction.CallbackContext context)
+    {
+        if (context.started)
+            GameManager.me.aborting = true;
+        else if (context.canceled)
+            GameManager.me.aborting = false;
+    }
+
     // Make sure you call a StartCoroutine instead of a regular void
     public IEnumerator WaitJump()
     {

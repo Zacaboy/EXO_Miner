@@ -24,6 +24,10 @@ public class ObjectiveUI : MonoBehaviour
     public Color disabledColour = Color.white;
     public Color disabledProgressColour = Color.white;
 
+    [Header("Aborting")]
+    public CanvasGroup abortingParent;
+    public Image abortingProgress;
+
     [SerializeField] List<ObjectiveSlot> slots = new List<ObjectiveSlot>();
     [HideInInspector] public List<TextMeshProUGUI> objectives = new List<TextMeshProUGUI>();
     Color startColour;
@@ -40,6 +44,8 @@ public class ObjectiveUI : MonoBehaviour
     {
         objectivesParent.alpha = 0;
         objectivesPanel.alpha = 0;
+        abortingParent.alpha = 0;
+        abortingProgress.fillAmount = 0;
         objectivesPanel.transform.SetParent(transform);
         objectivePref.gameObject.SetActive(false);
         startColour = objectivePref.color;
@@ -55,7 +61,19 @@ public class ObjectiveUI : MonoBehaviour
         if (Time.timeSinceLevelLoad >= spawnTime + 1.2f)
             objectivesPanel.alpha = Mathf.Lerp(objectivesPanel.alpha, 1, 0.005f);
         if (Time.timeSinceLevelLoad >= spawnTime + 1.8f)
+        {
             objectivesParent.alpha = Mathf.Lerp(objectivesParent.alpha, 1, 0.05f);
+            if (GameManager.me.aborting)
+            {
+                abortingParent.alpha = Mathf.Lerp(abortingParent.alpha, 1, 0.05f);
+                abortingProgress.fillAmount = Mathf.Lerp(abortingProgress.fillAmount, 1, 0.01f);
+            }
+            else
+            {
+                abortingParent.alpha = Mathf.Lerp(abortingParent.alpha, 0, 0.05f);
+                abortingProgress.fillAmount = Mathf.Lerp(abortingProgress.fillAmount, 0, 0.05f);
+            }
+        }
         foreach (ObjectiveSlot slot in slots)
         {
             slot.text.text = "- " + slot.Objective.name;
