@@ -104,7 +104,7 @@ public class DistanceTracker : MonoBehaviour
                 spriteRenderer.sprite = noObjectsInRangeImage;
                 if (Time.timeSinceLevelLoad >= startTime + 2.5f)
                 {
-                    distanceText.text = "Out of Range";
+                    distanceText.text = "No Resources Detected...";
                     distanceText.color = Color.red;
                 }
             }
