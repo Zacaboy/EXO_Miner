@@ -20,7 +20,16 @@ public class LiftTrigger : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        liftScript.LiftDown();
-        Debug.Log("Lift Triggered!");
+        if (liftScript.liftBottom == false)
+        {
+            liftScript.LiftDown();
+            Debug.Log("Lift Triggered!");
+        }
+
+        if (liftScript.liftBottom == true)
+        {
+            liftScript.LiftUp();
+            Debug.Log("Lift Triggered!");
+        }
     }
 }
