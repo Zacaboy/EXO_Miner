@@ -32,4 +32,9 @@ public class UIButton : MonoBehaviour
     {
         StartCoroutine(UIControl.me.WaitLoad(level));
     }
+
+    public void Exit()
+    {
+        Application.Quit();
+    }
 }

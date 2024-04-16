@@ -16,10 +16,12 @@ public class DistanceTracker : MonoBehaviour
 
     [Header("UI")]
     public SpriteRenderer panel;
+    public Color outofRangeCol = Color.red;
 
     private Ore closestObject; // Closest object to the player
     Color startCol;
     float startTime;
+    Color normalCol;
     float[] startAlphas;
     float startLight;
 
@@ -32,6 +34,7 @@ public class DistanceTracker : MonoBehaviour
         startAlphas[0] = spriteRenderer.color.a;
         startAlphas[1] = panel.color.a;
         startAlphas[2] = distanceText.color.a;
+        normalCol = panel.color;
         spriteRenderer.color = new Color(spriteRenderer.color.r, spriteRenderer.color.g, spriteRenderer.color.b, 0);
         panel.color = new Color(panel.color.r, panel.color.g, panel.color.b, 0);
         distanceText.color = new Color(distanceText.color.r, distanceText.color.g, distanceText.color.b, 0);
@@ -58,7 +61,11 @@ public class DistanceTracker : MonoBehaviour
         if (Time.timeSinceLevelLoad >= startTime + 1)
         {
             m_Light.intensity = Mathf.Lerp(m_Light.intensity, startLight, 0.005f);
-            panel.color = new Color(panel.color.r, panel.color.g, panel.color.b, Mathf.Lerp(panel.color.a, startAlphas[1], 0.01f));
+            if (closestObject)
+                panel.color = Color.Lerp(panel.color, normalCol, 0.05f);
+            else
+                panel.color = Color.Lerp(panel.color, outofRangeCol, 0.05f);
+            panel.color = new Color(panel.color.r, panel.color.g, panel.color.b, Mathf.Lerp(panel.color.a, startAlphas[1], 0.001f));
             distanceText.color = new Color(distanceText.color.r, distanceText.color.g, distanceText.color.b, Mathf.Lerp(distanceText.color.a, startAlphas[2], 0.01f));
 
             float minDistance = Mathf.Infinity;
@@ -81,7 +88,7 @@ public class DistanceTracker : MonoBehaviour
                 }
             }
 
-            if (closestObject != null)
+            if (closestObject)
             {
                 // Display the sprite for closest object
                 spriteRenderer.sprite = closestObject.icon;
@@ -97,7 +104,7 @@ public class DistanceTracker : MonoBehaviour
                 spriteRenderer.sprite = noObjectsInRangeImage;
                 if (Time.timeSinceLevelLoad >= startTime + 2.5f)
                 {
-                    distanceText.text = "Out of Range";
+                    distanceText.text = "No Resources Detected...";
                     distanceText.color = Color.red;
                 }
             }

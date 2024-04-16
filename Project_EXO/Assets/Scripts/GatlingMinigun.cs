@@ -75,7 +75,7 @@ public class GatlingMinigun : MonoBehaviour
             look.position = projectile.transform.position;
             look.LookAt(PlayerMechController.me.lookpos.position);
             projectile.transform.eulerAngles = new Vector3(look.eulerAngles.x, projectile.transform.eulerAngles.y, projectile.transform.eulerAngles.z);
-            projectile.GetComponent<ProjectileScript>().shooter = gameObject;
+            projectile.GetComponent<ProjectileScript>().shooter = GetComponentInParent<PlayerMechController>().gameObject;
             Destroy(look.gameObject);
 
             // Instantiate muzzle flash effect at the fire point

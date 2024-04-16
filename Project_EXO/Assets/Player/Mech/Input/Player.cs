@@ -89,6 +89,15 @@ public partial class @Player: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Abort"",
+                    ""type"": ""Value"",
+                    ""id"": ""b1c3cfef-2bf5-4751-9067-ec96c4116183"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -311,6 +320,17 @@ public partial class @Player: IInputActionCollection2, IDisposable
                     ""action"": ""Mine"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e69b5bcd-804a-41ff-b55e-e2b611c9f527"",
+                    ""path"": ""<HID::Logitech Logitech Extreme 3D>/button2"",
+                    ""interactions"": ""Hold"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Abort"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -380,6 +400,15 @@ public partial class @Player: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Abort"",
+                    ""type"": ""Button"",
+                    ""id"": ""bedbb8e8-1340-41f5-8957-0aaee881fb6f"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -503,6 +532,17 @@ public partial class @Player: IInputActionCollection2, IDisposable
                     ""action"": ""Mine"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""96ccf50a-8890-477e-aa8d-5be7b31e0ad9"",
+                    ""path"": ""<Keyboard>/delete"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Abort"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -518,6 +558,7 @@ public partial class @Player: IInputActionCollection2, IDisposable
         m_JoystickController_Mine = m_JoystickController.FindAction("Mine", throwIfNotFound: true);
         m_JoystickController_Weapon1 = m_JoystickController.FindAction("Weapon1", throwIfNotFound: true);
         m_JoystickController_Weapon2 = m_JoystickController.FindAction("Weapon2", throwIfNotFound: true);
+        m_JoystickController_Abort = m_JoystickController.FindAction("Abort", throwIfNotFound: true);
         // Keyboard
         m_Keyboard = asset.FindActionMap("Keyboard", throwIfNotFound: true);
         m_Keyboard_Look = m_Keyboard.FindAction("Look", throwIfNotFound: true);
@@ -527,6 +568,7 @@ public partial class @Player: IInputActionCollection2, IDisposable
         m_Keyboard_Mine = m_Keyboard.FindAction("Mine", throwIfNotFound: true);
         m_Keyboard_Weapon1 = m_Keyboard.FindAction("Weapon1", throwIfNotFound: true);
         m_Keyboard_Weapon2 = m_Keyboard.FindAction("Weapon2", throwIfNotFound: true);
+        m_Keyboard_Abort = m_Keyboard.FindAction("Abort", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -595,6 +637,7 @@ public partial class @Player: IInputActionCollection2, IDisposable
     private readonly InputAction m_JoystickController_Mine;
     private readonly InputAction m_JoystickController_Weapon1;
     private readonly InputAction m_JoystickController_Weapon2;
+    private readonly InputAction m_JoystickController_Abort;
     public struct JoystickControllerActions
     {
         private @Player m_Wrapper;
@@ -606,6 +649,7 @@ public partial class @Player: IInputActionCollection2, IDisposable
         public InputAction @Mine => m_Wrapper.m_JoystickController_Mine;
         public InputAction @Weapon1 => m_Wrapper.m_JoystickController_Weapon1;
         public InputAction @Weapon2 => m_Wrapper.m_JoystickController_Weapon2;
+        public InputAction @Abort => m_Wrapper.m_JoystickController_Abort;
         public InputActionMap Get() { return m_Wrapper.m_JoystickController; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -636,6 +680,9 @@ public partial class @Player: IInputActionCollection2, IDisposable
             @Weapon2.started += instance.OnWeapon2;
             @Weapon2.performed += instance.OnWeapon2;
             @Weapon2.canceled += instance.OnWeapon2;
+            @Abort.started += instance.OnAbort;
+            @Abort.performed += instance.OnAbort;
+            @Abort.canceled += instance.OnAbort;
         }
 
         private void UnregisterCallbacks(IJoystickControllerActions instance)
@@ -661,6 +708,9 @@ public partial class @Player: IInputActionCollection2, IDisposable
             @Weapon2.started -= instance.OnWeapon2;
             @Weapon2.performed -= instance.OnWeapon2;
             @Weapon2.canceled -= instance.OnWeapon2;
+            @Abort.started -= instance.OnAbort;
+            @Abort.performed -= instance.OnAbort;
+            @Abort.canceled -= instance.OnAbort;
         }
 
         public void RemoveCallbacks(IJoystickControllerActions instance)
@@ -689,6 +739,7 @@ public partial class @Player: IInputActionCollection2, IDisposable
     private readonly InputAction m_Keyboard_Mine;
     private readonly InputAction m_Keyboard_Weapon1;
     private readonly InputAction m_Keyboard_Weapon2;
+    private readonly InputAction m_Keyboard_Abort;
     public struct KeyboardActions
     {
         private @Player m_Wrapper;
@@ -700,6 +751,7 @@ public partial class @Player: IInputActionCollection2, IDisposable
         public InputAction @Mine => m_Wrapper.m_Keyboard_Mine;
         public InputAction @Weapon1 => m_Wrapper.m_Keyboard_Weapon1;
         public InputAction @Weapon2 => m_Wrapper.m_Keyboard_Weapon2;
+        public InputAction @Abort => m_Wrapper.m_Keyboard_Abort;
         public InputActionMap Get() { return m_Wrapper.m_Keyboard; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -730,6 +782,9 @@ public partial class @Player: IInputActionCollection2, IDisposable
             @Weapon2.started += instance.OnWeapon2;
             @Weapon2.performed += instance.OnWeapon2;
             @Weapon2.canceled += instance.OnWeapon2;
+            @Abort.started += instance.OnAbort;
+            @Abort.performed += instance.OnAbort;
+            @Abort.canceled += instance.OnAbort;
         }
 
         private void UnregisterCallbacks(IKeyboardActions instance)
@@ -755,6 +810,9 @@ public partial class @Player: IInputActionCollection2, IDisposable
             @Weapon2.started -= instance.OnWeapon2;
             @Weapon2.performed -= instance.OnWeapon2;
             @Weapon2.canceled -= instance.OnWeapon2;
+            @Abort.started -= instance.OnAbort;
+            @Abort.performed -= instance.OnAbort;
+            @Abort.canceled -= instance.OnAbort;
         }
 
         public void RemoveCallbacks(IKeyboardActions instance)
@@ -781,6 +839,7 @@ public partial class @Player: IInputActionCollection2, IDisposable
         void OnMine(InputAction.CallbackContext context);
         void OnWeapon1(InputAction.CallbackContext context);
         void OnWeapon2(InputAction.CallbackContext context);
+        void OnAbort(InputAction.CallbackContext context);
     }
     public interface IKeyboardActions
     {
@@ -791,5 +850,6 @@ public partial class @Player: IInputActionCollection2, IDisposable
         void OnMine(InputAction.CallbackContext context);
         void OnWeapon1(InputAction.CallbackContext context);
         void OnWeapon2(InputAction.CallbackContext context);
+        void OnAbort(InputAction.CallbackContext context);
     }
 }

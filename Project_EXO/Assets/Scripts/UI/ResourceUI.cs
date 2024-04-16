@@ -22,7 +22,7 @@ public class ResourceUI : MonoBehaviour
     public TextMeshProUGUI resourcePref;
     CanvasGroup canvas;
     [HideInInspector] public List<TextMeshProUGUI> resources = new List<TextMeshProUGUI>();
-    [SerializeField] List<ResourcesFeedback> feedback = new List<ResourcesFeedback>();
+    [HideInInspector] List<ResourcesFeedback> feedback = new List<ResourcesFeedback>();
     float spawnTime;
 
     // Start is called before the first frame update
