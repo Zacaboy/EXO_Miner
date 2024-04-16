@@ -210,11 +210,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageVFX: {fileID: 0}
-  damageSFX: {fileID: 0}
   dieVFX: {fileID: 0}
-  dieSFX: {fileID: 0}
   fadeMat: {fileID: 2100000, guid: 50eb57a0e022cff42a7c89e2327a746a, type: 2}
   property: 
+  walkingSource: {fileID: 0}
+  hurtSource: {fileID: 0}
+  attackSource: {fileID: 0}
+  walkingSFX: []
+  footstepFrequency: 0.4
+  attackSFX: []
+  damageSFX: {fileID: 0}
+  dieSFX: {fileID: 0}
   alertDistance: 0
   looseDistance: 2000
   attackDistance: 0
@@ -237,3 +243,4 @@ MonoBehaviour:
   target: {fileID: 0}
   ani: {fileID: 0}
   agent: {fileID: 0}
+  lastWalkTime: 0
