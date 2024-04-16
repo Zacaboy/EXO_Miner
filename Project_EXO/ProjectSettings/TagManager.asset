@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Player Legs
   - Egg
+  - Ore
   layers:
   - Default
   - TransparentFX

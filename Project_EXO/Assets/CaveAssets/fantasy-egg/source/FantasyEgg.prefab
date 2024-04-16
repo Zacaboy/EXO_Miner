@@ -130,7 +130,7 @@ MonoBehaviour:
   objective:
     name: Destroy Bug Eggs
     type: 1
-    requiredProgress: 30
+    requiredProgress: 29
     showProgress: 1
     group: {fileID: 4155283292608951865}
     destroyTargets: 1

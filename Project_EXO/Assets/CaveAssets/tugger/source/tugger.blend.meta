@@ -3,7 +3,12 @@ guid: 385d8c66d2709a643999709bf27a5dac
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: tugger
+    second: {fileID: 2100000, guid: f9b7921873130bb4c881b822f027d6ee, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
