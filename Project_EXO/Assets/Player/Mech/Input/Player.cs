@@ -313,7 +313,7 @@ public partial class @Player: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""c8ca355c-33a1-401e-939d-7a9dfb473dae"",
-                    ""path"": ""<HID::Logitech Extreme 3D pro>/button2"",
+                    ""path"": ""<HID::Logitech Logitech Extreme 3D>/button3"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
