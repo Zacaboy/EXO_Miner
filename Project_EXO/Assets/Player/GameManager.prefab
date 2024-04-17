@@ -90,6 +90,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   over: 0
+  aborting: 0
   exitTimer: 0
 --- !u!114 &99196684230625853
 MonoBehaviour:
@@ -244,4 +245,4 @@ MonoBehaviour:
   priority: 0
   blendDistance: 0
   weight: 0.606
-  sharedProfile: {fileID: 11400000, guid: 72c1ff46de9ed4342850687141deda39, type: 2}
+  sharedProfile: {fileID: 0}

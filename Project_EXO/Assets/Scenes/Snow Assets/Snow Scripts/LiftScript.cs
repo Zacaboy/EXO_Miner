@@ -17,7 +17,15 @@ public class LiftScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (transform.position.y <= 0)
+        {
+            liftBottom = true;
+        }
+
+        if (transform.position.y <= 600)
+        {
+            liftBottom = false;
+        }
     }
 
     public void LiftDown()
@@ -26,11 +34,6 @@ public class LiftScript : MonoBehaviour
         {
             transform.Translate(Vector3.down * moveSpeed * Time.deltaTime);
             Debug.Log("Lift Moving Down!");
-
-            if (transform.position.y <= 0)
-            {
-                liftBottom = true; 
-            }
         }
     }
 
@@ -40,11 +43,6 @@ public class LiftScript : MonoBehaviour
         {
             transform.Translate(Vector3.up * moveSpeed * Time.deltaTime);
             Debug.Log("Lift Moving Up!");
-
-            if (transform.position.y == 600)
-            {
-                liftBottom = false;
-            }
         }
     }
 }
