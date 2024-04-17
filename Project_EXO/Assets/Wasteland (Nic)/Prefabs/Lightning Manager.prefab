@@ -47,7 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lightningPref: {fileID: 11427938, guid: a9892f6a83fd8d4468ce0c8a3d09d3cd, type: 3}
   charges: 0500000009000000
-  chargeRate: 0.5
+  chargeRate: 0.6
   attractionSpeed: 17
   randomChargeRate: 5
   lightningRange: 200
