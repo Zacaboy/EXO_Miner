@@ -15,6 +15,10 @@ public class PlayerMechController : MonoBehaviour
     [Header("Movement")]
     public float moveSpeed = 5f; // Speed of movement
     public float lookSpeed = 2f; // Speed of looking
+    [Range(0.01f, 0.2f)]
+    public float lookSmoothingX = 0.1f;
+    [Range(0.01f, 0.2f)]
+    public float lookSmoothingY = 0.1f;
 
     [Header("Head Bob")]
     [Range(0.001f, 0.04f)]
@@ -234,7 +238,7 @@ public class PlayerMechController : MonoBehaviour
 
         // Camera rotation
         if (active)
-            Camera.main.transform.localRotation = Quaternion.Slerp(Camera.main.transform.localRotation, Quaternion.Euler(rotY, 0f, 0f), 0.1f);
+            Camera.main.transform.localRotation = Quaternion.Slerp(Camera.main.transform.localRotation, Quaternion.Euler(rotY, 0f, 0f), lookSmoothingY);
 
         if (jumping == 0 & landedTime == 0 & grounded & active)
         {
@@ -280,7 +284,7 @@ public class PlayerMechController : MonoBehaviour
 
             // Camera rotation
             if (active)
-                transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0f, rotX, 0f).normalized, 0.04f);
+                transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0f, rotX, 0f).normalized, lookSmoothingX);
         }
         else
             lastWalkTime = Time.time;
