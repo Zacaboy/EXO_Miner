@@ -291,7 +291,7 @@ public partial class @Player: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""628a2f28-cad7-4f8b-bd99-e2c83b90598b"",
-                    ""path"": ""<HID::Logitech Logitech Extreme 3D>/trigger"",
+                    ""path"": ""<HID::Logitech Logitech Extreme 3D>/button4"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -302,7 +302,7 @@ public partial class @Player: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""60333411-4ce1-4c6d-a8f4-dc8a6b22c468"",
-                    ""path"": ""<HID::Logitech Logitech Extreme 3D>/button2"",
+                    ""path"": ""<HID::Logitech Logitech Extreme 3D>/trigger"",
                     ""interactions"": ""Hold"",
                     ""processors"": """",
                     ""groups"": """",
@@ -324,7 +324,7 @@ public partial class @Player: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""e69b5bcd-804a-41ff-b55e-e2b611c9f527"",
-                    ""path"": ""<HID::Logitech Logitech Extreme 3D>/button2"",
+                    ""path"": ""<HID::Logitech Logitech Extreme 3D>/button11"",
                     ""interactions"": ""Hold"",
                     ""processors"": """",
                     ""groups"": """",
