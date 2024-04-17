@@ -13,12 +13,23 @@ public class PlayerMechController : MonoBehaviour
     public static PlayerMechController me;
 
     [Header("Movement")]
-    public float moveSpeed = 5f; // Speed of movement
-    public float lookSpeed = 2f; // Speed of looking
+    public float moveSpeedKeyboard = 230; // Speed of movement with keyboard
+    public float moveSpeedJoystick = 230; // Speed of movementwith joystick
+
+    [Header("Keyboard")]
+    public float lookSpeedKeyboard = 20f; // Speed of looking with keyboard
     [Range(0.01f, 0.2f)]
-    public float lookSmoothingX = 0.1f;
+    public float lookSmoothingXKeyboard = 0.05f;
     [Range(0.01f, 0.2f)]
-    public float lookSmoothingY = 0.1f;
+    public float lookSmoothingYKeyboard = 0.05f;
+
+    [Header("Joystick")]
+    public float lookSpeedJoystick = 50f; // Speed of looking with joystick
+    [Range(0.01f, 0.2f)]
+    public float lookSmoothingXJoystick = 0.15f;
+    [Range(0.01f, 0.2f)]
+    public float lookSmoothingYJoystick = 0.15f;
+
 
     [Header("Head Bob")]
     [Range(0.001f, 0.04f)]
@@ -233,17 +244,17 @@ public class PlayerMechController : MonoBehaviour
         }
 
         // Mouse rotation
-        rotY += lookVertical * -lookSpeed * Time.fixedDeltaTime / 2;
+        rotY += lookVertical * -GetLookSpeed() * Time.fixedDeltaTime / 2;
         rotY = Mathf.Clamp(rotY, lookDownLimit, lookUpLimit);
 
         // Camera rotation
         if (active)
-            Camera.main.transform.localRotation = Quaternion.Slerp(Camera.main.transform.localRotation, Quaternion.Euler(rotY, 0f, 0f), lookSmoothingY);
+            Camera.main.transform.localRotation = Quaternion.Slerp(Camera.main.transform.localRotation, Quaternion.Euler(rotY, 0f, 0f), GetLookSmoothing(false));
 
         if (jumping == 0 & landedTime == 0 & grounded & active)
         {
             // Move the GameObject
-            rigi.AddForce(movement * moveSpeed);
+            rigi.AddForce(movement * GetMoveSpeed());
             bool movingUp = false;
             if (movementInput.y > 0 & CheckVault(transform.TransformDirection(Vector3.forward), 8))
                 movingUp = true;
@@ -278,13 +289,13 @@ public class PlayerMechController : MonoBehaviour
             }
 
             // Mouse rotation
-            rotX += lookHorizontal * lookSpeed * Time.fixedDeltaTime;
+            rotX += lookHorizontal * GetLookSpeed() * Time.fixedDeltaTime;
             if (lookHorizontal != 0)
                 looking = true;
 
             // Camera rotation
             if (active)
-                transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0f, rotX, 0f).normalized, lookSmoothingX);
+                transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0f, rotX, 0f).normalized, GetLookSmoothing(true));
         }
         else
             lastWalkTime = Time.time;
@@ -448,6 +459,42 @@ public class PlayerMechController : MonoBehaviour
             else
                 Camera.main.transform.parent.parent.localPosition = Vector3.Lerp(Camera.main.transform.parent.parent.localPosition, new Vector3(0, 0, 0), 0.01f);
         }
+    }
+
+    public float GetMoveSpeed()
+    {
+        float speed = moveSpeedKeyboard;
+        if (input.defaultActionMap == "Keyboard")
+            speed = moveSpeedKeyboard;
+        if (input.defaultActionMap == "JoystickController")
+            speed = moveSpeedJoystick;
+        return speed;
+    }
+    public float GetLookSpeed()
+    {
+        float speed = lookSpeedKeyboard;
+        if (input.defaultActionMap == "Keyboard")
+            speed = lookSpeedKeyboard;
+        if (input.defaultActionMap == "JoystickController")
+            speed = lookSpeedJoystick;
+        return speed;
+    }
+
+    public float GetLookSmoothing(bool x)
+    {
+        float speed = 0;
+        if (input.defaultActionMap == "Keyboard")
+            if (x)
+                speed = lookSmoothingXKeyboard;
+            else
+                speed = lookSmoothingYKeyboard;
+
+        if (input.defaultActionMap == "JoystickController")
+            if (x)
+                speed = lookSmoothingXJoystick;
+            else
+                speed = lookSmoothingYJoystick;
+        return speed;
     }
 
     public bool CheckVault(Vector3 direction, float range)

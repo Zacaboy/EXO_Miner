@@ -27121,37 +27121,7 @@ MonoBehaviour:
   distanceText: {fileID: 113738707394820540}
   initialTargetLocation: {fileID: 0}
   alternateTargetLocation: {fileID: 0}
-  objectsToTrack:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  objectsToTrack: []
   targetLocation: {fileID: 0}
 --- !u!1 &7604552458128261137
 GameObject:
@@ -30609,7 +30579,7 @@ MonoBehaviour:
     m_ActionName: Keyboard/Abort[/Keyboard/delete]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
-  m_DefaultActionMap: JoystickController
+  m_DefaultActionMap: Keyboard
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 8127047343670946861}
 --- !u!114 &2979803214824668605
@@ -30661,8 +30631,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7187076a32d11d4da940d3cb17f93a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 230
-  lookSpeed: 50
+  moveSpeedKeyboard: 230
+  moveSpeedJoystick: 250
+  lookSpeedKeyboard: 10
+  lookSmoothingXKeyboard: 0.15
+  lookSmoothingYKeyboard: 0.15
+  lookSpeedJoystick: 50
+  lookSmoothingXJoystick: 0.15
+  lookSmoothingYJoystick: 0.15
   amount: 0.0142
   frequency: 5.7
   smooth: 10
