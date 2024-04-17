@@ -1,58 +1,54 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
+
+public enum DamageType { Lead, Physical, Lazer }
 
 public class Health : MonoBehaviour
 {
-    public int maxHealth = 100; // Maximum health points
-    public int currentHealth; // Current health points
+    public int maxHealth = 25;
+    public bool immuneToLazer = true;
+    public string objectiveName;
+    [HideInInspector] public Objective objective;
+    [HideInInspector] public int health;
+    [HideInInspector] public bool dead;
+    public UnityEvent damageEvent;
+    public UnityEvent deathEvent;
 
-    // Event delegate for health change
-    public delegate void HealthChangedDelegate(int currentHealth, int maxHealth);
-    public event HealthChangedDelegate OnHealthChanged;
-
+    // Start is called before the first frame update
     void Start()
     {
-        // Initialize current health to max health at the start
-        currentHealth = maxHealth;
+        health = maxHealth;
+        if (objectiveName != "")
+            objective = ObjectiveManager.me.FindObjective(objectiveName);
     }
 
-    // Method to take damage
-    public void TakeDamage(int damageAmount)
+    public void Damage(int damage, DamageType type)
     {
-        // Reduce current health by damage amount
-        currentHealth -= damageAmount;
-
-        // Ensure current health doesn't go below 0
-        currentHealth = Mathf.Max(currentHealth, 0);
-
-        // Invoke the OnHealthChanged event
-        OnHealthChanged?.Invoke(currentHealth, maxHealth);
-
-        // Check if health has reached 0
-        if (currentHealth <= 0)
+        if (!dead)
         {
-            Die();
+            if (type == DamageType.Lazer & immuneToLazer) return;
+            health -= damage;
+            health = Mathf.Clamp(health, 0, maxHealth);
+            if (health <= 0)
+                Death();
+            else
+                damageEvent.Invoke();
         }
     }
 
-    // Method to heal
-    public void Heal(int healAmount)
+    public void Death()
     {
-        // Increase current health by heal amount
-        currentHealth += healAmount;
-
-        // Ensure current health doesn't exceed max health
-        currentHealth = Mathf.Min(currentHealth, maxHealth);
-
-        // Invoke the OnHealthChanged event
-        OnHealthChanged?.Invoke(currentHealth, maxHealth);
-    }
-
-    // Method to handle death
-    void Die()
-    {
-        // Destroy the GameObject
-        Destroy(gameObject);
+        if (dead) return;
+        if (ObjectiveManager.me & objective.name != "")
+        {
+            if (objective.destroyTargets)
+                ObjectiveManager.me.UpdateProgress(objectiveName, 1);
+            if (ObjectiveManager.me.currentObjective.targets.Contains(transform))
+                ObjectiveManager.me.currentObjective.targets.Remove(transform);
+        }
+        dead = true;
+        deathEvent.Invoke();
     }
 }

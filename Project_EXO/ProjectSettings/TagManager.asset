@@ -3,16 +3,18 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Player Legs
+  - Egg
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Triggers
   - Water
   - UI
-  - 
-  - 
+  - Ignore Liquid Physics
+  - Egg
   - 
   - 
   - 

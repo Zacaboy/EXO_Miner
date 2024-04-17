@@ -46,6 +46,7 @@ public class CannonScript : MonoBehaviour
         // Play the shooting sound
         if (audioSource != null && shootSound != null)
             audioSource.PlayOneShot(shootSound);
+        GetComponentInParent<PlayerMechController>().FireWeapon();
 
         // Instantiate muzzle flash effect at the fire point
         if (muzzleFlashPrefab)
@@ -60,6 +61,7 @@ public class CannonScript : MonoBehaviour
         look.position = projectile.transform.position;
         look.LookAt(PlayerMechController.me.lookpos.position);
         projectile.transform.eulerAngles = new Vector3(look.eulerAngles.x, projectile.transform.eulerAngles.y, projectile.transform.eulerAngles.z);
+        projectile.GetComponent<ProjectileScript>().shooter = GetComponentInParent<PlayerMechController>().gameObject;
         Destroy(look.gameObject);
 
         // Add force to the projectile

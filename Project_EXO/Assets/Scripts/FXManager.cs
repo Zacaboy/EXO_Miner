@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FXManager : MonoBehaviour
 {
-    public static void SpawnSFX(AudioClip sfx, Vector3 pos, float distance, float lifeTime)
+    public static void SpawnSFX(AudioClip sfx, Vector3 pos, float distance, float lifeTime, float volume = 1)
     {
         AudioSource newSFX = new GameObject().AddComponent<AudioSource>();
         newSFX.clip = sfx;
@@ -13,15 +13,17 @@ public class FXManager : MonoBehaviour
         newSFX.maxDistance = distance;
         newSFX.transform.position = pos;
         newSFX.name = sfx.name + " SFX";
+        newSFX.volume = volume;
         newSFX.Play();
         Destroy(newSFX.gameObject, lifeTime);
     }
 
-    public static void SpawnVFX(ParticleSystem vfx, Vector3 pos, Vector3 rot, float lifeTime, bool facePlayer = false)
+    public static void SpawnVFX(ParticleSystem vfx, Vector3 pos, Vector3 rot, Transform parent, float lifeTime, bool facePlayer = false, float startTime = 0)
     {
         ParticleSystem newVFX = Instantiate(vfx);
         newVFX.transform.position = pos;
         newVFX.transform.eulerAngles = rot;
+        newVFX.transform.SetParent(parent);
         if(facePlayer)
         {
             Transform look = new GameObject().transform;
@@ -32,6 +34,7 @@ public class FXManager : MonoBehaviour
             Destroy(look.gameObject);
         }
         newVFX.Play();
+        newVFX.time = startTime;
         Destroy(newVFX.gameObject, lifeTime);
     }
 }

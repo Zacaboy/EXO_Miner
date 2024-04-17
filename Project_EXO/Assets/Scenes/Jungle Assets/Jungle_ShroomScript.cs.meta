@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Project_EXO/Assets/Scenes/Jungle Assets/Jungle_ShroomScript.cs.meta
 guid: 705ec119d899217448d1caa36f191740
+========
+guid: 6f0e23cfc5453304fb40fd1cffb16f5a
+>>>>>>>> Systems:Project_EXO/Assets/Scripts/DayNightCycle.cs.meta
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
