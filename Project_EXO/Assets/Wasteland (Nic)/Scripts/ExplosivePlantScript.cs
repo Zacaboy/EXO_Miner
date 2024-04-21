@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ExplosivePlantScript : MonoBehaviour
 {
+    // Variables
     public float distance = 10;
     public float explodeTime = 3;
     public float explodeRadius = 70;
@@ -11,6 +12,8 @@ public class ExplosivePlantScript : MonoBehaviour
     public Color explodeColour = Color.red;
     public ParticleSystem explodeVFX;
     public AudioClip explodeSFX;
+
+    // Ignore These
     AudioSource source;
     [HideInInspector] public Health health;
     [HideInInspector] public Renderer m_Renderer;
@@ -23,6 +26,7 @@ public class ExplosivePlantScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // Sets all the variables at start
         source = GetComponent<AudioSource>();
         health = GetComponent<Health>();
         m_Renderer = GetComponentInChildren<Renderer>();
@@ -31,8 +35,10 @@ public class ExplosivePlantScript : MonoBehaviour
         m_Light.intensity = 0;
         normalColour = m_Renderer.material.GetColor("_EmissionColor");
         health.deathEvent.AddListener(Explode);
+        // Adds to OptimizationManager for better performance
         if (OptimizationManager.me)
             OptimizationManager.me.objects.Add(gameObject);
+        // Checks if using a collider or if it is triggered by distance
         if (GetComponentInChildren<Collider>())
         {
             if (!GetComponentInChildren<Collider>().enabled || !GetComponentInChildren<Collider>().isTrigger)
@@ -45,12 +51,14 @@ public class ExplosivePlantScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Checks if player is close to object
         if (close)
         {
             if (PlayerMechController.me)
             {
                 if (Vector3.Distance(transform.position, PlayerMechController.me.transform.position) <= distance & !health.dead)
                 {
+                    // Plays the exploding process
                     if (!source.isPlaying)
                         source.Play();
                     m_Renderer.material.SetColor("_EmissionColor", Color.Lerp(m_Renderer.material.GetColor("_EmissionColor") * imissiveIntensity, explodeColour, 0.1f));
@@ -60,6 +68,7 @@ public class ExplosivePlantScript : MonoBehaviour
                 }
                 else
                 {
+                    // Stops the exploding process
                     lastTime = Time.time;
                     if (source.isPlaying)
                         source.Stop();
@@ -72,6 +81,7 @@ public class ExplosivePlantScript : MonoBehaviour
         }
     }
 
+    // Checks if player is close or far from the plant
     public void OnTriggerEnter(Collider other)
     {
         if (other.GetComponentInParent<PlayerMechController>() & !health.dead)
@@ -80,7 +90,6 @@ public class ExplosivePlantScript : MonoBehaviour
             close = true;
         }
     }
-
     public void OnTriggerExit(Collider other)
     {
         if (other.GetComponentInParent<PlayerMechController>() & !health.dead)
@@ -88,6 +97,7 @@ public class ExplosivePlantScript : MonoBehaviour
         ExcludeGround();
     }
 
+    // Explodes plant
     public void Explode()
     {
         if (explodeVFX)
@@ -105,6 +115,7 @@ public class ExplosivePlantScript : MonoBehaviour
         ExcludeGround();
     }
 
+    // This removes this object from the player's ground surfaces
     public void ExcludeGround()
     {
         if (PlayerMechController.me)
