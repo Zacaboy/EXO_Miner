@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class LiftTrigger : MonoBehaviour
 {
+    public GameObject player;
+    public GameObject lift;
     public LiftScript liftScript;
 
     // Start is called before the first frame update
@@ -20,6 +23,9 @@ public class LiftTrigger : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
+
+        player.transform.parent = lift.transform;
+
         if (liftScript.liftBottom == false)
         {
             liftScript.LiftDown();
@@ -32,4 +38,10 @@ public class LiftTrigger : MonoBehaviour
             Debug.Log("Lift Triggered!");
         }
     }
+
+    private void OnTriggerExit(Collider other)
+    {
+        player.transform.parent = null;
+    }
+
 }
