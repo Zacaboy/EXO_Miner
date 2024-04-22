@@ -46,7 +46,7 @@ public class ObjectiveTracker : MonoBehaviour
             float distance = Vector3.Distance(transform.position, targetLocation.position);
 
             // Update the text to display the distance in meters
-            distanceText.text = "Distance: " + distance.ToString("F2") + " meters";
+            distanceText.text = "Distance To Target: " + distance.ToString("F2") + "";
         }
         else
         {
