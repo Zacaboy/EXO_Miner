@@ -6,11 +6,7 @@ RenderTexture:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-<<<<<<<< HEAD:Project_EXO/Assets/Materials/NPC Camera.renderTexture
   m_Name: NPC Camera
-========
-  m_Name: Back
->>>>>>>> Wasteland:Project_EXO/Assets/Player/Mech/Material/Back.renderTexture
   m_ImageContentsHash:
     serializedVersion: 2
     Hash: 00000000000000000000000000000000

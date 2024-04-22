@@ -1,10 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
-<<<<<<<< HEAD:Project_EXO/Assets/Unity UI Samples/Prefabs/Particle System.prefab
 --- !u!1 &3400440481554734061
-========
---- !u!1 &6503613524697746760
->>>>>>>> Wasteland:Project_EXO/Assets/VFX/ParticlePack/EffectExamples/Smoke & Steam Effects/Prefabs/GroundFogBig.prefab
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -12,35 +8,22 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-<<<<<<<< HEAD:Project_EXO/Assets/Unity UI Samples/Prefabs/Particle System.prefab
   - component: {fileID: 8019790058520669641}
   - component: {fileID: 7104457152097470318}
   - component: {fileID: 551464916255259763}
   m_Layer: 5
   m_Name: Particle System
-========
-  - component: {fileID: 6788083271496247298}
-  - component: {fileID: 1625398978414493462}
-  - component: {fileID: 2920965011078740248}
-  m_Layer: 0
-  m_Name: GroundFogBig
->>>>>>>> Wasteland:Project_EXO/Assets/VFX/ParticlePack/EffectExamples/Smoke & Steam Effects/Prefabs/GroundFogBig.prefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
-<<<<<<<< HEAD:Project_EXO/Assets/Unity UI Samples/Prefabs/Particle System.prefab
 --- !u!4 &8019790058520669641
-========
---- !u!4 &6788083271496247298
->>>>>>>> Wasteland:Project_EXO/Assets/VFX/ParticlePack/EffectExamples/Smoke & Steam Effects/Prefabs/GroundFogBig.prefab
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-<<<<<<<< HEAD:Project_EXO/Assets/Unity UI Samples/Prefabs/Particle System.prefab
   m_GameObject: {fileID: 3400440481554734061}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0.5, z: 0, w: 0.8660254}
@@ -51,38 +34,17 @@ Transform:
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 60, z: 0}
 --- !u!198 &7104457152097470318
-========
-  m_GameObject: {fileID: 6503613524697746760}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 194.17822, y: -0.0000038146973, z: 167.7076}
-  m_LocalScale: {x: 100, y: 100, z: 100}
-  m_ConstrainProportionsScale: 1
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
---- !u!198 &1625398978414493462
->>>>>>>> Wasteland:Project_EXO/Assets/VFX/ParticlePack/EffectExamples/Smoke & Steam Effects/Prefabs/GroundFogBig.prefab
 ParticleSystem:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-<<<<<<<< HEAD:Project_EXO/Assets/Unity UI Samples/Prefabs/Particle System.prefab
   m_GameObject: {fileID: 3400440481554734061}
   serializedVersion: 8
   lengthInSec: 5
   simulationSpeed: 1
   stopAction: 0
   cullingMode: 1
-========
-  m_GameObject: {fileID: 6503613524697746760}
-  serializedVersion: 8
-  lengthInSec: 5
-  simulationSpeed: 2
-  stopAction: 0
-  cullingMode: 3
->>>>>>>> Wasteland:Project_EXO/Assets/VFX/ParticlePack/EffectExamples/Smoke & Steam Effects/Prefabs/GroundFogBig.prefab
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
   emitterVelocityMode: 0
@@ -153,15 +115,9 @@ ParticleSystem:
     enabled: 1
     startLifetime:
       serializedVersion: 2
-<<<<<<<< HEAD:Project_EXO/Assets/Unity UI Samples/Prefabs/Particle System.prefab
       minMaxState: 0
       scalar: 40
       minScalar: 5
-========
-      minMaxState: 3
-      scalar: 10
-      minScalar: 8
->>>>>>>> Wasteland:Project_EXO/Assets/VFX/ParticlePack/EffectExamples/Smoke & Steam Effects/Prefabs/GroundFogBig.prefab
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -213,11 +169,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-<<<<<<<< HEAD:Project_EXO/Assets/Unity UI Samples/Prefabs/Particle System.prefab
       scalar: 5
-========
-      scalar: 0
->>>>>>>> Wasteland:Project_EXO/Assets/VFX/ParticlePack/EffectExamples/Smoke & Steam Effects/Prefabs/GroundFogBig.prefab
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -271,11 +223,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-<<<<<<<< HEAD:Project_EXO/Assets/Unity UI Samples/Prefabs/Particle System.prefab
       maxColor: {r: 1, g: 1, b: 1, a: 1}
-========
-      maxColor: {r: 0.5907719, g: 0.6037736, b: 0.5895336, a: 0.23529412}
->>>>>>>> Wasteland:Project_EXO/Assets/VFX/ParticlePack/EffectExamples/Smoke & Steam Effects/Prefabs/GroundFogBig.prefab
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -338,15 +286,9 @@ ParticleSystem:
         m_NumAlphaKeys: 2
     startSize:
       serializedVersion: 2
-<<<<<<<< HEAD:Project_EXO/Assets/Unity UI Samples/Prefabs/Particle System.prefab
       minMaxState: 0
       scalar: 0.7
       minScalar: 1
-========
-      minMaxState: 3
-      scalar: 5
-      minScalar: 3
->>>>>>>> Wasteland:Project_EXO/Assets/VFX/ParticlePack/EffectExamples/Smoke & Steam Effects/Prefabs/GroundFogBig.prefab
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -397,7 +339,7 @@ ParticleSystem:
         m_RotationOrder: 4
     startSizeY:
       serializedVersion: 2
-      minMaxState: 3
+      minMaxState: 0
       scalar: 1
       minScalar: 1
       maxCurve:
@@ -450,7 +392,7 @@ ParticleSystem:
         m_RotationOrder: 4
     startSizeZ:
       serializedVersion: 2
-      minMaxState: 3
+      minMaxState: 0
       scalar: 1
       minScalar: 1
       maxCurve:
@@ -722,11 +664,7 @@ ParticleSystem:
   ShapeModule:
     serializedVersion: 6
     enabled: 1
-<<<<<<<< HEAD:Project_EXO/Assets/Unity UI Samples/Prefabs/Particle System.prefab
     type: 5
-========
-    type: 10
->>>>>>>> Wasteland:Project_EXO/Assets/VFX/ParticlePack/EffectExamples/Smoke & Steam Effects/Prefabs/GroundFogBig.prefab
     angle: 25
     length: 5
     boxThickness: {x: 0, y: 0, z: 0}
@@ -734,11 +672,7 @@ ParticleSystem:
     donutRadius: 0.2
     m_Position: {x: 0, y: 0, z: 0}
     m_Rotation: {x: 0, y: 0, z: 0}
-<<<<<<<< HEAD:Project_EXO/Assets/Unity UI Samples/Prefabs/Particle System.prefab
     m_Scale: {x: 100, y: 100, z: 100}
-========
-    m_Scale: {x: 1, y: 1, z: 1}
->>>>>>>> Wasteland:Project_EXO/Assets/VFX/ParticlePack/EffectExamples/Smoke & Steam Effects/Prefabs/GroundFogBig.prefab
     placementMode: 0
     m_MeshMaterialIndex: 0
     m_MeshNormalOffset: 0
@@ -817,11 +751,7 @@ ParticleSystem:
     sphericalDirectionAmount: 0
     randomPositionAmount: 0
     radius:
-<<<<<<<< HEAD:Project_EXO/Assets/Unity UI Samples/Prefabs/Particle System.prefab
       value: 2
-========
-      value: 7.0956
->>>>>>>> Wasteland:Project_EXO/Assets/VFX/ParticlePack/EffectExamples/Smoke & Steam Effects/Prefabs/GroundFogBig.prefab
       mode: 0
       spread: 0
       speed:
@@ -940,11 +870,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-<<<<<<<< HEAD:Project_EXO/Assets/Unity UI Samples/Prefabs/Particle System.prefab
       scalar: 10
-========
-      scalar: 20
->>>>>>>> Wasteland:Project_EXO/Assets/VFX/ParticlePack/EffectExamples/Smoke & Steam Effects/Prefabs/GroundFogBig.prefab
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -1382,15 +1308,9 @@ ParticleSystem:
       maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
-<<<<<<<< HEAD:Project_EXO/Assets/Unity UI Samples/Prefabs/Particle System.prefab
         key0: {r: 1, g: 1, b: 1, a: 0.5019608}
         key1: {r: 1, g: 1, b: 1, a: 0.5019608}
         key2: {r: 0, g: 0, b: 0, a: 0}
-========
-        key0: {r: 1, g: 1, b: 1, a: 0}
-        key1: {r: 1, g: 1, b: 1, a: 1}
-        key2: {r: 0, g: 0, b: 0, a: 1}
->>>>>>>> Wasteland:Project_EXO/Assets/VFX/ParticlePack/EffectExamples/Smoke & Steam Effects/Prefabs/GroundFogBig.prefab
         key3: {r: 0, g: 0, b: 0, a: 0}
         key4: {r: 0, g: 0, b: 0, a: 0}
         key5: {r: 0, g: 0, b: 0, a: 0}
@@ -1405,9 +1325,9 @@ ParticleSystem:
         ctime6: 0
         ctime7: 0
         atime0: 0
-        atime1: 7258
-        atime2: 57928
-        atime3: 65535
+        atime1: 65535
+        atime2: 0
+        atime3: 0
         atime4: 0
         atime5: 0
         atime6: 0
@@ -1415,7 +1335,7 @@ ParticleSystem:
         m_Mode: 0
         m_ColorSpace: -1
         m_NumColorKeys: 2
-        m_NumAlphaKeys: 4
+        m_NumAlphaKeys: 2
       minGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -1448,7 +1368,7 @@ ParticleSystem:
         m_NumAlphaKeys: 2
   UVModule:
     serializedVersion: 2
-    enabled: 1
+    enabled: 0
     mode: 0
     timeMode: 0
     fps: 30
@@ -1507,8 +1427,8 @@ ParticleSystem:
         m_RotationOrder: 4
     startFrame:
       serializedVersion: 2
-      minMaxState: 3
-      scalar: 0.9722222
+      minMaxState: 0
+      scalar: 0
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -1559,11 +1479,11 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     speedRange: {x: 0, y: 1}
-    tilesX: 6
-    tilesY: 6
+    tilesX: 1
+    tilesY: 1
     animationType: 0
     rowIndex: 0
-    cycles: 3
+    cycles: 1
     uvChannelMask: -1
     rowMode: 1
     sprites:
@@ -1571,12 +1491,12 @@ ParticleSystem:
     flipU: 0
     flipV: 0
   VelocityModule:
-    enabled: 1
+    enabled: 0
     x:
       serializedVersion: 2
-      minMaxState: 3
-      scalar: 0.4
-      minScalar: 0.2
+      minMaxState: 0
+      scalar: 0
+      minScalar: 0
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -1627,7 +1547,7 @@ ParticleSystem:
         m_RotationOrder: 4
     y:
       serializedVersion: 2
-      minMaxState: 3
+      minMaxState: 0
       scalar: 0
       minScalar: 0
       maxCurve:
@@ -1680,7 +1600,7 @@ ParticleSystem:
         m_RotationOrder: 4
     z:
       serializedVersion: 2
-      minMaxState: 3
+      minMaxState: 0
       scalar: 0
       minScalar: 0
       maxCurve:
@@ -2155,7 +2075,7 @@ ParticleSystem:
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
-    inWorldSpace: 1
+    inWorldSpace: 0
   InheritVelocityModule:
     enabled: 0
     m_Mode: 0
@@ -2765,11 +2685,11 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
   NoiseModule:
-    enabled: 1
+    enabled: 0
     strength:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.1
+      scalar: 1
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -2822,7 +2742,7 @@ ParticleSystem:
     strengthY:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.2
+      scalar: 1
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -2875,7 +2795,7 @@ ParticleSystem:
     strengthZ:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.1
+      scalar: 1
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -2935,7 +2855,7 @@ ParticleSystem:
     scrollSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.5
+      scalar: 0
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -4848,22 +4768,14 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
-<<<<<<<< HEAD:Project_EXO/Assets/Unity UI Samples/Prefabs/Particle System.prefab
 --- !u!199 &551464916255259763
-========
---- !u!199 &2920965011078740248
->>>>>>>> Wasteland:Project_EXO/Assets/VFX/ParticlePack/EffectExamples/Smoke & Steam Effects/Prefabs/GroundFogBig.prefab
 ParticleSystemRenderer:
   serializedVersion: 6
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-<<<<<<<< HEAD:Project_EXO/Assets/Unity UI Samples/Prefabs/Particle System.prefab
   m_GameObject: {fileID: 3400440481554734061}
-========
-  m_GameObject: {fileID: 6503613524697746760}
->>>>>>>> Wasteland:Project_EXO/Assets/VFX/ParticlePack/EffectExamples/Smoke & Steam Effects/Prefabs/GroundFogBig.prefab
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -4874,14 +4786,10 @@ ParticleSystemRenderer:
   m_ReflectionProbeUsage: 0
   m_RayTracingMode: 0
   m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 4294967295
+  m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-<<<<<<<< HEAD:Project_EXO/Assets/Unity UI Samples/Prefabs/Particle System.prefab
   - {fileID: 10301, guid: 0000000000000000f000000000000000, type: 0}
-========
-  - {fileID: 2100000, guid: f96090edaea7c564c80586f4385918fd, type: 2}
->>>>>>>> Wasteland:Project_EXO/Assets/VFX/ParticlePack/EffectExamples/Smoke & Steam Effects/Prefabs/GroundFogBig.prefab
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4893,7 +4801,7 @@ ParticleSystemRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_StitchLightmapSeams: 0
+  m_StitchLightmapSeams: 1
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -4904,18 +4812,17 @@ ParticleSystemRenderer:
   m_SortingOrder: 0
   m_RenderMode: 0
   m_MeshDistribution: 0
-  m_SortMode: 1
+  m_SortMode: 0
   m_MinParticleSize: 0
-  m_MaxParticleSize: 10
+  m_MaxParticleSize: 0.5
   m_CameraVelocityScale: 0
-  m_VelocityScale: 1
-  m_LengthScale: 1
+  m_VelocityScale: 0
+  m_LengthScale: 2
   m_SortingFudge: 0
   m_NormalDirection: 1
   m_ShadowBias: 0
   m_RenderAlignment: 0
   m_Pivot: {x: 0, y: 0, z: 0}
-<<<<<<<< HEAD:Project_EXO/Assets/Unity UI Samples/Prefabs/Particle System.prefab
   m_Flip: {x: 0, y: 0, z: 0}
   m_EnableGPUInstancing: 0
   m_ApplyActiveColorSpace: 0
@@ -4924,16 +4831,6 @@ ParticleSystemRenderer:
   m_RotateWithStretchDirection: 1
   m_UseCustomVertexStreams: 0
   m_VertexStreams: 0001030405
-========
-  m_Flip: {x: 0.5, y: 0.5, z: 0}
-  m_EnableGPUInstancing: 1
-  m_ApplyActiveColorSpace: 1
-  m_AllowRoll: 1
-  m_FreeformStretching: 0
-  m_RotateWithStretchDirection: 1
-  m_UseCustomVertexStreams: 1
-  m_VertexStreams: 00010304
->>>>>>>> Wasteland:Project_EXO/Assets/VFX/ParticlePack/EffectExamples/Smoke & Steam Effects/Prefabs/GroundFogBig.prefab
   m_UseCustomTrailVertexStreams: 0
   m_TrailVertexStreams: 00010304
   m_Mesh: {fileID: 0}
