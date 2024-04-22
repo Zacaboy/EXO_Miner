@@ -4,27 +4,55 @@ using UnityEngine;
 
 public class DayNightCycle : MonoBehaviour
 {
-    public float dayLengthInMinutes = 1f; // Duration of one day in minutes
-    public Transform sunTransform; // Reference to the sun/moon object to rotate
-    public float startAngle = 0f; // Starting rotation angle of the sun
-
-    private const float totalAngle = 360f; // Total angle for a full rotation (360 degrees)
-    private float secondsPerDegree; // Seconds per degree of rotation
+    public Light sun;
+    public float cycleDurationInMinutes = 120f; // Duration of each cycle in minutes (2 hours)
+    private float cycleProgress = 0f; // Current progress of the cycle in seconds
+    private float startingAngle = 0f; // Starting angle of the sun
 
     void Start()
     {
-        secondsPerDegree = (dayLengthInMinutes * 60f) / totalAngle; // Calculate seconds per degree
-        RotateSun();
+        // Load saved cycle progress if available
+        cycleProgress = PlayerPrefs.GetFloat("CycleProgress", 0f);
+
+        // Update the sun's position
+        UpdateSunPosition();
     }
 
     void Update()
     {
-        RotateSun();
+        // Update the cycle progress
+        cycleProgress += Time.deltaTime;
+        if (cycleProgress >= cycleDurationInMinutes * 60f)
+        {
+            cycleProgress = 0f; // Reset the cycle progress
+        }
+
+        // Update the sun's position
+        UpdateSunPosition();
     }
 
-    void RotateSun()
+    void UpdateSunPosition()
     {
-        float currentAngle = (startAngle + (Time.time / secondsPerDegree) % totalAngle) % totalAngle;
-        sunTransform.rotation = Quaternion.Euler(currentAngle, 0, 0);
+        // Calculate the angle of the sun based on the cycle progress
+        float angle = Mathf.Lerp(-90f, 270f, cycleProgress / (cycleDurationInMinutes * 60f));
+
+        // Apply the rotation to the sun, considering the starting angle
+        sun.transform.rotation = Quaternion.Euler(startingAngle + angle, 0f, 0f);
+    }
+
+    void OnApplicationQuit()
+    {
+        // Save cycle progress when the application quits
+        PlayerPrefs.SetFloat("CycleProgress", cycleProgress);
+        PlayerPrefs.Save();
+    }
+
+    public void SetStartingAngle(float angle)
+    {
+        // Set the starting angle of the sun
+        startingAngle = angle;
+
+        // Update the sun's rotation immediately
+        UpdateSunPosition();
     }
 }

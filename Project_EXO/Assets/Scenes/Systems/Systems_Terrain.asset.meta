@@ -1,8 +1,19 @@
+<<<<<<<< HEAD:Project_EXO/Assets/New Terrain.asset.meta
 fileFormatVersion: 2
-guid: 217abe380a74b1f4f9ccd315d92a501e
+guid: b3d2acf18a0fc6446895da47a3df6af1
 NativeFormatImporter:
   externalObjects: {}
   mainObjectFileID: 15600000
   userData: 
   assetBundleName: 
   assetBundleVariant: 
+========
+fileFormatVersion: 2
+guid: a4f2107e5c218d1488041a9ead3f9216
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 15600000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+>>>>>>>> Wasteland:Project_EXO/Assets/Scenes/Systems/Systems_Terrain.asset.meta
