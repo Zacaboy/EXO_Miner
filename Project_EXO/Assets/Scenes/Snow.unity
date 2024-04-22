@@ -12045,6 +12045,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac11d385c99cabb40870abc0ad1e67ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
   moveSpeed: 5
   lowestPoint: 0
   liftBottom: 0
@@ -13504,6 +13505,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: d6b40ce3457ff954e8faab16436c9d29,
     type: 3}
   m_PrefabInstance: {fileID: 747783134}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &750549637 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8516170848169426389, guid: 450ebc53b817279458eabe32b3132225,
+    type: 3}
+  m_PrefabInstance: {fileID: 78627818}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &754869923 stripped
 Transform:
@@ -15098,6 +15105,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac11d385c99cabb40870abc0ad1e67ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 750549637}
   moveSpeed: 5
   lowestPoint: 0
   liftBottom: 0

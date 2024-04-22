@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class LiftScript : MonoBehaviour
 {
+    public GameObject player;
+    public GameObject lift;
     public float moveSpeed = 5f;
     public float lowestPoint = 0;
     public bool liftBottom;
@@ -34,6 +36,7 @@ public class LiftScript : MonoBehaviour
         {
             transform.Translate(Vector3.down * moveSpeed * Time.deltaTime);
             Debug.Log("Lift Moving Down!");
+            SetParent();
         }
     }
 
@@ -44,5 +47,27 @@ public class LiftScript : MonoBehaviour
             transform.Translate(Vector3.up * moveSpeed * Time.deltaTime);
             Debug.Log("Lift Moving Up!");
         }
+    }
+
+    public void SetParent(GameObject newParent)
+    {
+        //Makes the GameObject "newParent" the parent of the GameObject "player".
+        player.transform.parent = newParent.transform;
+
+        //Display the parent's name in the console.
+        Debug.Log("Player's Parent: " + player.transform.parent.name);
+
+        // Check if the new parent has a parent GameObject.
+        if (newParent.transform.parent != null)
+        {
+            //Display the name of the grand parent of the player.
+            Debug.Log("Player's Grand parent: " + player.transform.parent.parent.name);
+        }
+    }
+
+    public void DetachFromParent()
+    {
+        // Detaches the transform from its parent.
+        transform.parent = null;
     }
 }
