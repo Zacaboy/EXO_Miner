@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class AcidDamage : MonoBehaviour
 {
+    public int damage = 1;
+    public Health health;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -14,5 +17,10 @@ public class AcidDamage : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void OnTriggerStay(Collider other)
+    {
+        health.maxHealth = health.maxHealth - damage;
     }
 }
