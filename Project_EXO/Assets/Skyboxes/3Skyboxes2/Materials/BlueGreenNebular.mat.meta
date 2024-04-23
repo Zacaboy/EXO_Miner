@@ -1,5 +1,9 @@
 fileFormatVersion: 2
-guid: 930d3644321d57b4ca058881c62a64db
+<<<<<<<< HEAD:Project_EXO/Assets/Tundra Landscape.asset.meta
+guid: 4f971a2c78c798a428895550e375fb44
+========
+guid: a4f78a684965a2d4bbc20a4b86231606
+>>>>>>>> Wasteland:Project_EXO/Assets/Skyboxes/3Skyboxes2/Materials/BlueGreenNebular.mat.meta
 NativeFormatImporter:
   externalObjects: {}
   mainObjectFileID: 0

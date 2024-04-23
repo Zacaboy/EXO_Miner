@@ -906,17 +906,17 @@ PrefabInstance:
     - target: {fileID: 5413984182948084664, guid: 7050664433c79284f852d3a59b460316,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_StringArgument
-      value: Jungle
+      value: Snow
       objectReference: {fileID: 0}
     - target: {fileID: 5748702332883116975, guid: 7050664433c79284f852d3a59b460316,
         type: 3}
       propertyPath: m_Name
-      value: Jungle
+      value: Snow
       objectReference: {fileID: 0}
     - target: {fileID: 5748702332883116975, guid: 7050664433c79284f852d3a59b460316,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9111940885871030342, guid: 7050664433c79284f852d3a59b460316,
         type: 3}
@@ -936,7 +936,7 @@ PrefabInstance:
     - target: {fileID: 9111940885871030342, guid: 7050664433c79284f852d3a59b460316,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9111940885871030342, guid: 7050664433c79284f852d3a59b460316,
         type: 3}
@@ -946,7 +946,7 @@ PrefabInstance:
     - target: {fileID: 9111940885871030342, guid: 7050664433c79284f852d3a59b460316,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9111940885871030342, guid: 7050664433c79284f852d3a59b460316,
         type: 3}
@@ -996,12 +996,12 @@ PrefabInstance:
     - target: {fileID: 9111940885871030342, guid: 7050664433c79284f852d3a59b460316,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 376.84756
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9111940885871030342, guid: 7050664433c79284f852d3a59b460316,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -359.4786
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9111940885871030342, guid: 7050664433c79284f852d3a59b460316,
         type: 3}
@@ -1424,8 +1424,8 @@ RectTransform:
   m_Children:
   - {fileID: 229602470}
   - {fileID: 1143158986}
-  - {fileID: 689563240}
   - {fileID: 762312792}
+  - {fileID: 689563240}
   - {fileID: 1438847859}
   - {fileID: 812969651}
   m_Father: {fileID: 1663081418}
@@ -1758,7 +1758,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 306}
-  m_SizeDelta: {x: 547.4215, y: 115.5279}
+  m_SizeDelta: {x: 721.6, y: 115.5279}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2041867909
 MonoBehaviour:
@@ -1780,7 +1780,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Exo Minor
+  m_text: 'EXO-MINER
 
 '
   m_isRightToLeft: 0
