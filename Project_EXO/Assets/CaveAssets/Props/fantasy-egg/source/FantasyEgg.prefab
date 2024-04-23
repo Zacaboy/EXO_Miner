@@ -145,7 +145,7 @@ MonoBehaviour:
       showProgress: 0
       group: {fileID: 0}
       destroyTargets: 0
-      failIfNoTargetsAvailable: 1
+      failIfNoTargetsAvailable: 0
       hardFail: 0
       targets: []
       nextObjective: []
