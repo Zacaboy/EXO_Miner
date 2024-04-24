@@ -8,11 +8,21 @@ public class BugScript : MonoBehaviour
 {
     [Header("Effects")]
     public ParticleSystem damageVFX;
-    public AudioClip damageSFX;
     public ParticleSystem dieVFX;
-    public AudioClip dieSFX;
     public Material fadeMat;
     public string property;
+
+    [Header("Audio")]
+    public AudioSource walkingSource;
+    public AudioSource hurtSource;
+    public AudioSource attackSource;
+
+    [Header("SFX")]
+    public AudioClip[] walkingSFX;
+    public float footstepFrequency = 0.4f;
+    public AudioClip[] attackSFX;
+    public AudioClip damageSFX;
+    public AudioClip dieSFX;
 
     [Header("Stats")]
     public int alertDistance = 70;
@@ -54,6 +64,7 @@ public class BugScript : MonoBehaviour
     float lastAttackingTime;
     float lastDamageTime;
     float lastAttackTime;
+    public float lastWalkTime;
 
     // Start is called before the first frame update
     void Start()
@@ -86,7 +97,7 @@ public class BugScript : MonoBehaviour
         int movement = 0;
         bool canMove = false;
         if (lastAttackingTime > 0)
-        {
+        {   
             lastAttackTime = Time.time;
             if (Time.time >= lastAttackingTime + currrentAttack.length)
             {
@@ -142,8 +153,17 @@ public class BugScript : MonoBehaviour
         }
         if (agent.enabled & canMove & !health.dead)
             if (agent.velocity.sqrMagnitude > 1)
+            {
+                if (Time.time >= lastWalkTime + footstepFrequency)
+                {
+                    lastWalkTime = Time.time;
+                    walkingSource.PlayOneShot(walkingSFX[Random.Range(0, walkingSFX.Length - 1)]);
+                }
                 movement = 1;
-            ani.SetInteger("Movement", movement);
+            }
+            else
+                lastWalkTime = Time.time;
+        ani.SetInteger("Movement", movement);
     }
 
     public void Attack(bool stun)
@@ -151,6 +171,7 @@ public class BugScript : MonoBehaviour
         lastAttackTime = Time.time;
         lastAttackingTime = Time.time;
         AnimationClip clip = attacks[Random.Range(0, attacks.Count - 1)];
+        attackSource.PlayOneShot(attackSFX[Random.Range(0, attackSFX.Length - 1)]);
         currrentAttack = clip;
         ani.CrossFadeInFixedTime(clip.name, 0.1f);
         StartCoroutine(WaitAttack(attackRaycasts[attacks.IndexOf(clip)], stun));
@@ -178,7 +199,7 @@ public class BugScript : MonoBehaviour
     public void Damage()
     {
         FXManager.SpawnVFX(damageVFX, bloodPos.position, bloodPos.localEulerAngles, null, 25);
-        FXManager.SpawnSFX(damageSFX, bloodPos.position, 15, 5);
+        hurtSource.PlayOneShot(damageSFX);
         AnimationClip clip = damages[Random.Range(0, damages.Count - 1)];
         currrentDamage = clip;
         ani.CrossFadeInFixedTime(clip.name, 0.1f);
@@ -198,7 +219,7 @@ public class BugScript : MonoBehaviour
         effect.fadeDelay = fadeDelay;
         effect.newMat = fadeMat;
         FXManager.SpawnVFX(dieVFX, transform.position, transform.eulerAngles, null, 5);
-        FXManager.SpawnSFX(dieSFX, transform.position, 15, 5);
+        hurtSource.PlayOneShot(dieSFX);
         ani.CrossFadeInFixedTime("Die", 0.1f);
         Destroy(gameObject, 6);
     }

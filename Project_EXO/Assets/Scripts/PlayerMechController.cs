@@ -4,14 +4,32 @@ using System.Resources;
 using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.LowLevel;
+using UnityEngine.Windows;
+using UnityEngine.XR;
 
 public class PlayerMechController : MonoBehaviour
 {
     public static PlayerMechController me;
 
     [Header("Movement")]
-    public float moveSpeed = 5f; // Speed of movement
-    public float lookSpeed = 2f; // Speed of looking
+    public float moveSpeedKeyboard = 230; // Speed of movement with keyboard
+    public float moveSpeedJoystick = 230; // Speed of movementwith joystick
+
+    [Header("Keyboard")]
+    public float lookSpeedKeyboard = 20f; // Speed of looking with keyboard
+    [Range(0.01f, 0.2f)]
+    public float lookSmoothingXKeyboard = 0.05f;
+    [Range(0.01f, 0.2f)]
+    public float lookSmoothingYKeyboard = 0.05f;
+
+    [Header("Joystick")]
+    public float lookSpeedJoystick = 50f; // Speed of looking with joystick
+    [Range(0.01f, 0.2f)]
+    public float lookSmoothingXJoystick = 0.15f;
+    [Range(0.01f, 0.2f)]
+    public float lookSmoothingYJoystick = 0.15f;
+
 
     [Header("Head Bob")]
     [Range(0.001f, 0.04f)]
@@ -91,6 +109,7 @@ public class PlayerMechController : MonoBehaviour
     private Vector2 movementInput; // Input for movement
     private Vector2 lookInput; // Input for looking
     [HideInInspector] public Transform lookpos;
+    PlayerInput input;
     FeetScript feetScript;
     public Health health;
     [HideInInspector] public Rigidbody rigi;
@@ -126,6 +145,7 @@ public class PlayerMechController : MonoBehaviour
         mass = rigi.mass;
         drag = rigi.drag;
         feetScript = GetComponentInChildren<FeetScript>();
+        input = GetComponent<PlayerInput>();
         health = GetComponent<Health>();
         health.damageEvent.AddListener(Damage);
         health.deathEvent.AddListener(Die);
@@ -224,17 +244,17 @@ public class PlayerMechController : MonoBehaviour
         }
 
         // Mouse rotation
-        rotY += lookVertical * -lookSpeed * Time.fixedDeltaTime / 2;
+        rotY += lookVertical * -GetLookSpeed() * Time.fixedDeltaTime / 2;
         rotY = Mathf.Clamp(rotY, lookDownLimit, lookUpLimit);
 
         // Camera rotation
         if (active)
-            Camera.main.transform.localRotation = Quaternion.Slerp(Camera.main.transform.localRotation, Quaternion.Euler(rotY, 0f, 0f), 0.1f);
+            Camera.main.transform.localRotation = Quaternion.Slerp(Camera.main.transform.localRotation, Quaternion.Euler(rotY, 0f, 0f), GetLookSmoothing(false));
 
         if (jumping == 0 & landedTime == 0 & grounded & active)
         {
             // Move the GameObject
-            rigi.AddForce(movement * moveSpeed);
+            rigi.AddForce(movement * GetMoveSpeed());
             bool movingUp = false;
             if (movementInput.y > 0 & CheckVault(transform.TransformDirection(Vector3.forward), 8))
                 movingUp = true;
@@ -269,13 +289,13 @@ public class PlayerMechController : MonoBehaviour
             }
 
             // Mouse rotation
-            rotX += lookHorizontal * lookSpeed * Time.fixedDeltaTime;
+            rotX += lookHorizontal * GetLookSpeed() * Time.fixedDeltaTime;
             if (lookHorizontal != 0)
                 looking = true;
 
             // Camera rotation
             if (active)
-                transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0f, rotX, 0f).normalized, 0.04f);
+                transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0f, rotX, 0f).normalized, GetLookSmoothing(true));
         }
         else
             lastWalkTime = Time.time;
@@ -324,6 +344,9 @@ public class PlayerMechController : MonoBehaviour
         if (GameManager.me)
             if (transform.position.y <= killHeight & !GameManager.me.over)
                 GameManager.me.FailObjective(true);
+
+     //   input.defaultActionMap = "Keyboard";
+      //  input.defaultActionMap = "JoystickController";
 
         // This is for the warning lights in the cockpit
         if (warningLightning || dangerLightning)
@@ -438,6 +461,42 @@ public class PlayerMechController : MonoBehaviour
         }
     }
 
+    public float GetMoveSpeed()
+    {
+        float speed = moveSpeedKeyboard;
+        if (input.defaultActionMap == "Keyboard")
+            speed = moveSpeedKeyboard;
+        if (input.defaultActionMap == "JoystickController")
+            speed = moveSpeedJoystick;
+        return speed;
+    }
+    public float GetLookSpeed()
+    {
+        float speed = lookSpeedKeyboard;
+        if (input.defaultActionMap == "Keyboard")
+            speed = lookSpeedKeyboard;
+        if (input.defaultActionMap == "JoystickController")
+            speed = lookSpeedJoystick;
+        return speed;
+    }
+
+    public float GetLookSmoothing(bool x)
+    {
+        float speed = 0;
+        if (input.defaultActionMap == "Keyboard")
+            if (x)
+                speed = lookSmoothingXKeyboard;
+            else
+                speed = lookSmoothingYKeyboard;
+
+        if (input.defaultActionMap == "JoystickController")
+            if (x)
+                speed = lookSmoothingXJoystick;
+            else
+                speed = lookSmoothingYJoystick;
+        return speed;
+    }
+
     public bool CheckVault(Vector3 direction, float range)
     {
         bool bottom = Physics.Raycast(vaultPos[0].transform.position, direction, range);
@@ -471,7 +530,7 @@ public class PlayerMechController : MonoBehaviour
         lastStunTime = Time.time;
         lightningStruckFall = true;
         if (downSFX.Length > 0)
-            FXManager.SpawnSFX(downSFX[Random.Range(0, downSFX.Length - 1)], transform.position, 10, 5, 0.3f);
+            FXManager.SpawnSFX(downSFX[Random.Range(0, downSFX.Length - 1)], transform.position, 100, 5, 0.3f);
     }
 
     public void FireWeapon()
@@ -489,12 +548,16 @@ public class PlayerMechController : MonoBehaviour
     public void Damage()
     {
         GetCameraInfo("Damage", true).CrossFadeInFixedTime("Damage", 0.1f);
+        if (downSFX.Length > 0)
+            FXManager.SpawnSFX(downSFX[Random.Range(0, downSFX.Length - 1)], transform.position, 100, 5, 0.3f);
     }
 
     public void Die()
     {
         active = false;
         GetCameraInfo("Death", true).CrossFadeInFixedTime("Death", 0.1f);
+        if (downSFX.Length > 0)
+            FXManager.SpawnSFX(downSFX[Random.Range(0, downSFX.Length - 1)], transform.position, 100, 5, 0.3f);
         if (GameManager.me)
             GameManager.me.FailObjective(true);
     }
@@ -510,6 +573,15 @@ public class PlayerMechController : MonoBehaviour
         if (jumping == 0 & jumping == 0 & landedTime == 0 & grounded)
             StartCoroutine(WaitJump());
     }
+
+    public void OnAbort(InputAction.CallbackContext context)
+    {
+        if (context.started)
+            GameManager.me.aborting = true;
+        else if (context.canceled)
+            GameManager.me.aborting = false;
+    }
+
     // Make sure you call a StartCoroutine instead of a regular void
     public IEnumerator WaitJump()
     {

@@ -1,0 +1,11 @@
+Model Information:
+* title:	Starship Troopers Armor
+* source:	https://sketchfab.com/3d-models/starship-troopers-armor-0da77e1d1daf44b4aeafd59fb8352f93
+* author:	Outworld Studios (https://sketchfab.com/outworldstudios)
+
+Model License:
+* license type:	CC-BY-SA-4.0 (http://creativecommons.org/licenses/by-sa/4.0/)
+* requirements:	Author must be credited. Modified versions must have the same license. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Starship Troopers Armor" (https://sketchfab.com/3d-models/starship-troopers-armor-0da77e1d1daf44b4aeafd59fb8352f93) by Outworld Studios (https://sketchfab.com/outworldstudios) licensed under CC-BY-SA-4.0 (http://creativecommons.org/licenses/by-sa/4.0/)
