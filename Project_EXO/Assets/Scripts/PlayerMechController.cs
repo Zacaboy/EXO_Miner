@@ -132,6 +132,8 @@ public class PlayerMechController : MonoBehaviour
     float lastLightningTime;
     [HideInInspector] public float lastStunTime;
     bool playedSFX;
+    float startlandingDamageAreaEffect;
+    bool startLand;
     public bool active;
 
     private void Awake()
@@ -149,6 +151,8 @@ public class PlayerMechController : MonoBehaviour
         health = GetComponent<Health>();
         health.damageEvent.AddListener(Damage);
         health.deathEvent.AddListener(Die);
+        startlandingDamageAreaEffect = landingDamageAreaEffect;
+        landingDamageAreaEffect = 0;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         rotX = transform.eulerAngles.y;
@@ -176,6 +180,15 @@ public class PlayerMechController : MonoBehaviour
             lightingLights[i].enabled = true;
         }
         SetUpCameraInfo();
+    }
+
+    public IEnumerator SetUp()
+    {
+        startLand = true;
+        input.enabled = false;
+        yield return new WaitForSeconds(1);
+        landingDamageAreaEffect = startlandingDamageAreaEffect;
+        input.enabled = true;
     }
 
     public void SetUpCameraInfo()
@@ -345,8 +358,11 @@ public class PlayerMechController : MonoBehaviour
             if (transform.position.y <= killHeight & !GameManager.me.over)
                 GameManager.me.FailObjective(true);
 
-     //   input.defaultActionMap = "Keyboard";
-      //  input.defaultActionMap = "JoystickController";
+        if (!startLand & grounded)
+            StartCoroutine(SetUp());
+
+        //   input.defaultActionMap = "Keyboard";
+        //  input.defaultActionMap = "JoystickController";
 
         // This is for the warning lights in the cockpit
         if (warningLightning || dangerLightning)
