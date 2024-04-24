@@ -294,7 +294,7 @@ PrefabInstance:
     - target: {fileID: 5748702332883116975, guid: 7050664433c79284f852d3a59b460316,
         type: 3}
       propertyPath: m_Name
-      value: Wasteland
+      value: Wasteland (Nic)
       objectReference: {fileID: 0}
     - target: {fileID: 9111940885871030342, guid: 7050664433c79284f852d3a59b460316,
         type: 3}
