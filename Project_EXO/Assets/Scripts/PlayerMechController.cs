@@ -373,7 +373,7 @@ public class PlayerMechController : MonoBehaviour
                 if (Time.time >= lastLightningTime + lightningDangerFlashFrequency)
                 {
                     lastLightningTime = Time.time;
-                    lightingLights[0].intensity = Mathf.Lerp(lightingLights[0].intensity, 3, 0.1f);
+                    lightingLights[0].intensity = Mathf.Lerp(lightingLights[0].intensity, 3, 1);
                     if (lightningDangerSFX)
                         FXManager.SpawnSFX(lightningWarningSFX, lightingLights[0].transform.position, 10, 2);
                 }
@@ -388,7 +388,7 @@ public class PlayerMechController : MonoBehaviour
                     if (Time.time >= lastLightningTime + lightningWarningFlashFrequency)
                     {
                         lastLightningTime = Time.time;
-                        lightingLights[0].intensity = Mathf.Lerp(lightingLights[0].intensity, 3, 0.1f);
+                        lightingLights[0].intensity = Mathf.Lerp(lightingLights[0].intensity, 3, 1);
                         if (lightningWarningSFX)
                             FXManager.SpawnSFX(lightningWarningSFX, lightingLights[0].transform.position, 10, 2);
                     }
