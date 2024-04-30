@@ -11,7 +11,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Systems.unity
     guid: d3314649f571d0c4b927d677f0dd4f4e
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Wasteland.unity
     guid: 2a6e6922fff3ce146b859a5504d9d5ff
   - enabled: 1
@@ -23,7 +23,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Mech_Hanger.unity
     guid: 246ecb69ce9086447ba9bebcb222908e
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Snow.unity
     guid: 4569823144e1dbe4c8b2f79fa05399a8
   - enabled: 0
