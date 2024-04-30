@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using static Unity.VisualScripting.Member;
 
@@ -23,6 +24,7 @@ public class ProjectileScript : MonoBehaviour
     {
         spawnTime = Time.time;
         source = GetComponent<AudioSource>();
+        Debug.Log(source);
     }
 
     public void OnCollisionEnter(Collision collision)

@@ -30305,7 +30305,7 @@ MonoBehaviour:
     m_ActionName: Keyboard/Abort[/Keyboard/delete]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
-  m_DefaultActionMap: Keyboard
+  m_DefaultActionMap: JoystickController
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 8127047343670946861}
 --- !u!114 &2979803214824668605
@@ -30358,7 +30358,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeedKeyboard: 230
-  moveSpeedJoystick: 250
+  moveSpeedJoystick: 750
   lookSpeedKeyboard: 2
   lookSmoothingXKeyboard: 0.15
   lookSmoothingYKeyboard: 0.15
