@@ -18,30 +18,28 @@ public class LiftTrigger : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-    }
-
-    private void OnTriggerStay(Collider other)
-    {
-
-        player.transform.parent = lift.transform;
-
-        if (liftScript.liftBottom == false)
+        if (liftScript.liftBottom == false && liftScript.liftActive == true)
         {
             liftScript.LiftDown();
             Debug.Log("Lift Triggered!");
         }
 
-        if (liftScript.liftBottom == true)
+        if (liftScript.liftBottom == true && liftScript.liftActive == true)
         {
             liftScript.LiftUp();
             Debug.Log("Lift Triggered!");
         }
     }
 
+    private void OnTriggerEnter(Collider other)
+    { 
+        player.transform.parent = lift.transform;
+        liftScript.liftActive = true;
+    }
+
     private void OnTriggerExit(Collider other)
     {
-        player.transform.parent = null;
+        player.transform.parent = null;      
     }
 
 }
