@@ -2281,6 +2281,11 @@ PrefabInstance:
       propertyPath: lookSpeedKeyboard
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 2574662244411009874, guid: 450ebc53b817279458eabe32b3132225,
+        type: 3}
+      propertyPath: moveSpeedJoystick
+      value: 250
+      objectReference: {fileID: 0}
     - target: {fileID: 4805463539106460487, guid: 450ebc53b817279458eabe32b3132225,
         type: 3}
       propertyPath: m_LocalScale.x
