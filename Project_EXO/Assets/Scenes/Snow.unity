@@ -2474,10 +2474,6 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
-    - targetCorrespondingSourceObject: {fileID: 7304505093401163676, guid: 450ebc53b817279458eabe32b3132225,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 450ebc53b817279458eabe32b3132225, type: 3}
 --- !u!4 &78970600 stripped
 Transform:
@@ -51837,3 +51833,4 @@ SceneRoots:
   - {fileID: 561126698}
   - {fileID: 1873906368}
   - {fileID: 63011012}
+  - {fileID: 1348141614}

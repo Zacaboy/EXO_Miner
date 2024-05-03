@@ -61250,7 +61250,7 @@ PrefabInstance:
     - target: {fileID: 7604995984630225021, guid: 450ebc53b817279458eabe32b3132225,
         type: 3}
       propertyPath: m_DefaultActionMap
-      value: 4627cd27-9d90-4e83-856d-ca11f6982310
+      value: Keyboard
       objectReference: {fileID: 0}
     - target: {fileID: 7872522408004257866, guid: 450ebc53b817279458eabe32b3132225,
         type: 3}
