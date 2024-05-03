@@ -36,7 +36,12 @@ public class ObjectiveTracker : MonoBehaviour
 
         // This finds the current objective
         if (ObjectiveManager.me.currentObjective.type != ObjectiveType.CollectResources)
-            targetLocation = ObjectiveManager.me.currentObjective.group.transform;
+        {
+            if (ObjectiveManager.me.currentObjective.group)
+                targetLocation = ObjectiveManager.me.currentObjective.group.transform;
+            else
+                targetLocation = null;
+        }
         else
             targetLocation = null;
 

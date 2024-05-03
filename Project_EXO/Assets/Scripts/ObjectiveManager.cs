@@ -106,6 +106,7 @@ public class ObjectiveManager : MonoBehaviour
                 Transform extraction = Instantiate(extractionPointPref);
                 extraction.transform.position = GameManager.me.startPos;
                 extraction.GetComponentInChildren<ExtractionPoint>().objective = objective;
+                objective.group = extraction.gameObject;
             }
             else if (objective.group.transform.GetComponentInChildren<ExtractionPoint>())
                 objective.group.transform.GetComponentInChildren<ExtractionPoint>().objective = objective;
